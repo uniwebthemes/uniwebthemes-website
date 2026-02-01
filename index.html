@@ -39,19 +39,110 @@
 
     <!-- Nav -->
     <nav class="flex items-center gap-10 text-sm font-medium">
-      <button id="solutionsBtn" class="flex items-center gap-1 hover:text-orange-500">
-        Solutions
+      <button id="themesBtn" class="flex items-center gap-1 hover:text-orange-500">
+        Themes
         <span class="text-xs">▾</span>
       </button>
-      <a href="#">Resources</a>
+      <button id="helpcenterBtn" class="flex items-center gap-1 hover:text-orange-500">
+        Help Center
+        <span class="text-xs">▾</span>
+      </button>
       <a href="#">Help center</a>
       <a href="#">Partnership</a>
     </nav>
   </div>
 
-  <!-- ================= MEGA MENU ================= -->
+  <!-- ================= THEMES MEGA MENU ================= -->
   <div
-    id="megaMenu"
+    id="themesmegaMenu"
+    class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-6 py-10">
+      <div class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+
+        <div class="grid lg:grid-cols-3 gap-10 p-10">
+
+          <!-- LEFT LIST -->
+          <div class="space-y-4">
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                  F
+                </div>
+                <div>
+                  <p class="font-semibold">Glorious</p>
+                  <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                  K
+                </div>
+                <div>
+                  <p class="font-semibold">Glisten</p>
+                  <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                  H
+                </div>
+                <div>
+                  <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
+                  <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                  M
+                </div>
+                <div>
+                  <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
+                  <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                </div>
+              </div>
+              →
+            </div>
+          </div>
+
+          <!-- RIGHT PREVIEW -->
+          <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+            </div>
+
+            <div class="max-w-sm">
+              <p class="text-sm text-gray-600 mb-2">Zest</p>
+              <h3 class="text-2xl font-extrabold">
+                Shopify Theme to
+                <span class="text-orange-500">Dominate M-Commerce</span>
+              </h3>
+            </div>
+          </div>          
+        </div>
+        <div class="grid lg:grid-cols-1 gap-10 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as Custom App Customized and Exclusively Installable to store owners who bought our themes <a href="/theme-extension-packs.html">Learn more</a></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HELP CENTER MEGA MENU ================= -->
+  <div
+    id="helpcentermegaMenu"
     class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300"
   >
     <div class="max-w-7xl mx-auto px-6 py-10">
@@ -124,10 +215,10 @@
             </div>
 
             <div class="max-w-sm">
-              <p class="text-sm text-gray-600 mb-2">Zest</p>
+              <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
               <h3 class="text-2xl font-extrabold">
-                Shopify Theme to
-                <span class="text-orange-500">Dominate M-Commerce</span>
+                A well designed extension pack to
+                <span class="text-orange-500">fully customize your store using Shopify's Native API's and Extensions</span>
               </h3>
             </div>
           </div>
@@ -465,18 +556,33 @@
 
 /***** Navigation *****/
 
-    const btn = document.getElementById('solutionsBtn')
-  const menu = document.getElementById('megaMenu')
+  const themesbtn = document.getElementById('themesBtn')
+  const helpcenterbtn = document.getElementById('helpcenterBtn')
+  const themesmenu = document.getElementById('themesmegaMenu')
+  const helpcentermenu = document.getElementById('helpcentermegaMenu')
 
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('opacity-0')
-    menu.classList.toggle('pointer-events-none')
-    menu.classList.toggle('translate-y-4')
+  // Themes Menu Toggle
+  themesbtn.addEventListener('click', () => {
+    themesmenu.classList.toggle('opacity-0')
+    themesmenu.classList.toggle('pointer-events-none')
+    themesmenu.classList.toggle('translate-y-4')
   })
 
   document.addEventListener('click', (e) => {
-    if (!btn.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
+    if (!themesbtn.contains(e.target) && !themesmenu.contains(e.target)) {
+      themesmenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
+    }
+  })
+ // Help Center Menu Toggle
+    helpcenterbtn.addEventListener('click', () => {
+    helpcentermenu.classList.toggle('opacity-0')
+    helpcentermenu.classList.toggle('pointer-events-none')
+    helpcentermenu.classList.toggle('translate-y-4')
+  })
+
+  document.addEventListener('click', (e) => {
+    if (!helpcenterbtn.contains(e.target) && !helpcentermenu.contains(e.target)) {
+      helpcentermenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
     }
   })
   

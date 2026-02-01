@@ -13,115 +13,7 @@
 
   <style>
     body { font-family: 'Inter', sans-serif; }
-/* Container */
-.kb-empower-section {
-  padding: 100px 24px;
-  background: #ffffff;
-}
 
-.kb-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Title */
-.kb-title {
-  font-size: 44px;
-  font-weight: 800;
-  margin-bottom: 64px;
-}
-
-.kb-title span {
-  color: #ff6a00;
-  border-bottom: 6px solid #ff6a00;
-}
-
-/* Grid */
-.kb-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-@media (max-width: 900px) {
-  .kb-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Cards */
-.kb-card {
-  border-radius: 20px;
-  padding: 28px 28px 36px;
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-
-.kb-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-/* Card colors */
-.kb-card.peach { background: #fde7d9; }
-.kb-card.lavender { background: #ebe7ff; }
-.kb-card.mint { background: #e2f5ea; }
-
-/* Images */
-.kb-image {
-  border-radius: 14px;
-  overflow: hidden;
-  margin-bottom: 28px;
-}
-
-.kb-image img {
-  width: 100%;
-  display: block;
-}
-
-/* Text */
-.kb-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.kb-card p {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
-}
-     /* TOC styles */
-  .toc-link {
-    position: relative;
-    display: block;
-    padding-left: 16px;
-    color: #6b7280;
-    transition: color 0.2s ease;
-  }
-
-  .toc-link:hover {
-    color: #f97316;
-  }
-
-  .toc-link .bar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 3px;
-    background: transparent;
-    border-radius: 2px;
-  }
-
-  .toc-link.active {
-    color: #f97316;
-    font-weight: 600;
-  }
-
-  .toc-link.active .bar {
-    background: #f97316;
-  }
     /* Scroll animation */
     .reveal {
       opacity: 0;
@@ -147,19 +39,110 @@
 
     <!-- Nav -->
     <nav class="flex items-center gap-10 text-sm font-medium">
-      <button id="solutionsBtn" class="flex items-center gap-1 hover:text-orange-500">
-        Solutions
+      <button id="themesBtn" class="flex items-center gap-1 hover:text-orange-500">
+        Themes
         <span class="text-xs">▾</span>
       </button>
-      <a href="#">Resources</a>
+      <button id="helpcenterBtn" class="flex items-center gap-1 hover:text-orange-500">
+        Help Center
+        <span class="text-xs">▾</span>
+      </button>
       <a href="#">Help center</a>
       <a href="#">Partnership</a>
     </nav>
   </div>
 
-  <!-- ================= MEGA MENU ================= -->
+  <!-- ================= THEMES MEGA MENU ================= -->
   <div
-    id="megaMenu"
+    id="themesmegaMenu"
+    class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-6 py-10">
+      <div class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+
+        <div class="grid lg:grid-cols-3 gap-10 p-10">
+
+          <!-- LEFT LIST -->
+          <div class="space-y-4">
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                  F
+                </div>
+                <div>
+                  <p class="font-semibold">Glorious</p>
+                  <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                  K
+                </div>
+                <div>
+                  <p class="font-semibold">Glisten</p>
+                  <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                  H
+                </div>
+                <div>
+                  <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
+                  <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                  M
+                </div>
+                <div>
+                  <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
+                  <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                </div>
+              </div>
+              →
+            </div>
+          </div>
+
+          <!-- RIGHT PREVIEW -->
+          <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+            </div>
+
+            <div class="max-w-sm">
+              <p class="text-sm text-gray-600 mb-2">Zest</p>
+              <h3 class="text-2xl font-extrabold">
+                Shopify Theme to
+                <span class="text-orange-500">Dominate M-Commerce</span>
+              </h3>
+            </div>
+          </div>          
+        </div>
+        <div class="grid lg:grid-cols-1 gap-10 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as Custom App Customized and Exclusively Installable to store owners who bought our themes <a>Learn more</a></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HELP CENTER MEGA MENU ================= -->
+  <div
+    id="helpcentermegaMenu"
     class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300"
   >
     <div class="max-w-7xl mx-auto px-6 py-10">
@@ -232,10 +215,10 @@
             </div>
 
             <div class="max-w-sm">
-              <p class="text-sm text-gray-600 mb-2">Zest</p>
+              <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
               <h3 class="text-2xl font-extrabold">
-                Shopify Theme to
-                <span class="text-orange-500">Dominate M-Commerce</span>
+                A well designed extension pack to
+                <span class="text-orange-500">fully customize your store using Shopify's Native API's and Extensions</span>
               </h3>
             </div>
           </div>
@@ -247,221 +230,14 @@
 </header>
 
 
-
-<!-- ================= Index ================= -->
-
-<section class="kb-empower-section">
-  <div class="kb-container">
-
-    <!-- Heading -->
-    <h2 class="kb-title reveal">
-      How We <span>Empower</span> You
-    </h2>
-
-    <!-- Cards -->
-    <div class="kb-grid">
-
-      <!-- Card 1 -->
-      <div class="kb-card peach reveal">
-        <div class="kb-image">
-          <img src="https://dummyimage.com/520x320/fde7d9/000000" alt="No code build">
-        </div>
-        <h3>Build with No Code</h3>
-        <p>
-          Install, design, & launch your store quickly
-          with premium themes.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="kb-card lavender reveal" style="transition-delay:.1s">
-        <div class="kb-image">
-          <img src="https://dummyimage.com/520x320/ebe7ff/000000" alt="Upgrade design">
-        </div>
-        <h3>Upgrade Store Design</h3>
-        <p>
-          Customize a more impressive store with the
-          first-ever visual builder.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="kb-card mint reveal" style="transition-delay:.2s">
-        <div class="kb-image">
-          <img src="https://dummyimage.com/520x320/e2f5ea/000000" alt="Optimize conversion">
-        </div>
-        <h3>Optimize Conversion Rate</h3>
-        <p>
-          Skyrocket your sales & revenue with
-          all-in-one sales boost app.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="max-w-7xl mx-auto px-6 py-20">
-  <div class="grid lg:grid-cols-12 gap-12">
-
-    <!-- ================= LEFT ANCHORS ================= -->
-    <aside class="lg:col-span-3 hidden lg:block">
-      <div class="sticky top-28">
-        <p class="text-sm font-semibold mb-4">On this page</p>
-
-        <nav id="toc" class="space-y-2 text-sm relative">
-          <a href="#intro" class="toc-link active">
-            <span class="bar"></span> On-Page SEO Guide for Your Shopify Stores
-          </a>
-
-          <a href="#intent" class="toc-link">
-            <span class="bar"></span> Optimize for search intent & semantic relevance
-          </a>
-
-          <a href="#content" class="toc-link">
-            <span class="bar"></span> Elevate on-page SEO content
-          </a>
-
-          <a href="#aeo" class="toc-link">
-            <span class="bar"></span> Structure content for AI-generated search (AEO)
-          </a>
-
-          <a href="#schema" class="toc-link">
-            <span class="bar"></span> Build structured data (Schema)
-          </a>
-
-          <a href="#ux" class="toc-link">
-            <span class="bar"></span> Improve UX, speed & Core Web Vitals
-          </a>
-        </nav>
-      </div>
-    </aside>
-
-    <!-- ================= MAIN CONTENT ================= -->
-    <article class="lg:col-span-6 space-y-16">
-
-      <!-- INTRO -->
-      <section id="intro" class="reveal">
-        <p class="italic text-gray-700 mb-4">
-          <strong>Is SEO really worth it for Shopify today?</strong> Yes, more than ever.
-        </p>
-
-        <p class="text-gray-700 leading-relaxed">
-          As search behavior shifts toward AI-generated answers (SGE, Copilot),
-          Shopify SEO must evolve. This guide walks merchants through modern
-          strategies to boost visibility, engagement, and conversions.
-        </p>
-
-        <ul class="mt-6 space-y-2 list-disc list-inside text-gray-700">
-          <li>Optimize product pages with intent-driven content</li>
-          <li>Implement structured data for FAQs & products</li>
-          <li>Audit Core Web Vitals regularly</li>
-          <li>Ensure fast mobile-first UX</li>
-        </ul>
-      </section>
-
-      <!-- IMAGE -->
-      <div class="reveal rounded-2xl overflow-hidden bg-black p-4">
-        <img
-          src="https://dummyimage.com/900x480/f5b38a/000000"
-          alt="SEO preview"
-          class="rounded-xl"
-        >
-      </div>
-
-      <!-- SECTION -->
-      <section id="intent" class="reveal">
-        <h2 class="text-3xl font-extrabold mb-4">
-          Optimize for search intent & semantic relevance
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          Modern SEO focuses on understanding what users actually want.
-          Shopify merchants must map content to informational, commercial,
-          and transactional intent.
-        </p>
-      </section>
-
-      <section id="content" class="reveal">
-        <h2 class="text-3xl font-extrabold mb-4">
-          Elevate on-page SEO content
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          High-quality content means clarity, depth, and structure.
-          Avoid keyword stuffing and focus on topical authority.
-        </p>
-      </section>
-
-      <section id="aeo" class="reveal">
-        <h2 class="text-3xl font-extrabold mb-4">
-          Structure content for AI-generated search (AEO)
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          AI answers favor clean headings, concise paragraphs,
-          bullet lists, and schema-backed content.
-        </p>
-      </section>
-
-      <section id="schema" class="reveal">
-        <h2 class="text-3xl font-extrabold mb-4">
-          Build structured data (Schema)
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          Schema improves eligibility for rich results,
-          FAQs, and AI-powered previews.
-        </p>
-      </section>
-
-      <section id="ux" class="reveal">
-        <h2 class="text-3xl font-extrabold mb-4">
-          Improve UX, speed & Core Web Vitals
-        </h2>
-        <p class="text-gray-700 leading-relaxed">
-          Page speed, interactivity, and layout stability
-          directly impact rankings and conversions.
-        </p>
-      </section>
-
-    </article>
-
-    <!-- ================= RIGHT SIDEBAR ================= -->
-    <aside class="lg:col-span-3">
-      <div class="sticky top-28 space-y-10">
-
-        <!-- NEWSLETTER -->
-        <div class="rounded-2xl p-6 bg-gradient-to-br from-orange-200 to-orange-300">
-          <h3 class="text-xl font-bold mb-2">
-            Get the latest eCommerce news & practices
-          </h3>
-          <p class="text-sm mb-4">
-            Curated trends, analysis & best tips.
-          </p>
-
-          <input
-            type="email"
-            placeholder="Your email"
-            class="w-full mb-3 px-4 py-3 rounded-lg outline-none"
-          >
-
-          <button class="w-full bg-black text-white py-3 rounded-lg font-semibold">
-            Subscribe
-          </button>
-        </div>
-
-      </div>
-    </aside>
-
-  </div>
-</section>
-
-
+<!-- ================= HERO ================= -->
 <section class="bg-gradient-to-br from-orange-50 to-white">
   <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
     <div class="reveal">
       <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-        Premium Themes.<br>
-        Build Smart.<br>
-        <span class="text-orange-500">Win Big.</span>
+        Theme Extension Packs.<br>
+        Extend Theme.<br>
+        <span class="text-orange-500">Break The Limits.</span>
       </h1>
       <p class="mt-6 text-gray-600 max-w-lg">
         High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
@@ -522,7 +298,7 @@
     <div class="mt-12 grid md:grid-cols-2 gap-10">
       <div class="reveal bg-white rounded-2xl border p-6 hover:shadow-xl transition">
         <img src="https://dummyimage.com/700x420/e5e7eb/aaa" class="rounded-xl">
-        <h3 class="mt-6 font-semibold text-xl">Stamina</h3>
+        <h3 class="mt-6 font-semibold text-xl">Glorious Theme Extensions Pack ($299)</h3>
         <p class="mt-2 text-gray-600 text-sm">Perfect for activewear & wellness brands.</p>
       </div>
 
@@ -778,41 +554,35 @@
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Scroll spy
-  const sections = document.querySelectorAll('article section[id]')
-  const tocLinks = document.querySelectorAll('.toc-link')
-
-  window.addEventListener('scroll', () => {
-    let current = ''
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120
-      if (scrollY >= sectionTop) {
-        current = section.getAttribute('id')
-      }
-    })
-
-    tocLinks.forEach(link => {
-      link.classList.remove('active')
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active')
-      }
-    })
-  })
 /***** Navigation *****/
 
-    const btn = document.getElementById('solutionsBtn')
-  const menu = document.getElementById('megaMenu')
+  const themesbtn = document.getElementById('themesBtn')
+  const helpcenterbtn = document.getElementById('helpcenterBtn')
+  const themesmenu = document.getElementById('themesmegaMenu')
+  const helpcentermenu = document.getElementById('helpcentermegaMenu')
 
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('opacity-0')
-    menu.classList.toggle('pointer-events-none')
-    menu.classList.toggle('translate-y-4')
+  // Themes Menu Toggle
+  themesbtn.addEventListener('click', () => {
+    themesmenu.classList.toggle('opacity-0')
+    themesmenu.classList.toggle('pointer-events-none')
+    themesmenu.classList.toggle('translate-y-4')
   })
 
   document.addEventListener('click', (e) => {
-    if (!btn.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
+    if (!themesbtn.contains(e.target) && !themesmenu.contains(e.target)) {
+      themesmenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
+    }
+  })
+ // Help Center Menu Toggle
+    helpcenterbtn.addEventListener('click', () => {
+    helpcentermenu.classList.toggle('opacity-0')
+    helpcentermenu.classList.toggle('pointer-events-none')
+    helpcentermenu.classList.toggle('translate-y-4')
+  })
+
+  document.addEventListener('click', (e) => {
+    if (!helpcenterbtn.contains(e.target) && !helpcentermenu.contains(e.target)) {
+      helpcentermenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
     }
   })
   
