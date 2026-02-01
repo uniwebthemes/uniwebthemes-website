@@ -244,6 +244,79 @@
     </p>
   </div>
 </section>
+<!-- ================= TESTIMONIAL SECTION ================= -->
+<section class="max-w-7xl mx-auto px-6 py-28">
+  <div class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200">
+
+    <!-- Grain overlay -->
+    <div class="absolute inset-0 opacity-[0.08] pointer-events-none"
+      style="background-image:url('https://grainy-gradients.vercel.app/noise.svg')"></div>
+
+    <div class="relative px-8 md:px-24 py-24 text-center">
+
+      <p class="text-xs tracking-widest font-semibold text-gray-700 mb-6">
+        HEAR FROM OUR CUSTOMERS
+      </p>
+
+      <!-- App logo -->
+      <div class="flex justify-center items-center gap-3 mb-10">
+        <div class="w-10 h-10 rounded-xl bg-black text-orange-500 flex items-center justify-center font-extrabold">
+          F
+        </div>
+        <span class="font-semibold text-lg">FoxKit</span>
+      </div>
+
+      <!-- SLIDES -->
+      <div id="testimonial-slider">
+
+        <blockquote class="testimonial-slide text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
+          “Everything almost improved by
+          <span class="text-orange-500">at least 10%</span> and
+          we saw <span class="text-orange-500">100% improvement</span> in AOV!”
+        </blockquote>
+
+        <blockquote class="testimonial-slide hidden text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
+          “Our conversion rate increased by
+          <span class="text-orange-500">35%</span> within weeks of switching.”
+        </blockquote>
+
+        <blockquote class="testimonial-slide hidden text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
+          “Fast, clean, and scalable — the best
+          <span class="text-orange-500">Shopify experience</span> we’ve had.”
+        </blockquote>
+
+      </div>
+
+      <!-- Play video -->
+      <div class="mt-10 flex justify-center items-center gap-3 text-sm font-semibold">
+        <span class="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center">▶</span>
+        <span class="underline cursor-pointer">Play video testimonial</span>
+      </div>
+
+      <!-- Brand -->
+      <div class="mt-10 text-xl font-black tracking-wide">
+        FLASKA
+      </div>
+
+      <!-- NAV -->
+      <div class="absolute inset-y-0 left-6 flex items-center">
+        <button onclick="prevTestimonial()" class="text-3xl opacity-50 hover:opacity-100 transition">←</button>
+      </div>
+
+      <div class="absolute inset-y-0 right-6 flex items-center">
+        <button onclick="nextTestimonial()" class="text-3xl opacity-50 hover:opacity-100 transition">→</button>
+      </div>
+
+      <!-- DOTS -->
+      <div class="mt-14 flex justify-center gap-3">
+        <span class="dot w-2.5 h-2.5 rounded-full bg-black"></span>
+        <span class="dot w-2.5 h-2.5 rounded-full bg-black/30"></span>
+        <span class="dot w-2.5 h-2.5 rounded-full bg-black/30"></span>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ================= RESOURCES ================= -->
 <section class="bg-gray-50">
@@ -311,7 +384,29 @@
       body.classList.toggle('hidden')
       icon.textContent = body.classList.contains('hidden') ? '+' : '−'
     })
-  })
+  });
+/***** Testimonials *****/
+   const slides = document.querySelectorAll('.testimonial-slide')
+  const dots = document.querySelectorAll('.dot')
+  let index = 0
+
+  function showSlide(i) {
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('hidden', idx !== i)
+      dots[idx].classList.toggle('bg-black', idx === i)
+      dots[idx].classList.toggle('bg-black/30', idx !== i)
+    })
+  }
+
+  function nextTestimonial() {
+    index = (index + 1) % slides.length
+    showSlide(index)
+  }
+
+  function prevTestimonial() {
+    index = (index - 1 + slides.length) % slides.length
+    showSlide(index)
+  }
 </script>
 
 </body>
