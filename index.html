@@ -29,20 +29,115 @@
 <body class="bg-white text-gray-900">
 
 <!-- ================= NAVBAR ================= -->
-<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+<header class="relative z-50 bg-white border-b">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="text-xl font-extrabold tracking-tight">Pixel<span class="text-orange-500">Themes</span></div>
-    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-      <a href="#" class="hover:text-orange-500">Themes</a>
-      <a href="#" class="hover:text-orange-500">Resources</a>
-      <a href="#" class="hover:text-orange-500">Docs</a>
-      <a href="#" class="hover:text-orange-500">Pricing</a>
+
+    <!-- Logo -->
+    <div class="text-xl font-extrabold">
+      FOX<span class="text-orange-500">ECOM</span>
+    </div>
+
+    <!-- Nav -->
+    <nav class="flex items-center gap-10 text-sm font-medium">
+      <button id="solutionsBtn" class="flex items-center gap-1 hover:text-orange-500">
+        Solutions
+        <span class="text-xs">▾</span>
+      </button>
+      <a href="#">Resources</a>
+      <a href="#">Help center</a>
+      <a href="#">Partnership</a>
     </nav>
-    <button class="bg-orange-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-orange-600 transition">
-      Get Started
-    </button>
+  </div>
+
+  <!-- ================= MEGA MENU ================= -->
+  <div
+    id="megaMenu"
+    class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300"
+  >
+    <div class="max-w-7xl mx-auto px-6 py-10">
+      <div class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+
+        <div class="grid lg:grid-cols-3 gap-10 p-10">
+
+          <!-- LEFT LIST -->
+          <div class="space-y-4">
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                  F
+                </div>
+                <div>
+                  <p class="font-semibold">Foxyfy</p>
+                  <p class="text-xs text-gray-600">Shopify App</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                  K
+                </div>
+                <div>
+                  <p class="font-semibold">FoxKit</p>
+                  <p class="text-xs text-gray-600">Shopify App</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                  H
+                </div>
+                <div>
+                  <p class="font-semibold">Hyper</p>
+                  <p class="text-xs text-gray-600">Shopify Theme</p>
+                </div>
+              </div>
+              →
+            </div>
+
+            <div class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                  M
+                </div>
+                <div>
+                  <p class="font-semibold">Megamog</p>
+                  <p class="text-xs text-gray-600">Shopify Theme</p>
+                </div>
+              </div>
+              →
+            </div>
+          </div>
+
+          <!-- RIGHT PREVIEW -->
+          <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+            <div class="grid grid-cols-2 gap-4">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+              <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+            </div>
+
+            <div class="max-w-sm">
+              <p class="text-sm text-gray-600 mb-2">Zest</p>
+              <h3 class="text-2xl font-extrabold">
+                Shopify Theme to
+                <span class="text-orange-500">Dominate M-Commerce</span>
+              </h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </header>
+
 
 <!-- ================= HERO ================= -->
 <section class="bg-gradient-to-br from-orange-50 to-white">
@@ -367,6 +462,24 @@
   }, { threshold: 0.15 })
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/***** Navigation *****/
+
+    const btn = document.getElementById('solutionsBtn')
+  const menu = document.getElementById('megaMenu')
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('opacity-0')
+    menu.classList.toggle('pointer-events-none')
+    menu.classList.toggle('translate-y-4')
+  })
+
+  document.addEventListener('click', (e) => {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
+    }
+  })
+  
 /***** Accordion *****/
     document.querySelectorAll('.accordion-header').forEach(header => {
     header.addEventListener('click', () => {
