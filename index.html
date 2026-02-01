@@ -1,3 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modern SaaS Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Scroll animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.7s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- ================= NAVBAR ================= -->
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="text-xl font-extrabold tracking-tight">Pixel<span class="text-orange-500">Themes</span></div>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#" class="hover:text-orange-500">Themes</a>
+      <a href="#" class="hover:text-orange-500">Resources</a>
+      <a href="#" class="hover:text-orange-500">Docs</a>
+      <a href="#" class="hover:text-orange-500">Pricing</a>
+    </nav>
+    <button class="bg-orange-500 text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-orange-600 transition">
+      Get Started
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="bg-gradient-to-br from-orange-50 to-white">
+  <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        Create Easy.<br>
+        Build Smart.<br>
+        <span class="text-orange-500">Win Big.</span>
+      </h1>
+      <p class="mt-6 text-gray-600 max-w-lg">
+        High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
+      </p>
+      <div class="mt-8 flex gap-4">
+        <button class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+          Browse Themes
+        </button>
+        <button class="border border-gray-300 px-6 py-3 rounded-lg font-semibold hover:border-gray-400 transition">
+          View Demo
+        </button>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="bg-white rounded-2xl shadow-xl p-6">
+        <img src="https://dummyimage.com/800x500/f3f4f6/aaa" alt="Preview" class="rounded-lg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+  <h2 class="text-3xl font-bold text-center reveal">
+    How We <span class="text-orange-500">Empower</span> You
+  </h2>
+
+  <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
+      <h3 class="font-semibold text-lg">Conversion-Focused</h3>
+      <p class="mt-3 text-gray-600 text-sm">
+        Designed using real merchant data and CRO best practices.
+      </p>
+    </div>
+
+    <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
+      <h3 class="font-semibold text-lg">Lightning Fast</h3>
+      <p class="mt-3 text-gray-600 text-sm">
+        Optimized for Core Web Vitals and instant load times.
+      </p>
+    </div>
+
+    <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
+      <h3 class="font-semibold text-lg">Easy Customization</h3>
+      <p class="mt-3 text-gray-600 text-sm">
+        No code required. Build stores visually with ease.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THEMES ================= -->
+<section class="bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-bold reveal">Our Themes</h2>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-10">
+      <div class="reveal bg-white rounded-2xl border p-6 hover:shadow-xl transition">
+        <img src="https://dummyimage.com/700x420/e5e7eb/aaa" class="rounded-xl">
+        <h3 class="mt-6 font-semibold text-xl">Stamina</h3>
+        <p class="mt-2 text-gray-600 text-sm">Perfect for activewear & wellness brands.</p>
+      </div>
+
+      <div class="reveal bg-white rounded-2xl border p-6 hover:shadow-xl transition">
+        <img src="https://dummyimage.com/700x420/e5e7eb/aaa" class="rounded-xl">
+        <h3 class="mt-6 font-semibold text-xl">Pixel</h3>
+        <p class="mt-2 text-gray-600 text-sm">Minimal design for modern brands.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ================= THEME HIGHLIGHT ================= -->
 <section class="max-w-7xl mx-auto px-6 py-28">
   <div class="grid lg:grid-cols-2 gap-20 items-center">
@@ -108,3 +234,85 @@
     </div>
   </div>
 </section>
+
+<!-- ================= STATS ================= -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+  <div class="reveal bg-gradient-to-r from-orange-100 to-orange-50 rounded-3xl p-16 text-center">
+    <h3 class="text-2xl font-bold">Trusted by Growing Brands</h3>
+    <p class="mt-4 text-gray-700">
+      100% improved stability · 30% faster load · Higher AOV
+    </p>
+  </div>
+</section>
+
+<!-- ================= RESOURCES ================= -->
+<section class="bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 py-24">
+    <h2 class="text-3xl font-bold reveal">
+      We Help You <span class="text-orange-500">Succeed</span>
+    </h2>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
+        <h4 class="font-semibold">Docs & Guides</h4>
+        <p class="mt-2 text-sm text-gray-600">Step-by-step setup & customization.</p>
+      </div>
+      <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
+        <h4 class="font-semibold">Video Tutorials</h4>
+        <p class="mt-2 text-sm text-gray-600">Learn faster with visual guides.</p>
+      </div>
+      <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
+        <h4 class="font-semibold">Expert Support</h4>
+        <p class="mt-2 text-sm text-gray-600">Real humans. Real solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="border-t">
+  <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-6">
+    <p class="text-sm text-gray-600">
+      © 2026 Pixel Bright Themes. All rights reserved.
+    </p>
+    <div class="flex gap-6 md:justify-end text-sm">
+      <a href="#" class="hover:text-orange-500">Privacy</a>
+      <a href="#" class="hover:text-orange-500">Terms</a>
+      <a href="#" class="hover:text-orange-500">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= JS: SCROLL ANIMATION ================= -->
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show')
+      }
+    })
+  }, { threshold: 0.15 })
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+/***** Accordion *****/
+    document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement
+      const body = item.querySelector('.accordion-body')
+      const icon = header.querySelector('.icon')
+
+      document.querySelectorAll('.accordion-body').forEach(b => {
+        if (b !== body) {
+          b.classList.add('hidden')
+          b.parentElement.querySelector('.icon').textContent = '+'
+        }
+      })
+
+      body.classList.toggle('hidden')
+      icon.textContent = body.classList.contains('hidden') ? '+' : '−'
+    })
+  })
+</script>
+
+</body>
+</html>
