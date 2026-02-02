@@ -252,9 +252,9 @@
       </p>
       <div class="mt-8 flex gap-4">
         <button class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-          Browse Themes
+          Buy for $299
         </button>
-        <button class="border border-gray-300 px-6 py-3 rounded-lg font-semibold hover:border-gray-400 transition">
+        <button id="theme-extention-demo-btn" class="border border-gray-300 px-6 py-3 rounded-lg font-semibold hover:border-gray-400 transition">
           View Demo
         </button>
       </div>
@@ -592,6 +592,10 @@
     if (!helpcenterbtn.contains(e.target) && !helpcentermenu.contains(e.target)) {
       helpcentermenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
     }
+  })
+  const themeextentionDemoBtn = document.getElementById('theme-extention-demo-btn');
+  themeextentionDemoBtn.addEventListener('click', (e) => {
+    window.location.href = '/theme-extension-demo';
   })
   
 /***** Accordion *****/
