@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
     rel="stylesheet">
-  <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=UPQYjPVYkYqO"></script>
+  <!--<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=UPQYjPVYkYqO"></script>-->
 </head>
 
 <body class="bg-white text-gray-900">
@@ -562,7 +562,23 @@
   </footer>
 
   <!-- ================= JS: SCROLL ANIMATION ================= -->
-   <script src="/script.js" defer></script>
+  <script src="/script.js" defer></script>
+  <script>
+    (function (d, t) {
+      var BASE_URL = "https://srv1267364.hstgr.cloud";
+      var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      g.src = BASE_URL + "/packs/js/sdk.js";
+      g.async = true;
+      s.parentNode.insertBefore(g, s);
+      g.onload = function () {
+        window.chatwootSDK.run({
+          websiteToken: 'hpPmSCitEDuM1gMPkXJCpm86',
+          baseUrl: BASE_URL
+        })
+      }
+    })(document, "script");
+  </script>
+
 </body>
 
 </html>
