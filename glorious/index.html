@@ -17,7 +17,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
     rel="stylesheet">
-    <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=UPQYjPVYkYqO"></script>
 </head>
 
 <body class="bg-white text-gray-900">
@@ -793,97 +792,7 @@
     </div>
   </footer>
 
-  <!-- ================= JS: SCROLL ANIMATION ================= -->
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show')
-        }
-      })
-    }, { threshold: 0.15 })
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Scroll spy
-    const sections = document.querySelectorAll('article section[id]')
-    const tocLinks = document.querySelectorAll('.toc-link')
-
-    window.addEventListener('scroll', () => {
-      let current = ''
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute('id')
-        }
-      })
-
-      tocLinks.forEach(link => {
-        link.classList.remove('active')
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active')
-        }
-      })
-    })
-    /***** Navigation *****/
-
-    const btn = document.getElementById('solutionsBtn')
-    const menu = document.getElementById('megaMenu')
-
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('opacity-0')
-      menu.classList.toggle('pointer-events-none')
-      menu.classList.toggle('translate-y-4')
-    })
-
-    document.addEventListener('click', (e) => {
-      if (!btn.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
-      }
-    })
-
-    /***** Accordion *****/
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const item = header.parentElement
-        const body = item.querySelector('.accordion-body')
-        const icon = header.querySelector('.icon')
-
-        document.querySelectorAll('.accordion-body').forEach(b => {
-          if (b !== body) {
-            b.classList.add('hidden')
-            b.parentElement.querySelector('.icon').textContent = '+'
-          }
-        })
-
-        body.classList.toggle('hidden')
-        icon.textContent = body.classList.contains('hidden') ? '+' : '−'
-      })
-    });
-    /***** Testimonials *****/
-    const slides = document.querySelectorAll('.testimonial-slide')
-    const dots = document.querySelectorAll('.dot')
-    let index = 0
-
-    function showSlide(i) {
-      slides.forEach((slide, idx) => {
-        slide.classList.toggle('hidden', idx !== i)
-        dots[idx].classList.toggle('bg-black', idx === i)
-        dots[idx].classList.toggle('bg-black/30', idx !== i)
-      })
-    }
-
-    function nextTestimonial() {
-      index = (index + 1) % slides.length
-      showSlide(index)
-    }
-
-    function prevTestimonial() {
-      index = (index - 1 + slides.length) % slides.length
-      showSlide(index)
-    }
-  </script>
+  <script src="/script.js?v=0.0.03" defer></script>
 
 </body>
 
