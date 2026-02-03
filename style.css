@@ -175,3 +175,22 @@ header {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Back to top scroll style */
+#backToTop {
+      background: linear-gradient(90deg,
+            #050302 0%,
+            #140902 25%,
+            #2a1406 50%,
+            #3b1a06 75%,
+            #1a0c04 100%);
+}
+   /* Floating animation */
+    @keyframes floatBtn {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .float-animation {
+      animation: floatBtn 2.5s ease-in-out infinite;
+    }

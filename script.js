@@ -129,3 +129,31 @@ function prevTestimonial() {
   index = (index - 1 + slides.length) % slides.length;
   showSlide(index);
 }
+
+const yearSpans = document.querySelectorAll(".year-span");
+const currentYear = new Date().getFullYear();
+yearSpans.forEach((span) => {
+  span.textContent = currentYear;
+});
+
+/***** Back to top scroll *****/
+const btn = document.getElementById("backToTop");
+
+// Show / Hide button on scroll
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    btn.classList.remove("opacity-0","pointer-events-none");
+    btn.classList.add("opacity-100");
+  } else {
+    btn.classList.add("opacity-0","pointer-events-none");
+    btn.classList.remove("opacity-100");
+  }
+});
+
+// Smooth scroll to top
+btn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});

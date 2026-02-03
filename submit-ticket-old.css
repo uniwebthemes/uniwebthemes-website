@@ -1,0 +1,263 @@
+#zohoSupportWebToCase textarea,
+#zohoSupportWebToCase input[type='text'],
+#zohoSupportWebToCase input[type='date'],
+#zohoSupportWebToCase select,
+.wb_common {
+    width: 100%;
+}
+
+#zohoSupportWebToCase td {
+    padding: 11px 5px;
+}
+
+#zohoSupportWebToCase textarea,
+#zohoSupportWebToCase input[type='text'],
+#zohoSupportWebToCase input[type='date'],
+#zohoSupportWebToCase select {
+    border: 1px solid #ddd;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+#zohoSupportWebToCase select {
+    box-sizing: unset
+}
+
+#zohoSupportWebToCase .wb_selectDate {
+    width: auto
+}
+
+#zohoSupportWebToCase input.wb_cusInput {
+    width: 108px
+}
+
+.zsFormClass {
+    width: 100% !important;
+    background: transparent !important;
+}
+
+#zohoSupportWebToCase {
+    width: 100%;
+}
+
+#zohoSupportWebToCase table {
+    width: 100%;
+}
+
+#zohoSupportWebToCase td {
+    padding: 0.75rem 0 !important;
+    display: block;
+}
+
+#zohoSupportWebToCase input,
+#zohoSupportWebToCase textarea,
+#zohoSupportWebToCase select {
+    width: 100% !important;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    transition: all 0.25s ease;
+}
+
+#zohoSupportWebToCase input:focus,
+#zohoSupportWebToCase textarea:focus,
+#zohoSupportWebToCase select:focus {
+    outline: none;
+    border-color: #ff6a00;
+    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+#zohoSupportWebToCase textarea {
+    min-height: 120px;
+}
+
+.wb_FtCon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+    padding-left: 10px
+}
+
+.wb_logoCon {
+    display: flex;
+    margin-left: 5px
+}
+
+.wb_logo {
+    max-width: 16px;
+    max-height: 16px;
+}
+
+#zohoSupportWebToCase .wb_multi_pick {
+    border: 1px solid #ddd;
+    padding: 3px 5px;
+    border-radius: 3px;
+    width: 280px;
+    height: 95px;
+    overflow-y: auto;
+}
+
+#zohoSupportWebToCase .wb_multi_pick_label {
+    display: block;
+}
+
+#zohoSupportWebToCase .wb_multi_pick_input,
+.wb_multi_pick_input_all {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.zsFormClass {
+    background-color: #FFFFFF;
+    width: 600px
+}
+
+.zsFontClass {
+    color: #000000;
+    font-family: Arial;
+    font-size: 13px
+}
+
+.manfieldbdr {
+    border-left: 1px solid #ff6448 !important
+}
+
+.hleft {
+    text-align: left;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    cursor: pointer;
+}
+
+.wtcsepcode {
+    margin: 0px 15px;
+    color: #aaa;
+    float: left;
+}
+
+.wtccloudattach {
+    float: left;
+    color: #00a3fe !important;
+    cursor: pointer;
+    text-decoration: none !important;
+}
+
+.wtccloudattach:hover {
+    text-decoration: none !important;
+}
+
+.wtcuploadinput {
+    cursor: pointer;
+    float: left;
+    width: 62px;
+    margin-top: -20px;
+    opacity: 0;
+    clear: both;
+}
+
+.wtcuploadfile {
+    float: left;
+    color: #00a3fe;
+}
+
+.filenamecls {
+    margin-right: 15px;
+    float: left;
+    margin-top: 5px;
+}
+
+.clboth {
+    clear: both;
+}
+
+#zsFileBrowseAttachments {
+    clear: both;
+    margin: 5px 0px 10px;
+}
+
+.zsFontClass {
+    vertical-align: top;
+}
+
+#tooltip-zc {
+    font: normal 12px Arial, Helvetica, sans-serif;
+    line-height: 18px;
+    position: absolute;
+    padding: 8px;
+    margin: 20px 0 0;
+    background: #fff;
+    border: 1px solid #528dd1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #eee;
+    -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    color: #777
+}
+
+.wtcmanfield {
+    color: #f00;
+    font-size: 16px;
+    position: relative;
+    top: 2px;
+    left: 1px;
+}
+
+#zsCloudAttachmentIframe {
+    width: 100%;
+    height: 100%;
+    z-index: 99999 !important;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    border-style: none;
+    display: none;
+    background-color: #fff;
+}
+
+.wtchelpinfo {
+    background-position: -246px -485px;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    background-image: url(https://static.zohocdn.com/zohodeskstatic/app/images/zs-mpro.b6c9cf2347c62390fdcb.png);
+}
+
+.zsMaxSizeMessage {
+    font-size: 13px;
+}
+
+/* Submit button */
+#zohoSupportWebToCase input[type="submit"] {
+    background: linear-gradient(135deg, #ff6a00, #ff8c2a);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    padding: 0.9rem;
+    border-radius: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#zohoSupportWebToCase input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 106, 0, 0.35);
+}
+
+#zohoSupportWebToCase input[type="submit"].loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Hide Zoho branding footer spacing */
+.wb_FtCon {
+    display: none !important;
+}
