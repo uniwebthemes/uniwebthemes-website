@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Contact Support</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#ff6a00',
+                        brandDark: '#0f172a'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+        }
+
+        /* Zoho container override */
+        .zsFormClass {
+            width: 100% !important;
+            background: transparent !important;
+        }
+
+        #zohoSupportWebToCase {
+            width: 100%;
+        }
+
+        #zohoSupportWebToCase table {
+            width: 100%;
+        }
+
+        #zohoSupportWebToCase td {
+            padding: 0.75rem 0 !important;
+            display: block;
+        }
+
+        #zohoSupportWebToCase input,
+        #zohoSupportWebToCase textarea,
+        #zohoSupportWebToCase select {
+            width: 100% !important;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+            transition: all 0.25s ease;
+        }
+
+        #zohoSupportWebToCase input:focus,
+        #zohoSupportWebToCase textarea:focus,
+        #zohoSupportWebToCase select:focus {
+            outline: none;
+            border-color: #ff6a00;
+            box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.2);
+            transform: translateY(-1px);
+        }
+
+        #zohoSupportWebToCase textarea {
+            min-height: 120px;
+        }
+
+        /* Submit button */
+        #zohoSupportWebToCase input[type="submit"] {
+            background: linear-gradient(135deg, #ff6a00, #ff8c2a);
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #zohoSupportWebToCase input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 106, 0, 0.35);
+        }
+
+        #zohoSupportWebToCase input[type="submit"].loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Hide Zoho branding footer spacing */
+        .wb_FtCon {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4">
+
+    <!-- Gradient Card -->
+    <div class="w-full max-w-2xl bg-gradient-to-br from-brandDark via-black to-brandOrange rounded-3xl p-[2px]">
+        <div class="bg-white rounded-3xl p-8 md:p-10">
+
+            <!-- Header -->
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-slate-900">
+                    Contact Support
+                </h2>
+                <p class="text-slate-600 mt-2">
+                    Need help? Our team will get back to you shortly.
+                </p>
+            </div>
+            <div id='zohoSupportWebToCase'>
+                <!-- Zoho Form (UNCHANGED STRUCTURE) -->
+                <form name='zsWebToCase_243605000000338035' id='zsWebToCase_243605000000338035' 
+                    action='https://desk.zoho.in/support/WebToCase' method='POST' onSubmit='return zsValidateMandatoryFields()'
+                    enctype='multipart/form-data'> <input type='hidden' name='xnQsjsdp'
+            value='edbsnea6e8115585298674977f82a589bf3f7' /> <input type='hidden' name='xmIwtLD'
+            value='edbsnd636763911de53f64739bd420a6655dd7376f9d2b89a0610be6cf445b949b258' /> <input type='hidden'
+            name='xJdfEaS' value='' /> <input type='hidden' name='actionType' value='Q2FzZXM=' /> <input type="hidden"
+            id="property(module)" value="Cases" /> <input type="hidden" id="dependent_field_values_Cases"
+            value="{&#34;JSON_VALUES&#34;:{},&#34;JSON_SELECT_VALUES&#34;:{},&#34;JSON_MAP_DEP_LABELS&#34;:[]}" />
+                  
+
+                    <input type="hidden" name="xnQsjsdp" value="YOUR_VALUE_HERE" />
+                    <input type="hidden" name="xmIwtLD" value="YOUR_VALUE_HERE" />
+                    <input type="hidden" name="actionType" value="Q2FzZXM=" />
+                    <input type="hidden" name="returnURL" value="https://example.com/thank-you" />
+
+                    <table class="zsFormClass">
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <label class="text-sm font-medium text-slate-700">
+                                        Name
+                                    </label>
+                                    <input type="text" name="Contact Name" required />
+                                </td>
+                            </tr>
+
+                             <tr>
+                                <td>
+                                    <label class="text-sm font-medium text-slate-700">
+                                        Store url
+                                    </label>
+                                    <input type="text" name="First Name" required />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label class="text-sm font-medium text-slate-700">
+                                        Email
+                                    </label>
+                                    <input type="text" name="Email" required />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label class="text-sm font-medium text-slate-700">
+                                        Subject
+                                    </label>
+                                    <input type="text" name="Subject" required />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label class="text-sm font-medium text-slate-700">
+                                        Description
+                                    </label>
+                                    <textarea name="Description"></textarea>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="pt-4">
+                                    <input type="submit" value="Submit Ticket" />
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vanilla JS Animations -->
+    <script>
+        function handleSubmit() {
+            const btn = document.querySelector(
+                '#zohoSupportWebToCase input[type="submit"]'
+            );
+            btn.classList.add('loading');
+            btn.value = 'Submitting...';
+        }
+    </script>
+
+</body>
+
+</html>
