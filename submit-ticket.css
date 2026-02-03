@@ -8,6 +8,14 @@
     display: flex !important;
     flex-direction: row !important;
 }
+.wtcuploadinput {
+    background: linear-gradient(90deg,
+            #000000 0%,
+            #140800 30%,
+            #2a1200 55%,
+            #4a1f00 75%,
+            #6b2a00 100%);
+}
 .submit-buttons {
     gap: 0.5rem;
 }
