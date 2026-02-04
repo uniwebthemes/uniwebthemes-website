@@ -2,552 +2,633 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>Uniweb Themes - Premium Shopify Themes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Uniweb Themes - Premium Shopify Themes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
 
-  <!-- Font <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
-    rel="stylesheet">
-  <!--<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=UPQYjPVYkYqO"></script>-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
+        rel="stylesheet">
+    <!--<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=UPQYjPVYkYqO"></script>-->
 </head>
 
 <body class="bg-white text-gray-900">
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="relative z-50 bg-white border-b pt-3 pb-3 shadow-sm">
-    <div class="max-w-8xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- ================= NAVBAR ================= -->
+    <header class="relative z-50 bg-white border-b shadow-sm">
+        <div class="max-w-8xl mx-auto px-6 py-4 flex items-center justify-between">
 
-      <!-- Logo 
+            <!-- Logo 
         <div class="text-xl font-extrabold">
         UNI<span class="text-orange-500">WEB</span>
       </div> -->
 
 
-      <a href="/index" class="group block rounded-xl transition">
+            <a href="/index" class="group block rounded-xl transition">
 
-        <!-- 4:1 Aspect Ratio Container -->
-        <div class="logo relative aspect-[4/1]">
-          <img height="75" width="300" src="/assets/uniweb--logo.png" alt="Navigation banner"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-300" />
+                <!-- 4:1 Aspect Ratio Container -->
+                <div class="logo relative aspect-[4/1]">
+                    <img height="75" width="300" src="/assets/uniweb--logo.png" alt="Navigation banner"
+                        class="absolute inset-0 h-full w-full object-cover transition-transform duration-300" />
+                </div>
+
+            </a>
+
+            <!-- Nav -->
+            <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
+                <button id="themesBtn" class="flex items-center text-white gap-1 hover:text-orange-500">
+                    Themes
+                    <span class="text-xs">▾</span>
+                </button>
+                <button id="helpcenterBtn" class="flex items-center text-white gap-1 hover:text-orange-500">
+                    Help Center
+                    <span class="text-xs">▾</span>
+                </button>
+                <a href="blog/blog-index.html" class="text-white">Blog</a>
+                <a href="submit-ticket" class="bg-white text-black p-2 pl-5 pr-5 rounded-full">Contact Support</a>
+            </nav>
+
+            <!-- ================= THEMES MEGA MENU ================= -->
+            <div id="themesmegaMenu"
+                class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
+                <div class="max-w-8xl mx-auto px-6 py-10">
+                    <div
+                        class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+
+                        <div class="grid lg:grid-cols-3 gap-10 p-10">
+
+                            <!-- LEFT LIST -->
+                            <div class="space-y-4">
+                                <div
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                                            F
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Glorious</p>
+                                            <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </div>
+
+                                <div
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                                            K
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Glisten</p>
+                                            <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </div>
+
+                                <div
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                                            H
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
+                                            <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </div>
+
+                                <div
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                                            M
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
+                                            <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </div>
+                            </div>
+
+                            <!-- RIGHT PREVIEW -->
+                            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                </div>
+
+                                <div class="max-w-sm">
+                                    <p class="text-sm text-gray-600 mb-2">Zest</p>
+                                    <h3 class="text-2xl font-extrabold">
+                                        Shopify Theme to
+                                        <span class="text-orange-500">Dominate M-Commerce</span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a
+                                custom app
+                                and exclusively installable in your store and only for those who bought our themes <a
+                                    href="/theme-extension-packs.html"
+                                    class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
+                                    more
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= HELP CENTER MEGA MENU ================= -->
+            <div id="helpcentermegaMenu"
+                class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
+                <div class="max-w-8xl mx-auto px-6 py-10">
+                    <div
+                        class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+
+                        <div class="grid lg:grid-cols-3 gap-10 p-10">
+
+                            <!-- LEFT LIST -->
+                            <div class="space-y-4">
+                                <a href="glorious/index"
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                                            G
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Glorious</p>
+                                            <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </a>
+
+                                <div
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                                            B
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Bliss</p>
+                                            <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </div>
+
+                                <div
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                                            H
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Glorious Theme Extender <sup> *</sup></p>
+                                            <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </div>
+
+                                <div
+                                    class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                                            M
+                                        </div>
+                                        <div>
+                                            <p class="font-semibold">Glisten Theme Extender <sup> *</sup></p>
+                                            <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                                        </div>
+                                    </div>
+                                    →
+                                </div>
+                            </div>
+
+                            <!-- RIGHT PREVIEW -->
+                            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                    <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                                </div>
+
+                                <div class="max-w-sm">
+                                    <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
+                                    <h3 class="text-2xl font-extrabold">
+                                        A well designed extension pack to
+                                        <span class="text-orange-500">fully customize your store using Shopify's Native
+                                            API's and
+                                            Extensions</span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a
+                                custom app
+                                and exclusively installable in your store and only for those who bought our themes <a
+                                    href="/theme-extension-packs.html"
+                                    class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
+                                    more</a></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== MOBILE MENU ========== -->
+
+            <!-- ========== HAMBURGER ========== -->
+            <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+
+                <!-- Hamburger SVG -->
+                <svg id="hamburgerIcon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+
+            </button>
         </div>
 
-      </a>
 
-      <!-- Nav -->
-      <nav class="flex items-center gap-10 text-sm font-medium">
-        <button id="themesBtn" class="flex items-center text-white gap-1 hover:text-orange-500">
-          Themes
-          <span class="text-xs">▾</span>
-        </button>
-        <button id="helpcenterBtn" class="flex items-center text-white gap-1 hover:text-orange-500">
-          Help Center
-          <span class="text-xs">▾</span>
-        </button>
-        <a href="blog/blog-index.html" class="text-white">Blog</a>
-        <a href="submit-ticket" class="bg-white text-black p-2 pl-5 pr-5 rounded-full">Contact Support</a>
-      </nav>
-    </div>
+        <!-- ========== MOBILE MENU ========== -->
 
-    <!-- ================= THEMES MEGA MENU ================= -->
-    <div id="themesmegaMenu"
-      class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
-      <div class="max-w-8xl mx-auto px-6 py-10">
+        <div id="mobileMenu" class="md:hidden absolute left-0 right-0 top-full
+           bg-white border-b shadow-lg
+           opacity-0 -translate-y-3 pointer-events-none
+           transition-all duration-300">
+
+            <div class="px-6 py-6 space-y-4">
+
+                <!-- THEMES -->
+                <button class="mobileDropdown w-full flex justify-between items-center font-semibold">
+                    Themes
+                    <span>+</span>
+                </button>
+
+                <div class="dropdownContent hidden pl-4 space-y-3 text-gray-600">
+                    <a href="#">Glorious</a>
+                    <a href="#">Glisten</a>
+                    <a href="#">Theme Extender</a>
+                </div>
+
+
+                <!-- HELP CENTER -->
+                <button class="mobileDropdown w-full flex justify-between items-center font-semibold">
+                    Help Center
+                    <span>+</span>
+                </button>
+
+                <div class="dropdownContent hidden pl-4 space-y-3 text-gray-600">
+                    <a href="#">Docs</a>
+                    <a href="#">Support</a>
+                    <a href="#">Guides</a>
+                </div>
+
+
+                <a href="blog/blog-index.html" class="block font-semibold">
+                    Blog
+                </a>
+
+                <a href="submit-ticket" class="block text-center bg-black text-white py-3 rounded-full mt-4">
+                    Contact Support
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="section-bg from-orange-50 to-white">
+        <div class="max-w-8xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h1 class="text-4xl md:text-6xl font-semibold md:leading-tight">
+                    Premium Themes.<br>
+                    Build Easily.<br>
+                    <span class="text-orange-500">Win Big.</span>
+                </h1>
+                <p class="mt-6 text-gray-600 max-w-lg">
+                    High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
+                </p>
+                <div class="mt-8 flex gap-4">
+                    <button
+                        class="bg-orange-500 text-white bg-gradient-btn px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+                        Browse Themes
+                    </button>
+                    <button
+                        class="border border-gray-300 px-6 py-3 rounded-lg font-semibold hover:border-gray-400 transition">
+                        View Demo
+                    </button>
+                </div>
+            </div>
+
+            <div class="reveal">
+                <div class="bg-white rounded-2xl shadow-xl p-6">
+                    <img src="https://dummyimage.com/800x500/f3f4f6/aaa" alt="Preview" class="rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <h2 class="text-3xl font-bold text-center reveal">
+            How We <span class="text-orange-500">Empower</span> You
+        </h2>
+
+        <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
+                <h3 class="font-semibold text-lg">Conversion-Focused</h3>
+                <p class="mt-3 text-gray-600 text-sm">
+                    Designed using real merchant data and CRO best practices.
+                </p>
+            </div>
+
+            <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
+                <h3 class="font-semibold text-lg">Lightning Fast</h3>
+                <p class="mt-3 text-gray-600 text-sm">
+                    Optimized for Core Web Vitals and instant load times.
+                </p>
+            </div>
+
+            <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
+                <h3 class="font-semibold text-lg">Easy Customization</h3>
+                <p class="mt-3 text-gray-600 text-sm">
+                    No code required. Build stores visually impactable with ease.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= THEMES ================= -->
+    <section class="bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 py-24">
+            <h2 class="text-3xl font-bold reveal">Our Themes</h2>
+
+            <div class="mt-12 grid md:grid-cols-2 gap-10">
+                <div class="reveal bg-white rounded-2xl border p-6 hover:shadow-xl transition">
+                    <img src="https://dummyimage.com/700x420/e5e7eb/aaa" class="rounded-xl">
+                    <h3 class="mt-6 font-semibold text-xl">Stamina</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Perfect for activewear & wellness brands.</p>
+                </div>
+
+                <div class="reveal bg-white rounded-2xl border p-6 hover:shadow-xl transition">
+                    <img src="https://dummyimage.com/700x420/e5e7eb/aaa" class="rounded-xl">
+                    <h3 class="mt-6 font-semibold text-xl">Pixel</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Minimal design for modern brands.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= THEME HIGHLIGHT ================= -->
+    <section class="max-w-7xl mx-auto px-6 py-28">
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- LEFT: THEME PREVIEW -->
+            <div class="relative reveal">
+                <div class="bg-gray-100 rounded-3xl p-10">
+                    <img src="https://dummyimage.com/900x600/e5e7eb/aaa" class="rounded-2xl shadow-xl"
+                        alt="Theme Preview">
+                </div>
+
+                <!-- Floating mobile preview -->
+                <div class="absolute -bottom-12 -right-6 w-40 hidden md:block">
+                    <img src="https://dummyimage.com/300x600/f3f4f6/aaa" class="rounded-xl shadow-2xl"
+                        alt="Mobile Preview">
+                </div>
+            </div>
+
+            <!-- RIGHT: CONTENT -->
+            <div class="reveal">
+                <div class="inline-flex mb-6 rounded-lg border overflow-hidden">
+                    <button class="px-5 py-2 text-sm font-semibold bg-black text-white">
+                        Shopify Themes
+                    </button>
+                    <button class="px-5 py-2 text-sm font-semibold text-gray-500">
+                        Shopify Apps
+                    </button>
+                </div>
+
+                <h2 class="text-4xl font-extrabold mb-4">Hyper Theme</h2>
+
+                <p class="text-gray-600 max-w-lg mb-10">
+                    A performance-optimized Shopify theme built for B2B businesses.
+                    Hyper simplifies product management while delivering a seamless
+                    shopping experience.
+                </p>
+
+                <!-- ACCORDION -->
+                <div class="space-y-4" id="accordion">
+
+                    <div class="accordion-item border rounded-xl">
+                        <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
+                            <span class="flex items-center gap-3">
+                                <span class="text-orange-500">📦</span>
+                                Optimized for Scalability
+                            </span>
+                            <span class="icon">−</span>
+                        </button>
+                        <div class="accordion-body px-5 pb-5 text-sm text-gray-600">
+                            Handles large catalogs and high volumes with ease, ensuring
+                            fast performance even for big B2B operations.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border rounded-xl">
+                        <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
+                            <span class="flex items-center gap-3">
+                                <span class="text-orange-500">🧩</span>
+                                Built-in B2B Features
+                            </span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-body hidden px-5 pb-5 text-sm text-gray-600">
+                            Native support for wholesale pricing, bulk ordering, and
+                            customer-specific catalogs.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border rounded-xl">
+                        <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
+                            <span class="flex items-center gap-3">
+                                <span class="text-orange-500">📱</span>
+                                Mobile-First & Conversion-Ready
+                            </span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-body hidden px-5 pb-5 text-sm text-gray-600">
+                            Designed to convert on all devices with fast load times and
+                            optimized UX.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item border rounded-xl">
+                        <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
+                            <span class="flex items-center gap-3">
+                                <span class="text-orange-500">🎨</span>
+                                Customizable Professional Layouts
+                            </span>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-body hidden px-5 pb-5 text-sm text-gray-600">
+                            Flexible sections and layouts that adapt to your brand without
+                            custom development.
+                        </div>
+                    </div>
+
+                </div>
+
+                <button
+                    class="mt-10 bg-black text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-900 transition">
+                    Explore more
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= STATS ================= -->
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <div class="reveal bg-gradient-to-r from-orange-100 to-orange-50 rounded-3xl p-16 text-center">
+            <h3 class="text-2xl font-bold">Trusted by Growing Brands</h3>
+            <p class="mt-4 text-gray-700">
+                100% improved stability · 30% faster load · Higher AOV
+            </p>
+        </div>
+    </section>
+    <!-- ================= TESTIMONIAL SECTION ================= -->
+    <section class="max-w-7xl mx-auto px-6 py-28">
         <div
-          class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+            class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200">
 
-          <div class="grid lg:grid-cols-3 gap-10 p-10">
+            <!-- Grain overlay -->
+            <div class="absolute inset-0 opacity-[0.08] pointer-events-none"
+                style="background-image:url('https://grainy-gradients.vercel.app/noise.svg')"></div>
 
-            <!-- LEFT LIST -->
-            <div class="space-y-4">
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    F
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+            <div class="relative px-8 md:px-24 py-24 text-center">
+
+                <p class="text-xs tracking-widest font-semibold text-gray-700 mb-6">
+                    HEAR FROM OUR CUSTOMERS
+                </p>
+
+                <!-- App logo -->
+                <div class="flex justify-center items-center gap-3 mb-10">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-black text-orange-500 flex items-center justify-center font-extrabold">
+                        F
+                    </div>
+                    <span class="font-semibold text-lg">FoxKit</span>
                 </div>
-                →
-              </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    K
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+                <!-- SLIDES -->
+                <div id="testimonial-slider">
+
+                    <blockquote
+                        class="testimonial-slide text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
+                        “Everything almost improved by
+                        <span class="text-orange-500">at least 10%</span> and
+                        we saw <span class="text-orange-500">100% improvement</span> in AOV!”
+                    </blockquote>
+
+                    <blockquote
+                        class="testimonial-slide hidden text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
+                        “Our conversion rate increased by
+                        <span class="text-orange-500">35%</span> within weeks of switching.”
+                    </blockquote>
+
+                    <blockquote
+                        class="testimonial-slide hidden text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
+                        “Fast, clean, and scalable — the best
+                        <span class="text-orange-500">Shopify experience</span> we’ve had.”
+                    </blockquote>
+
                 </div>
-                →
-              </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
-                    H
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
+                <!-- Play video -->
+                <div class="mt-10 flex justify-center items-center gap-3 text-sm font-semibold">
+                    <span
+                        class="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center">▶</span>
+                    <span class="underline cursor-pointer">Play video testimonial</span>
                 </div>
-                →
-              </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
-                    M
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
+                <!-- Brand -->
+                <div class="mt-10 text-xl font-black tracking-wide">
+                    FLASKA
                 </div>
-                →
-              </div>
-            </div>
 
-            <!-- RIGHT PREVIEW -->
-            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
-              <div class="grid grid-cols-2 gap-4">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-              </div>
-
-              <div class="max-w-sm">
-                <p class="text-sm text-gray-600 mb-2">Zest</p>
-                <h3 class="text-2xl font-extrabold">
-                  Shopify Theme to
-                  <span class="text-orange-500">Dominate M-Commerce</span>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a custom app
-              and exclusively installable in your store and only for those who bought our themes <a
-                href="/theme-extension-packs.html"
-                class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
-                more
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= HELP CENTER MEGA MENU ================= -->
-    <div id="helpcentermegaMenu"
-      class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
-      <div class="max-w-8xl mx-auto px-6 py-10">
-        <div
-          class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
-
-          <div class="grid lg:grid-cols-3 gap-10 p-10">
-
-            <!-- LEFT LIST -->
-            <div class="space-y-4">
-              <a href="glorious/index"
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    G
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+                <!-- NAV -->
+                <div class="absolute inset-y-0 left-6 flex items-center">
+                    <button onclick="prevTestimonial()"
+                        class="text-3xl opacity-50 hover:opacity-100 transition">←</button>
                 </div>
-                →
-              </a>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    B
-                  </div>
-                  <div>
-                    <p class="font-semibold">Bliss</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+                <div class="absolute inset-y-0 right-6 flex items-center">
+                    <button onclick="nextTestimonial()"
+                        class="text-3xl opacity-50 hover:opacity-100 transition">→</button>
                 </div>
-                →
-              </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
-                    H
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious Theme Extender <sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
+                <!-- DOTS -->
+                <div class="mt-14 flex justify-center gap-3">
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-black"></span>
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-black/30"></span>
+                    <span class="dot w-2.5 h-2.5 rounded-full bg-black/30"></span>
                 </div>
-                →
-              </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
-                    M
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten Theme Extender <sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= RESOURCES ================= -->
+    <section class="bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 py-24">
+            <h2 class="text-3xl font-bold reveal">
+                We Help You <span class="text-orange-500">Succeed</span>
+            </h2>
+
+            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
+                    <h4 class="font-semibold">Docs & Guides</h4>
+                    <p class="mt-2 text-sm text-gray-600">Step-by-step setup & customization.</p>
                 </div>
-                →
-              </div>
+                <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
+                    <h4 class="font-semibold">Video Tutorials</h4>
+                    <p class="mt-2 text-sm text-gray-600">Learn faster with visual guides.</p>
+                </div>
+                <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
+                    <h4 class="font-semibold">Expert Support</h4>
+                    <p class="mt-2 text-sm text-gray-600">Real humans. Real solutions.</p>
+                </div>
             </div>
-
-            <!-- RIGHT PREVIEW -->
-            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
-              <div class="grid grid-cols-2 gap-4">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-              </div>
-
-              <div class="max-w-sm">
-                <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
-                <h3 class="text-2xl font-extrabold">
-                  A well designed extension pack to
-                  <span class="text-orange-500">fully customize your store using Shopify's Native API's and
-                    Extensions</span>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a custom app
-              and exclusively installable in your store and only for those who bought our themes <a
-                href="/theme-extension-packs.html"
-                class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
-                more</a></span></div>
         </div>
-      </div>
-    </div>
-  </header>
-
-
-  <!-- ================= HERO ================= -->
-  <section class="section-bg from-orange-50 to-white">
-    <div class="max-w-8xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
-      <div class="reveal">
-        <h1 class="text-4xl md:text-6xl font-semibold md:leading-tight">
-          Premium Themes.<br>
-          Build Easily.<br>
-          <span class="text-orange-500">Win Big.</span>
-        </h1>
-        <p class="mt-6 text-gray-600 max-w-lg">
-          High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
-        </p>
-        <div class="mt-8 flex gap-4">
-          <button
-            class="bg-orange-500 text-white bg-gradient-btn px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-            Browse Themes
-          </button>
-          <button class="border border-gray-300 px-6 py-3 rounded-lg font-semibold hover:border-gray-400 transition">
-            View Demo
-          </button>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <div class="bg-white rounded-2xl shadow-xl p-6">
-          <img src="https://dummyimage.com/800x500/f3f4f6/aaa" alt="Preview" class="rounded-lg">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FEATURES ================= -->
-  <section class="max-w-7xl mx-auto px-6 py-24">
-    <h2 class="text-3xl font-bold text-center reveal">
-      How We <span class="text-orange-500">Empower</span> You
-    </h2>
-
-    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
-        <h3 class="font-semibold text-lg">Conversion-Focused</h3>
-        <p class="mt-3 text-gray-600 text-sm">
-          Designed using real merchant data and CRO best practices.
-        </p>
-      </div>
-
-      <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
-        <h3 class="font-semibold text-lg">Lightning Fast</h3>
-        <p class="mt-3 text-gray-600 text-sm">
-          Optimized for Core Web Vitals and instant load times.
-        </p>
-      </div>
-
-      <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
-        <h3 class="font-semibold text-lg">Easy Customization</h3>
-        <p class="mt-3 text-gray-600 text-sm">
-          No code required. Build stores visually impactable with ease.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= THEMES ================= -->
-  <section class="bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6 py-24">
-      <h2 class="text-3xl font-bold reveal">Our Themes</h2>
-
-      <div class="mt-12 grid md:grid-cols-2 gap-10">
-        <div class="reveal bg-white rounded-2xl border p-6 hover:shadow-xl transition">
-          <img src="https://dummyimage.com/700x420/e5e7eb/aaa" class="rounded-xl">
-          <h3 class="mt-6 font-semibold text-xl">Stamina</h3>
-          <p class="mt-2 text-gray-600 text-sm">Perfect for activewear & wellness brands.</p>
-        </div>
-
-        <div class="reveal bg-white rounded-2xl border p-6 hover:shadow-xl transition">
-          <img src="https://dummyimage.com/700x420/e5e7eb/aaa" class="rounded-xl">
-          <h3 class="mt-6 font-semibold text-xl">Pixel</h3>
-          <p class="mt-2 text-gray-600 text-sm">Minimal design for modern brands.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================= THEME HIGHLIGHT ================= -->
-  <section class="max-w-7xl mx-auto px-6 py-28">
-    <div class="grid lg:grid-cols-2 gap-20 items-center">
-
-      <!-- LEFT: THEME PREVIEW -->
-      <div class="relative reveal">
-        <div class="bg-gray-100 rounded-3xl p-10">
-          <img src="https://dummyimage.com/900x600/e5e7eb/aaa" class="rounded-2xl shadow-xl" alt="Theme Preview">
-        </div>
-
-        <!-- Floating mobile preview -->
-        <div class="absolute -bottom-12 -right-6 w-40 hidden md:block">
-          <img src="https://dummyimage.com/300x600/f3f4f6/aaa" class="rounded-xl shadow-2xl" alt="Mobile Preview">
-        </div>
-      </div>
-
-      <!-- RIGHT: CONTENT -->
-      <div class="reveal">
-        <div class="inline-flex mb-6 rounded-lg border overflow-hidden">
-          <button class="px-5 py-2 text-sm font-semibold bg-black text-white">
-            Shopify Themes
-          </button>
-          <button class="px-5 py-2 text-sm font-semibold text-gray-500">
-            Shopify Apps
-          </button>
-        </div>
-
-        <h2 class="text-4xl font-extrabold mb-4">Hyper Theme</h2>
-
-        <p class="text-gray-600 max-w-lg mb-10">
-          A performance-optimized Shopify theme built for B2B businesses.
-          Hyper simplifies product management while delivering a seamless
-          shopping experience.
-        </p>
-
-        <!-- ACCORDION -->
-        <div class="space-y-4" id="accordion">
-
-          <div class="accordion-item border rounded-xl">
-            <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
-              <span class="flex items-center gap-3">
-                <span class="text-orange-500">📦</span>
-                Optimized for Scalability
-              </span>
-              <span class="icon">−</span>
-            </button>
-            <div class="accordion-body px-5 pb-5 text-sm text-gray-600">
-              Handles large catalogs and high volumes with ease, ensuring
-              fast performance even for big B2B operations.
-            </div>
-          </div>
-
-          <div class="accordion-item border rounded-xl">
-            <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
-              <span class="flex items-center gap-3">
-                <span class="text-orange-500">🧩</span>
-                Built-in B2B Features
-              </span>
-              <span class="icon">+</span>
-            </button>
-            <div class="accordion-body hidden px-5 pb-5 text-sm text-gray-600">
-              Native support for wholesale pricing, bulk ordering, and
-              customer-specific catalogs.
-            </div>
-          </div>
-
-          <div class="accordion-item border rounded-xl">
-            <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
-              <span class="flex items-center gap-3">
-                <span class="text-orange-500">📱</span>
-                Mobile-First & Conversion-Ready
-              </span>
-              <span class="icon">+</span>
-            </button>
-            <div class="accordion-body hidden px-5 pb-5 text-sm text-gray-600">
-              Designed to convert on all devices with fast load times and
-              optimized UX.
-            </div>
-          </div>
-
-          <div class="accordion-item border rounded-xl">
-            <button class="accordion-header w-full flex items-center justify-between p-5 font-semibold">
-              <span class="flex items-center gap-3">
-                <span class="text-orange-500">🎨</span>
-                Customizable Professional Layouts
-              </span>
-              <span class="icon">+</span>
-            </button>
-            <div class="accordion-body hidden px-5 pb-5 text-sm text-gray-600">
-              Flexible sections and layouts that adapt to your brand without
-              custom development.
-            </div>
-          </div>
-
-        </div>
-
-        <button class="mt-10 bg-black text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-900 transition">
-          Explore more
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= STATS ================= -->
-  <section class="max-w-7xl mx-auto px-6 py-24">
-    <div class="reveal bg-gradient-to-r from-orange-100 to-orange-50 rounded-3xl p-16 text-center">
-      <h3 class="text-2xl font-bold">Trusted by Growing Brands</h3>
-      <p class="mt-4 text-gray-700">
-        100% improved stability · 30% faster load · Higher AOV
-      </p>
-    </div>
-  </section>
-  <!-- ================= TESTIMONIAL SECTION ================= -->
-  <section class="max-w-7xl mx-auto px-6 py-28">
-    <div class="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200">
-
-      <!-- Grain overlay -->
-      <div class="absolute inset-0 opacity-[0.08] pointer-events-none"
-        style="background-image:url('https://grainy-gradients.vercel.app/noise.svg')"></div>
-
-      <div class="relative px-8 md:px-24 py-24 text-center">
-
-        <p class="text-xs tracking-widest font-semibold text-gray-700 mb-6">
-          HEAR FROM OUR CUSTOMERS
-        </p>
-
-        <!-- App logo -->
-        <div class="flex justify-center items-center gap-3 mb-10">
-          <div class="w-10 h-10 rounded-xl bg-black text-orange-500 flex items-center justify-center font-extrabold">
-            F
-          </div>
-          <span class="font-semibold text-lg">FoxKit</span>
-        </div>
-
-        <!-- SLIDES -->
-        <div id="testimonial-slider">
-
-          <blockquote
-            class="testimonial-slide text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
-            “Everything almost improved by
-            <span class="text-orange-500">at least 10%</span> and
-            we saw <span class="text-orange-500">100% improvement</span> in AOV!”
-          </blockquote>
-
-          <blockquote
-            class="testimonial-slide hidden text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
-            “Our conversion rate increased by
-            <span class="text-orange-500">35%</span> within weeks of switching.”
-          </blockquote>
-
-          <blockquote
-            class="testimonial-slide hidden text-3xl md:text-4xl font-extrabold leading-tight transition-opacity duration-500">
-            “Fast, clean, and scalable — the best
-            <span class="text-orange-500">Shopify experience</span> we’ve had.”
-          </blockquote>
-
-        </div>
-
-        <!-- Play video -->
-        <div class="mt-10 flex justify-center items-center gap-3 text-sm font-semibold">
-          <span class="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center">▶</span>
-          <span class="underline cursor-pointer">Play video testimonial</span>
-        </div>
-
-        <!-- Brand -->
-        <div class="mt-10 text-xl font-black tracking-wide">
-          FLASKA
-        </div>
-
-        <!-- NAV -->
-        <div class="absolute inset-y-0 left-6 flex items-center">
-          <button onclick="prevTestimonial()" class="text-3xl opacity-50 hover:opacity-100 transition">←</button>
-        </div>
-
-        <div class="absolute inset-y-0 right-6 flex items-center">
-          <button onclick="nextTestimonial()" class="text-3xl opacity-50 hover:opacity-100 transition">→</button>
-        </div>
-
-        <!-- DOTS -->
-        <div class="mt-14 flex justify-center gap-3">
-          <span class="dot w-2.5 h-2.5 rounded-full bg-black"></span>
-          <span class="dot w-2.5 h-2.5 rounded-full bg-black/30"></span>
-          <span class="dot w-2.5 h-2.5 rounded-full bg-black/30"></span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= RESOURCES ================= -->
-  <section class="bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6 py-24">
-      <h2 class="text-3xl font-bold reveal">
-        We Help You <span class="text-orange-500">Succeed</span>
-      </h2>
-
-      <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
-          <h4 class="font-semibold">Docs & Guides</h4>
-          <p class="mt-2 text-sm text-gray-600">Step-by-step setup & customization.</p>
-        </div>
-        <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
-          <h4 class="font-semibold">Video Tutorials</h4>
-          <p class="mt-2 text-sm text-gray-600">Learn faster with visual guides.</p>
-        </div>
-        <div class="reveal bg-white p-6 rounded-xl border hover:shadow-lg transition">
-          <h4 class="font-semibold">Expert Support</h4>
-          <p class="mt-2 text-sm text-gray-600">Real humans. Real solutions.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- ================= BACK TO TOP SCROLL ================= -->
-  <button id="backToTop" class="fixed left-1/2 -translate-x-1/2 bottom-8 
+    </section>
+    <!-- ================= BACK TO TOP SCROLL ================= -->
+    <button id="backToTop" class="fixed left-1/2 -translate-x-1/2 bottom-8 
            opacity-0 pointer-events-none
            transition-all duration-500
            backdrop-blur-lg bg-white/10
@@ -558,42 +639,42 @@
            hover:scale-110 hover:bg-white/20
            float-animation">
 
-    ↑ Back to Top
-  </button>
-  <!-- ================= FOOTER ================= -->
-  <footer class="border-t">
-    <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-6">
-      <p class="text-sm text-gray-600">
-        © <span class="year-span">2026</span> Uniweb Themes. All rights reserved.
-      </p>
-      <div class="flex gap-6 md:justify-end text-sm">
-        <a href="#" class="hover:text-orange-500">Privacy</a>
-        <a href="#" class="hover:text-orange-500">Terms</a>
-        <a href="#" class="hover:text-orange-500">Contact</a>
-      </div>
-    </div>
-  </footer>
+        ↑ Back to Top
+    </button>
+    <!-- ================= FOOTER ================= -->
+    <footer class="border-t">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-6">
+            <p class="text-sm text-gray-600">
+                © <span class="year-span">2026</span> Uniweb Themes. All rights reserved.
+            </p>
+            <div class="flex gap-6 md:justify-end text-sm">
+                <a href="#" class="hover:text-orange-500">Privacy</a>
+                <a href="#" class="hover:text-orange-500">Terms</a>
+                <a href="#" class="hover:text-orange-500">Contact</a>
+            </div>
+        </div>
+    </footer>
 
-  <!-- ================= JS: SCROLL ANIMATION ================= -->
+    <!-- ================= JS: SCROLL ANIMATION ================= -->
 
-  <script src="/script.js?v=0.0.06" defer></script>
-  <script defer>
-    /***** Chatwoot *****/
-    (function (d, t) {
-      var BASE_URL = "https://srv1267364.hstgr.cloud";
-      var g = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-      g.src = BASE_URL + "/packs/js/sdk.js";
-      g.async = true;
-      s.parentNode.insertBefore(g, s);
-      g.onload = function () {
-        window.chatwootSDK.run({
-          websiteToken: "Reioogm8okSEw3WT44dUNeYf",
-          baseUrl: BASE_URL,
-        });
-      };
-    })(document, "script");
-  </script>
+    <script src="/script.js?v=0.0.06" defer></script>
+    <script defer>
+        /***** Chatwoot *****/
+        (function (d, t) {
+            var BASE_URL = "https://srv1267364.hstgr.cloud";
+            var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+            g.src = BASE_URL + "/packs/js/sdk.js";
+            g.async = true;
+            s.parentNode.insertBefore(g, s);
+            g.onload = function () {
+                window.chatwootSDK.run({
+                    websiteToken: "Reioogm8okSEw3WT44dUNeYf",
+                    baseUrl: BASE_URL,
+                });
+            };
+        })(document, "script");
+    </script>
 
 </body>
 

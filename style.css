@@ -87,6 +87,7 @@ header {
     border-radius: 20px;
     padding: 28px 28px 36px;
     transition: transform .35s ease, box-shadow .35s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .kb-card:hover {

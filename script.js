@@ -11,6 +11,40 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+// Menu
+const toggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+let open = false;
+
+toggle.addEventListener("click", () => {
+
+  open = !open;
+
+  mobileMenu.classList.toggle("opacity-0");
+  mobileMenu.classList.toggle("-translate-y-3");
+  mobileMenu.classList.toggle("pointer-events-none");
+
+});
+
+
+// Dropdowns
+document.querySelectorAll(".mobileDropdown").forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const content = btn.nextElementSibling;
+
+    content.classList.toggle("hidden");
+
+    // Optional + → –
+    btn.querySelector("span").textContent =
+      content.classList.contains("hidden") ? "+" : "−";
+
+  });
+
+});
+
 // Scroll spy
 const sections = document.querySelectorAll("article section[id]");
 const tocLinks = document.querySelectorAll(".toc-link");
