@@ -13,28 +13,25 @@ document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 // Get pages.json
 let pageTitleMap = new Map();
 function normalizeUrl(url) {
-  return url.replace(/\/$/, "").toLowerCase();
+    return url.replace(/\/$/, "").toLowerCase();
 }
 async function loadPagesIndex() {
-  const response = await fetch("/search/pages.json");
 
-  if (!response.ok) {
-    throw new Error("Failed to load pages.json");
-  }
+    const response = await fetch("/search/pages.json");
 
-  const pages = await response.json();
+    if (!response.ok) {
+        throw new Error("Failed to load pages.json");
+    }
 
-  pages.forEach((page) => {
-    pageTitleMap.set(page.url, page.title);
-  });
+    const pages = await response.json();
+
+    pages.forEach(page => {
+        pageTitleMap.set(page.url, page.title);
+    });
 }
-
 function getTitle(url) {
-  return pageTitleMap.get(normalizeUrl(url)) || null;
+    return pageTitleMap.get(normalizeUrl(url)) || null;
 }
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadPagesIndex();
-});
 // Menu
 const toggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -198,16 +195,9 @@ btn.addEventListener("click", () => {
    GLORIOUS KNOWLEDGEBASE SEARCH
    =============================== */
 
-/* =====================================
-   GLORIOUS ELITE SEARCH (STACK SAFE)
-   ===================================== */
-
-/* ===============================
-   SEARCH ENGINE
-   =============================== */
-
 class KnowledgeBaseSearch {
   constructor(data) {
+    // Remove duplicates
     const map = new Map();
 
     data.forEach((item) => {
@@ -215,7 +205,10 @@ class KnowledgeBaseSearch {
       if (!map.has(key)) map.set(key, item);
     });
 
-    this.index = [...map.values()].map((item) => ({
+    this.data = [...map.values()];
+
+    // Build fast searchable index
+    this.index = this.data.map((item) => ({
       ...item,
       titleNorm: this.normalize(item.title),
       blob: this.normalize(
@@ -257,7 +250,7 @@ class KnowledgeBaseSearch {
 
     return this.normalize(sentence)
       .split(/\s+/)
-      .filter((w) => w.length > 2 && !stopWords.has(w));
+      .filter((word) => word.length > 2 && !stopWords.has(word));
   }
 
   scoreItem(item, words) {
@@ -274,7 +267,9 @@ class KnowledgeBaseSearch {
         return;
       }
 
-      if (item.blob.includes(word.slice(0, 4))) {
+      // fuzzy partial match
+      const partial = word.slice(0, 4);
+      if (item.blob.includes(partial)) {
         score += 0.1;
       }
     });
@@ -284,6 +279,7 @@ class KnowledgeBaseSearch {
 
   search(sentence, limit = 6) {
     const words = this.extractKeywords(sentence);
+
     if (!words.length) return [];
 
     return this.index
@@ -291,14 +287,14 @@ class KnowledgeBaseSearch {
         ...item,
         score: this.scoreItem(item, words),
       }))
-      .filter((i) => i.score > 0)
+      .filter((item) => item.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, limit);
   }
 }
 
 /* ===============================
-   DEBOUNCE
+   DEBOUNCE (WAIT PERIOD)
    =============================== */
 
 function debounce(fn, delay = 300) {
@@ -311,18 +307,16 @@ function debounce(fn, delay = 300) {
 }
 
 /* ===============================
-   INIT
+   INIT SEARCH
    =============================== */
 
-document.addEventListener("DOMContentLoaded", initGloriousSearch);
-
-async function initGloriousSearch() {
+(async function initGloriousSearch() {
   try {
-    const res = await fetch("/search/search-glorious.json");
+    const response = await fetch("/search/search-glorious.json");
 
-    if (!res.ok) throw new Error("Knowledgebase failed to load");
+    if (!response.ok) throw new Error("Knowledgebase failed to load");
 
-    const data = await res.json();
+    const data = await response.json();
 
     const kbSearch = new KnowledgeBaseSearch(data);
 
@@ -330,143 +324,129 @@ async function initGloriousSearch() {
   } catch (err) {
     console.error("Search init error:", err);
   }
-}
+})();
 
 /* ===============================
-   UI + POPOVER (BODY PORTAL)
+   INPUT HANDLER
    =============================== */
 
 function setupSearchInput(kbSearch) {
   const input = document.querySelector("#glorious-search-input");
-  if (!input) return;
 
-  /* ---------- CREATE POPOVER ---------- */
+  if (!input) {
+    console.warn("Search input not found");
+    return;
+  }
 
+  // Wrap input so popover positions correctly
+  const wrapper = document.createElement("div");
+  wrapper.style.position = "relative";
+
+  input.parentNode.insertBefore(wrapper, input);
+  wrapper.appendChild(input);
+
+  // Create popover
   const popover = document.createElement("div");
+  popover.className =
+    "glorious-popover flex flex-col gap-2 p-4 w-full mt-2 text-left rounded-lg shadow-lg bg-white border border-gray-200";
+  popover.style.display = "none";
 
-  popover.className = "glorious-popover";
-
-  Object.assign(popover.style, {
-    position: "fixed",
-    background: "#fff",
-    padding: "8px",
-    borderRadius: "12px",
-    boxShadow: "0 10px 35px rgba(0,0,0,0.12)",
-    border: "1px solid #eee",
-    zIndex: "10000",
-    display: "none",
-    minHeight: "50px",
-    overflowY: "auto",
-  });
-
+  //wrapper.appendChild(popover);
   document.body.appendChild(popover);
 
-  /* ---------- POSITION ENGINE ---------- */
 
   function positionPopover() {
     const rect = input.getBoundingClientRect();
 
-    popover.style.top = rect.bottom + 6 + "px";
-    popover.style.left = rect.left + "px";
+    popover.style.top = rect.bottom + window.scrollY + 6 + "px";
+    popover.style.left = rect.left + window.scrollX + "px";
     popover.style.width = rect.width + "px";
-  }
+}
 
-  /* ---------- RENDER ---------- */
 
-  function render(results) {
+  let lastQuery = "";
+
+  const handleSearch = debounce((event) => {
+    const query = event.target.value.trim();
+
+    // prevent tiny searches
+    if (query.length < 2) return;
+
+    // prevent duplicate searches
+    if (query === lastQuery) return;
+
+    lastQuery = query;
+
+    const results = kbSearch.search(query);
+
+    console.log("Search Results:", results);
+
+    renderPopover(results);
+    // 👉 render dropdown here if needed
+  }, 300);
+
+  input.addEventListener("input", handleSearch);
+  /* =========================
+       RENDER RESULTS
+       ========================= */
+
+  function renderPopover(results) {
     popover.innerHTML = "";
 
     if (!results.length) {
-      popover.innerHTML = `<div style="padding:20px;color:#777">
-                    No articles found
-                 </div>`;
+      popover.innerHTML = `<div class="glorious-empty">No articles found</div>`;
 
-      positionPopover();
       popover.style.display = "block";
       return;
     }
-    console.log(results);
+
     results.forEach((item) => {
       item.urls.forEach((url) => {
         const link = document.createElement("a");
 
         link.href = url;
-        if (getTitle(url)) {
-          link.textContent = getTitle(url);
-
-          Object.assign(link.style, {
-            display: "block",
-            padding: "16px",
-            textDecoration: "none",
-            color: "#222",
-            fontSize: "14px",
-          });
-
-          link.addEventListener("mouseenter", () => {
-            link.style.background = "#f5f5f5";
-          });
-
-          link.addEventListener("mouseleave", () => {
-            link.style.background = "transparent";
-          });
-
-          popover.appendChild(link);
-        }
+        link.className = "glorious-item";
+        //link.textContent = item.title;
+        link.textContent = getTitle(url) || item.title;
+        popover.appendChild(link);
       });
     });
 
-    positionPopover();
     popover.style.display = "block";
   }
 
-  /* ---------- SEARCH ---------- */
+  /* =========================
+       CLOSE ON OUTSIDE CLICK
+       ========================= */
 
-  let lastQuery = "";
-
-  const handleSearch = debounce((e) => {
-    const query = e.target.value.trim();
-
-    if (query.length < 2) {
+  document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) {
       popover.style.display = "none";
-      return;
     }
-
-    if (query === lastQuery) return;
-    lastQuery = query;
-
-    const results = kbSearch.search(query);
-
-    render(results);
-  }, 300);
-
-  input.addEventListener("input", handleSearch);
-
-  /* ---------- OPEN ON FOCUS ---------- */
+  });
+  /* =========================
+   OPEN ON INPUT FOCUS
+   ========================= */
 
   input.addEventListener("focus", () => {
     const query = input.value.trim();
 
+    // If user already typed something → show results immediately
     if (query.length >= 2) {
-      render(kbSearch.search(query));
+      const results = kbSearch.search(query);
+      renderPopover(results);
+
+       positionPopover();
+    popover.style.display = "block";
+
+      return;
     }
+
+    // Optional behavior:
+    // show nothing when empty
+    popover.style.display = "none";
   });
-
-  /* ---------- PREVENT BLUR WHEN CLICKING POPOVER ---------- */
-
   popover.addEventListener("mousedown", (e) => {
     e.preventDefault();
   });
-
-  /* ---------- OUTSIDE CLICK ---------- */
-
-  document.addEventListener("pointerdown", (e) => {
-    if (!popover.contains(e.target) && e.target !== input) {
-      popover.style.display = "none";
-    }
-  });
-
-  /* ---------- KEEP POSITION PERFECT ---------- */
-
-  window.addEventListener("resize", positionPopover);
-  window.addEventListener("scroll", positionPopover, true);
 }

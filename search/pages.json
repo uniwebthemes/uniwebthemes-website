@@ -3,7 +3,7 @@
         "url": "/docs/glorious/global-sections",
         "title": "Global Sections"
     },
-     {
+    {
         "url": "/docs/glorious/global-sections/announcement-bar",
         "title": "Announcement Bar"
     },
@@ -12,7 +12,15 @@
         "title": "Getting Started"
     },
     {
-        "url": "/docs/glorious/mega-menu",
-        "title": "Mega Menu Setup"
+        "url": "/docs/glorious/getting-started/install-theme",
+        "title": "Install Theme"
+    },
+    {
+        "url": "/docs/glorious/getting-started/theme-settings",
+        "title": "Theme Settings"
+    },
+    {
+        "url": "/docs/glorious/getting-started/update-theme",
+        "title": "Update Theme"
     }
 ]

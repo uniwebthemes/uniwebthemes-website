@@ -1,19 +1,32 @@
 [
     {
-        "title": "Global Sections",
+        "title": "Sections",
         "urls": [
-            "/docs/glorious/getting-started/getting-started",
-            "/docs/glorious/getting-started/install-theme",
-            "/docs/glorious/getting-started/updating-theme",
-            "/docs/glorious/getting-started/support-policy",
-            "/docs/glorious/getting-started/refund-policy"
+            "/docs/glorious/getting-started/announcement-bar"
         ],
         "keywords": [
-            "installation",
-            "configuration",
-            "launch"
+            "announcement bar",
+            "top bar",
+            "top announcement",
+            "top banner",
+            "heading bar"
         ],
-        "content": "Learn how to install the theme, configure settings and launch your store quickly."
+        "content": "Design announcement bar."
+    },
+    {
+        "title": "Global Sections",
+        "urls": [
+            "/docs/glorious/global-sections/header",
+            "/docs/glorious/global-sections/footer"
+        ],
+        "keywords": [
+            "header",
+            "footer",
+            "navigation",
+            "navigation bar",
+            "menu"
+        ],
+        "content": "Design header bar."
     },
     {
         "title": "Getting Started",

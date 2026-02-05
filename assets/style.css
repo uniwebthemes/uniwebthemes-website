@@ -216,18 +216,18 @@ header {
 }
 
 /**** Glorious Search Popover ****/
+
 .glorious-popover {
-    position: absolute;
+    position: fixed; /* NOT absolute */
     background: #fff;
-    width: 100%;
-    margin-top: 6px;
     border-radius: 12px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
     border: 1px solid #eee;
-    overflow: hidden;
-    z-index: 9999;
+    z-index: 10000;
+    display: none;
 }
 
+.glorious-popover a,
 .glorious-item {
     display: block;
     padding: 12px 16px;
