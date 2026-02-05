@@ -1,0 +1,30 @@
+[
+    {
+        "name": "theme.install",
+        "utterances": [
+            "how to install the theme",
+            "upload theme zip",
+            "theme installation"
+        ],
+        "keywords": [
+            "upload theme file",
+            "upload theme zip",
+            "install the theme"
+        ],
+        "answers": [
+            "To install the theme, go to Shopify Theme Store → Online Store → Themes → Upload ZIP.",
+            "To install the theme, go to Shopify Admin → Online Store → Themes → Upload ZIP."
+        ]
+    },
+    {
+        "name": "theme.customization",
+        "utterances": [
+            "how to customize header",
+            "change fonts",
+            "edit colors"
+        ],
+        "answers": [
+            "You can customize this from Shopify Admin → Themes → Customize."
+        ]
+    }
+]

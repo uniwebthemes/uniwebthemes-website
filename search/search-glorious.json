@@ -1,0 +1,58 @@
+[
+    {
+        "title": "Global Sections",
+        "urls": [
+            "/docs/glorious/getting-started/getting-started",
+            "/docs/glorious/getting-started/install-theme",
+            "/docs/glorious/getting-started/updating-theme",
+            "/docs/glorious/getting-started/support-policy",
+            "/docs/glorious/getting-started/refund-policy"
+        ],
+        "keywords": [
+            "installation",
+            "configuration",
+            "launch"
+        ],
+        "content": "Learn how to install the theme, configure settings and launch your store quickly."
+    },
+    {
+        "title": "Getting Started",
+        "urls": [
+            "/docs/glorious/getting-started/getting-started",
+            "/docs/glorious/getting-started/install-theme",
+            "/docs/glorious/getting-started/updating-theme",
+            "/docs/glorious/getting-started/support-policy",
+            "/docs/glorious/getting-started/refund-policy"
+        ],
+        "keywords": [
+            "installation",
+            "configuration",
+            "launch"
+        ],
+        "content": "Learn how to install the theme, configure settings and launch your store quickly."
+    },
+    {
+        "title": "Theme Settings",
+        "urls": [
+            "/docs/glorious/mega-menu"
+        ],
+        "keywords": [
+            "mega menu",
+            "navigation",
+            "dropdown"
+        ],
+        "content": "Create powerful navigation menus using blocks and customize dropdown layouts."
+    },
+    {
+        "title": "Mega Menu Setup",
+        "urls": [
+            "/docs/glorious/mega-menu"
+        ],
+        "keywords": [
+            "mega menu",
+            "navigation",
+            "dropdown"
+        ],
+        "content": "Create powerful navigation menus using blocks and customize dropdown layouts."
+    }
+]

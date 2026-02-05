@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Uniweb Themes - Premium Shopify Themes</title>
+    <title>Modern SaaS Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preload" href="/search/search-glorious.json" as="fetch" crossorigin>
 
     <!-- Font <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 -->
@@ -17,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
         rel="stylesheet">
-    <!--<script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=UPQYjPVYkYqO"></script>-->
 </head>
 
 <body class="bg-white text-gray-900">
@@ -169,7 +169,7 @@
 
                             <!-- LEFT LIST -->
                             <div class="space-y-4">
-                                <a href="/docs/glorious/index"
+                                <a href="glorious/index"
                                     class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
                                     <div class="flex items-center gap-3">
                                         <div
@@ -324,11 +324,276 @@
     </header>
     <!-- ================= HERO ================= -->
     <section class="section-bg from-orange-50 to-white">
-        <div class="max-w-8xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-9xl mx-auto p-[100px] grid md:grid-cols-1 gap-16 text-center items-center">
             <div class="reveal">
-                <h1 class="text-4xl md:text-6xl font-semibold md:leading-tight">
+                <h2 class="kb-title text-6xl font-semibold reveal">
+                    Help Center for <span>Glorious</span> Theme
+                </h2>
+                <p class="mt-6 text-gray-600 max-w-3xl text-center mx-auto">
+                    High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
+                </p>
+                <!-- SEARCH BAR -->
+                <div class="from-orange-50 to-white p-6 mt-10">
+                    <div class="max-w-2xl mx-auto">
+                        <div class="relative">
+                            <input id="glorious-search-input" type="search" placeholder="Search for answers"
+                                autocomplete="off"
+                                class="w-full h-14 pl-6 pr-14 rounded-full bg-white placeholder-gray-500 
+               focus:outline-none focus:ring-2 focus:ring-white/60 border border-gray-50 focus:border-orange-300 outline-none shadow-sm" />
+                            <!-- Search Button -->
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 
+               flex items-center justify-center
+               w-10 h-10 rounded-md 
+               text-gray-500 hover:text-gray-700
+               transition">
+
+                                <!-- SVG Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================= Index ================= -->
+
+    <section class="kb-empower-section">
+        <div class="kb-container">
+            <!-- Cards -->
+            <div class="kb-grid">
+
+                <!-- Card 1 -->
+                <div class="kb-card reveal">
+                    <div class="kb-image">
+                        <img src="/assets/getting-started.png" alt="Getting Started">
+                    </div>
+                    <h3>Getting Started</h3>
+                    <p>
+                        Install, design, & launch your store quickly
+                        with Glorious Theme.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="kb-card reveal" style="transition-delay:.1s">
+                    <div class="kb-image">
+                        <img src="/assets/global-sections.png" alt="Global Sections">
+                    </div>
+                    <h3>Global Sections</h3>
+                    <p>
+                        Design & Customize your store's global sections like headers and footers visually.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="kb-card reveal" style="transition-delay:.2s">
+                    <div class="kb-image">
+                        <img src="/assets/theme-sections.png" alt="Theme Sections">
+                    </div>
+                    <h3>Theme Sections</h3>
+                    <p>
+                        Design & Customize your store's theme sections like home page, product page, collection page
+                        visually.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="kb-card reveal">
+                    <div class="kb-image">
+                        <img src="/assets/theme-settings.png" alt="Theme Settings">
+                    </div>
+                    <h3>Theme Settings</h3>
+                    <p>
+                        Customize colors, fonts, layout, and design throughout your store.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="kb-card reveal" style="transition-delay:.1s">
+                    <div class="kb-image">
+                        <img src="/assets/collections-products.png" alt="Collections & Products">
+                    </div>
+                    <h3>Collections & Products</h3>
+                    <p>
+                        Design collection & product pages to showcase your products effectively.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="kb-card reveal" style="transition-delay:.2s">
+                    <div class="kb-image">
+                        <img src="/assets/other-pages.png" alt="Other Pages">
+                    </div>
+                    <h3>Other Pages</h3>
+                    <p>
+                        Skyrocket your sales & revenue with
+                        all-in-one sales boost app.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid lg:grid-cols-12 gap-12">
+
+            <!-- ================= LEFT ANCHORS ================= -->
+            <aside class="lg:col-span-3 hidden lg:block">
+                <div class="sticky top-28">
+                    <p class="text-sm font-semibold mb-4">On this page</p>
+
+                    <nav id="toc" class="space-y-2 text-sm relative">
+                        <a href="#intro" class="toc-link active">
+                            <span class="bar"></span> On-Page SEO Guide for Your Shopify Stores
+                        </a>
+
+                        <a href="#intent" class="toc-link">
+                            <span class="bar"></span> Optimize for search intent & semantic relevance
+                        </a>
+
+                        <a href="#content" class="toc-link">
+                            <span class="bar"></span> Elevate on-page SEO content
+                        </a>
+
+                        <a href="#aeo" class="toc-link">
+                            <span class="bar"></span> Structure content for AI-generated search (AEO)
+                        </a>
+
+                        <a href="#schema" class="toc-link">
+                            <span class="bar"></span> Build structured data (Schema)
+                        </a>
+
+                        <a href="#ux" class="toc-link">
+                            <span class="bar"></span> Improve UX, speed & Core Web Vitals
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- ================= MAIN CONTENT ================= -->
+            <article class="lg:col-span-6 space-y-16">
+
+                <!-- INTRO -->
+                <section id="intro" class="reveal">
+                    <p class="italic text-gray-700 mb-4">
+                        <strong>Is SEO really worth it for Shopify today?</strong> Yes, more than ever.
+                    </p>
+
+                    <p class="text-gray-700 leading-relaxed">
+                        As search behavior shifts toward AI-generated answers (SGE, Copilot),
+                        Shopify SEO must evolve. This guide walks merchants through modern
+                        strategies to boost visibility, engagement, and conversions.
+                    </p>
+
+                    <ul class="mt-6 space-y-2 list-disc list-inside text-gray-700">
+                        <li>Optimize product pages with intent-driven content</li>
+                        <li>Implement structured data for FAQs & products</li>
+                        <li>Audit Core Web Vitals regularly</li>
+                        <li>Ensure fast mobile-first UX</li>
+                    </ul>
+                </section>
+
+                <!-- IMAGE -->
+                <div class="reveal rounded-2xl overflow-hidden bg-black p-4">
+                    <img src="https://dummyimage.com/900x480/f5b38a/000000" alt="SEO preview" class="rounded-xl">
+                </div>
+
+                <!-- SECTION -->
+                <section id="intent" class="reveal">
+                    <h2 class="text-3xl font-extrabold mb-4">
+                        Optimize for search intent & semantic relevance
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Modern SEO focuses on understanding what users actually want.
+                        Shopify merchants must map content to informational, commercial,
+                        and transactional intent.
+                    </p>
+                </section>
+
+                <section id="content" class="reveal">
+                    <h2 class="text-3xl font-extrabold mb-4">
+                        Elevate on-page SEO content
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        High-quality content means clarity, depth, and structure.
+                        Avoid keyword stuffing and focus on topical authority.
+                    </p>
+                </section>
+
+                <section id="aeo" class="reveal">
+                    <h2 class="text-3xl font-extrabold mb-4">
+                        Structure content for AI-generated search (AEO)
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        AI answers favor clean headings, concise paragraphs,
+                        bullet lists, and schema-backed content.
+                    </p>
+                </section>
+
+                <section id="schema" class="reveal">
+                    <h2 class="text-3xl font-extrabold mb-4">
+                        Build structured data (Schema)
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Schema improves eligibility for rich results,
+                        FAQs, and AI-powered previews.
+                    </p>
+                </section>
+
+                <section id="ux" class="reveal">
+                    <h2 class="text-3xl font-extrabold mb-4">
+                        Improve UX, speed & Core Web Vitals
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Page speed, interactivity, and layout stability
+                        directly impact rankings and conversions.
+                    </p>
+                </section>
+
+            </article>
+
+            <!-- ================= RIGHT SIDEBAR ================= -->
+            <aside class="lg:col-span-3">
+                <div class="sticky top-28 space-y-10">
+
+                    <!-- NEWSLETTER -->
+                    <div class="rounded-2xl p-6 bg-gradient-to-br from-orange-200 to-orange-300">
+                        <h3 class="text-xl font-bold mb-2">
+                            Get the latest eCommerce news & practices
+                        </h3>
+                        <p class="text-sm mb-4">
+                            Curated trends, analysis & best tips.
+                        </p>
+
+                        <input type="email" placeholder="Your email"
+                            class="w-full mb-3 px-4 py-3 rounded-lg outline-none">
+
+                        <button class="w-full bg-black text-white py-3 rounded-lg font-semibold">
+                            Subscribe
+                        </button>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+
+    <section class="bg-gradient-to-br from-orange-50 to-white">
+        <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
                     Premium Themes.<br>
-                    Build Easily.<br>
+                    Build Smart.<br>
                     <span class="text-orange-500">Win Big.</span>
                 </h1>
                 <p class="mt-6 text-gray-600 max-w-lg">
@@ -336,7 +601,7 @@
                 </p>
                 <div class="mt-8 flex gap-4">
                     <button
-                        class="bg-orange-500 text-white bg-gradient-btn px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+                        class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
                         Browse Themes
                     </button>
                     <button
@@ -378,7 +643,7 @@
             <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
                 <h3 class="font-semibold text-lg">Easy Customization</h3>
                 <p class="mt-3 text-gray-600 text-sm">
-                    No code required. Build stores visually impactable with ease.
+                    No code required. Build stores visually with ease.
                 </p>
             </div>
         </div>
@@ -625,6 +890,7 @@
         </div>
     </section>
     <!-- ================= BACK TO TOP SCROLL ================= -->
+    <!-- Back To Top Button -->
     <button id="backToTop" class="fixed left-1/2 -translate-x-1/2 bottom-8 
            opacity-0 pointer-events-none
            transition-all duration-500
@@ -652,26 +918,7 @@
         </div>
     </footer>
 
-    <!-- ================= JS: SCROLL ANIMATION ================= -->
-
     <script src="/assets/script.js?v=0.0.06" defer></script>
-    <script defer>
-        /***** Chatwoot *****/
-        (function (d, t) {
-            var BASE_URL = "https://srv1267364.hstgr.cloud";
-            var g = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-            g.src = BASE_URL + "/packs/js/sdk.js";
-            g.async = true;
-            s.parentNode.insertBefore(g, s);
-            g.onload = function () {
-                window.chatwootSDK.run({
-                    websiteToken: "Reioogm8okSEw3WT44dUNeYf",
-                    baseUrl: BASE_URL,
-                });
-            };
-        })(document, "script");
-    </script>
 
 </body>
 

@@ -1,18 +1,19 @@
 body {
-      font-family: 'Google Sans Flex', sans-serif;
-    }
+    font-family: 'Google Sans Flex', sans-serif;
+}
 
-    /* Scroll animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: all 0.7s ease;
-    }
+/* Scroll animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.7s ease;
+}
 
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 header {
     background: linear-gradient(90deg,
             #000000 0%,
@@ -22,9 +23,11 @@ header {
             #6b2a00 100%);
 
 }
+
 .section-bg {
     background-color: #FEF1E8;
 }
+
 .bg-gradient-btn {
     background: linear-gradient(90deg,
             #050302 0%,
@@ -39,12 +42,15 @@ header {
     width: 150px;
     aspect-ratio: 4 / 1;
 }
+
 .max-w-8xl {
     max-width: 90rem
 }
+
 .max-w-9xl {
     max-width: 100rem
 }
+
 /* Container */
 .kb-empower-section {
     padding: 100px 24px;
@@ -107,9 +113,11 @@ header {
 .kb-card.mint {
     background: #e2f5ea;
 }
+
 .kb-card p {
     padding: 0px 24px;
 }
+
 /* Images */
 .kb-image {
     border-top-left-radius: 20px;
@@ -182,19 +190,59 @@ header {
 
 /* Back to top scroll style */
 #backToTop {
-      background: linear-gradient(90deg,
+    background: linear-gradient(90deg,
             #050302 0%,
             #140902 25%,
             #2a1406 50%,
             #3b1a06 75%,
             #1a0c04 100%);
 }
-   /* Floating animation */
-    @keyframes floatBtn {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+
+/* Floating animation */
+@keyframes floatBtn {
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
-    .float-animation {
-      animation: floatBtn 2.5s ease-in-out infinite;
+    50% {
+        transform: translateY(-6px);
     }
+}
+
+.float-animation {
+    animation: floatBtn 2.5s ease-in-out infinite;
+}
+
+/**** Glorious Search Popover ****/
+.glorious-popover {
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    margin-top: 6px;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.glorious-item {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+    transition: background .15s;
+}
+
+.glorious-item:hover {
+    background: #f6f6f6;
+}
+
+.glorious-empty {
+    padding: 14px;
+    color: #888;
+    font-size: 14px;
+}
