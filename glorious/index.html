@@ -20,9 +20,8 @@
 </head>
 
 <body class="bg-white text-gray-900">
-
   <!-- ================= NAVBAR ================= -->
-  <header class="relative z-50 bg-white border-b pt-3 pb-3 shadow-sm">
+  <header class="relative z-50 bg-white border-b shadow-sm">
     <div class="max-w-8xl mx-auto px-6 py-4 flex items-center justify-between">
 
       <!-- Logo 
@@ -31,18 +30,18 @@
       </div> -->
 
 
-      <a href="/index" class="group block rounded-xl bg-gray-100 hover:shadow-lg transition">
+      <a href="/index" class="group block rounded-xl transition">
 
         <!-- 4:1 Aspect Ratio Container -->
         <div class="logo relative aspect-[4/1]">
           <img height="75" width="300" src="/assets/uniweb--logo.png" alt="Navigation banner"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-300" />
         </div>
 
       </a>
 
       <!-- Nav -->
-      <nav class="flex items-center gap-10 text-sm font-medium">
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
         <button id="themesBtn" class="flex items-center text-white gap-1 hover:text-orange-500">
           Themes
           <span class="text-xs">▾</span>
@@ -52,216 +51,311 @@
           <span class="text-xs">▾</span>
         </button>
         <a href="blog/blog-index.html" class="text-white">Blog</a>
-        <a href="blog/blog-index.html" class="bg-white text-black p-2 pl-5 pr-5 rounded-full">Contact Support</a>
+        <a href="submit-ticket" class="bg-white text-black p-2 pl-5 pr-5 rounded-full">Contact Support</a>
       </nav>
-    </div>
 
-    <!-- ================= THEMES MEGA MENU ================= -->
-    <div id="themesmegaMenu"
-      class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
-      <div class="max-w-8xl mx-auto px-6 py-10">
-        <div
-          class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+      <!-- ================= THEMES MEGA MENU ================= -->
+      <div id="themesmegaMenu"
+        class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
+        <div class="max-w-8xl mx-auto px-6 py-10">
+          <div
+            class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
 
-          <div class="grid lg:grid-cols-3 gap-10 p-10">
+            <div class="grid lg:grid-cols-3 gap-10 p-10">
 
-            <!-- LEFT LIST -->
-            <div class="space-y-4">
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    F
+              <!-- LEFT LIST -->
+              <div class="space-y-4">
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      F
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
                   </div>
-                  <div>
-                    <p class="font-semibold">Glorious</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+                  →
                 </div>
-                →
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      K
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glisten</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                      H
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                      M
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
               </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    K
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+              <!-- RIGHT PREVIEW -->
+              <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+                <div class="grid grid-cols-2 gap-4">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
                 </div>
-                →
-              </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
-                    H
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
+                <div class="max-w-sm">
+                  <p class="text-sm text-gray-600 mb-2">Zest</p>
+                  <h3 class="text-2xl font-extrabold">
+                    Shopify Theme to
+                    <span class="text-orange-500">Dominate M-Commerce</span>
+                  </h3>
                 </div>
-                →
-              </div>
-
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
-                    M
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
-                </div>
-                →
               </div>
             </div>
-
-            <!-- RIGHT PREVIEW -->
-            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
-              <div class="grid grid-cols-2 gap-4">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-              </div>
-
-              <div class="max-w-sm">
-                <p class="text-sm text-gray-600 mb-2">Zest</p>
-                <h3 class="text-2xl font-extrabold">
-                  Shopify Theme to
-                  <span class="text-orange-500">Dominate M-Commerce</span>
-                </h3>
-              </div>
+            <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a
+                custom app
+                and exclusively installable in your store and only for those who bought our themes <a
+                  href="/theme-extension-packs.html"
+                  class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
+                  more
+                </a>
+              </span>
             </div>
-          </div>
-          <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a custom app
-              and exclusively installable in your store and only for those who bought our themes <a
-                href="/theme-extension-packs.html"
-                class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
-                more
-              </a>
-            </span>
           </div>
         </div>
       </div>
+
+      <!-- ================= HELP CENTER MEGA MENU ================= -->
+      <div id="helpcentermegaMenu"
+        class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
+        <div class="max-w-8xl mx-auto px-6 py-10">
+          <div
+            class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+
+            <div class="grid lg:grid-cols-3 gap-10 p-10">
+
+              <!-- LEFT LIST -->
+              <div class="space-y-4">
+                <a href="glorious/index"
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      G
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
+                  </div>
+                  →
+                </a>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      B
+                    </div>
+                    <div>
+                      <p class="font-semibold">Bliss</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                      H
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious Theme Extender <sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                      M
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glisten Theme Extender <sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+              </div>
+
+              <!-- RIGHT PREVIEW -->
+              <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+                <div class="grid grid-cols-2 gap-4">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                </div>
+
+                <div class="max-w-sm">
+                  <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
+                  <h3 class="text-2xl font-extrabold">
+                    A well designed extension pack to
+                    <span class="text-orange-500">fully customize your store using Shopify's Native
+                      API's and
+                      Extensions</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a
+                custom app
+                and exclusively installable in your store and only for those who bought our themes <a
+                  href="/theme-extension-packs.html"
+                  class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
+                  more</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== MOBILE MENU ========== -->
+
+      <!-- ========== HAMBURGER ========== -->
+      <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+
+        <!-- Hamburger SVG -->
+        <svg id="hamburgerIcon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+      </button>
     </div>
 
-    <!-- ================= HELP CENTER MEGA MENU ================= -->
-    <div id="helpcentermegaMenu"
-      class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
-      <div class="max-w-8xl mx-auto px-6 py-10">
-        <div
-          class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
 
-          <div class="grid lg:grid-cols-3 gap-10 p-10">
+    <!-- ========== MOBILE MENU ========== -->
 
-            <!-- LEFT LIST -->
-            <div class="space-y-4">
-              <a href="glorious/index"
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    G
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
-                </div>
-                →
-              </a>
+    <div id="mobileMenu" class="md:hidden absolute left-0 right-0 top-full
+           bg-white border-b shadow-lg
+           opacity-0 -translate-y-3 pointer-events-none
+           transition-all duration-300">
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    B
-                  </div>
-                  <div>
-                    <p class="font-semibold">Bliss</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
-                </div>
-                →
-              </div>
+      <div class="px-6 py-6 space-y-4">
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
-                    H
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious Theme Extender <sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
-                </div>
-                →
-              </div>
+        <!-- THEMES -->
+        <button class="mobileDropdown w-full flex justify-between items-center font-semibold">
+          Themes
+          <span>+</span>
+        </button>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
-                    M
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten Theme Extender <sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
-                </div>
-                →
-              </div>
-            </div>
-
-            <!-- RIGHT PREVIEW -->
-            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
-              <div class="grid grid-cols-2 gap-4">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-              </div>
-
-              <div class="max-w-sm">
-                <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
-                <h3 class="text-2xl font-extrabold">
-                  A well designed extension pack to
-                  <span class="text-orange-500">fully customize your store using Shopify's Native API's and
-                    Extensions</span>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a custom app
-              and exclusively installable in your store and only for those who bought our themes <a
-                href="/theme-extension-packs.html"
-                class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
-                more</a></span></div>
+        <div class="dropdownContent hidden pl-4 space-y-3 text-gray-600">
+          <a href="#">Glorious</a>
+          <a href="#">Glisten</a>
+          <a href="#">Theme Extender</a>
         </div>
+
+
+        <!-- HELP CENTER -->
+        <button class="mobileDropdown w-full flex justify-between items-center font-semibold">
+          Help Center
+          <span>+</span>
+        </button>
+
+        <div class="dropdownContent hidden pl-4 space-y-3 text-gray-600">
+          <a href="#">Docs</a>
+          <a href="#">Support</a>
+          <a href="#">Guides</a>
+        </div>
+
+
+        <a href="blog/blog-index.html" class="block font-semibold">
+          Blog
+        </a>
+
+        <a href="submit-ticket" class="block text-center bg-black text-white py-3 rounded-full mt-4">
+          Contact Support
+        </a>
+
       </div>
     </div>
   </header>
+  <!-- ================= HERO ================= -->
+  <section class="section-bg from-orange-50 to-white">
+    <div class="max-w-9xl mx-auto p-[100px] grid md:grid-cols-1 gap-16 text-center items-center">
+      <div class="reveal">
+        <h2 class="kb-title text-6xl font-semibold reveal">
+          Help Center for <span>Glorious</span> Theme
+        </h2>
+        <p class="mt-6 text-gray-600 max-w-3xl text-center mx-auto">
+          High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
+        </p>
+        <!-- SEARCH BAR -->
+        <div class="from-orange-50 to-white p-6 mt-10">
+          <div class="max-w-2xl mx-auto">
+            <div class="relative">
+              <input type="search" placeholder="Search for answers"
+                class="w-full h-14 pl-6 pr-14 rounded-full bg-white placeholder-gray-500 
+               focus:outline-none focus:ring-2 focus:ring-white/60 border border-gray-50 focus:border-orange-300 outline-none shadow-sm" />
+              <!-- Search Button -->
+              <button class="absolute right-2 top-1/2 -translate-y-1/2 
+               flex items-center justify-center
+               w-10 h-10 rounded-md 
+               text-gray-500 hover:text-gray-700
+               transition">
 
+                <!-- SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+                </svg>
 
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- ================= Index ================= -->
 
   <section class="kb-empower-section">
     <div class="kb-container">
-
-      <!-- Heading -->
-      <h2 class="kb-title text-6xl font-semibold reveal">
-        Help Center for <span>Glorious</span> Theme
-      </h2>
-
       <!-- Cards -->
       <div class="kb-grid">
 

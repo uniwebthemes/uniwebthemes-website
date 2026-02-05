@@ -61,7 +61,7 @@ header {
 .kb-title {
     font-size: 44px;
     font-weight: 800;
-    margin-bottom: 64px;
+    margin-bottom: 40px;
 }
 
 .kb-title span {
@@ -85,7 +85,7 @@ header {
 /* Cards */
 .kb-card {
     border-radius: 20px;
-    padding: 28px 28px 36px;
+    padding: 0px 0px 36px 0px;
     transition: transform .35s ease, box-shadow .35s ease;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
@@ -107,10 +107,13 @@ header {
 .kb-card.mint {
     background: #e2f5ea;
 }
-
+.kb-card p {
+    padding: 0px 24px;
+}
 /* Images */
 .kb-image {
-    border-radius: 14px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
     overflow: hidden;
     margin-bottom: 28px;
 }
