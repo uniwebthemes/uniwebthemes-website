@@ -44,15 +44,33 @@
         ],
         "content": "Learn how to install the theme, configure settings and launch your store quickly."
     },
+     {
+        "title": "Policies",
+        "urls": [
+            "/docs/glorious/policies/support-policy",
+            "/docs/glorious/policies/refund-policy",
+            "/docs/glorious/policies/privacy-policy"
+        ],
+        "keywords": [
+            "privacy",
+            "support",
+            "refund",
+            "privacy policy",
+            "support policy",
+            "refund policy"
+        ],
+        "content": "Learn more about our policies - Privacy, Support, Refund."
+    },
     {
         "title": "Theme Settings",
         "urls": [
-            "/docs/glorious/mega-menu"
+            "/docs/glorious/theme-settings"
         ],
         "keywords": [
-            "mega menu",
-            "navigation",
-            "dropdown"
+            "colors",
+            "typography",
+            "font",
+            "mobile navigation"
         ],
         "content": "Create powerful navigation menus using blocks and customize dropdown layouts."
     },
