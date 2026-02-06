@@ -1,0 +1,176 @@
+<head>
+<style>
+    body{
+  background:#f4f6f8;
+  display:flex;
+  justify-content:center;
+  padding:80px;
+  font-family:sans-serif;
+}
+
+/* container */
+.carousel{
+  width:100%;
+  max-width:1100px;
+  overflow:hidden;
+  cursor:grab;
+}
+
+.carousel:active{
+  cursor:grabbing;
+}
+
+/* track */
+.track{
+  display:flex;
+  gap:28px;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+/* cards */
+.card{
+  flex:0 0 260px;
+  height:420px;
+  border-radius:22px;
+  overflow:hidden;
+  background:#ddd;
+
+  transform:scale(.85);
+  opacity:.5;
+  transition:transform .35s, opacity .35s;
+}
+
+/* centered card */
+.card.active{
+  transform:scale(1);
+  opacity:1;
+}
+
+/* images */
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  pointer-events:none;
+  user-select:none;
+}
+
+</style>
+</head>
+
+<body>
+    <div class="carousel">
+        <div class="track">
+
+            <div class="card"><img src="https://picsum.photos/300/420?1"></div>
+            <div class="card"><img src="https://picsum.photos/300/420?2"></div>
+            <div class="card"><img src="https://picsum.photos/300/420?3"></div>
+            <div class="card"><img src="https://picsum.photos/300/420?4"></div>
+            <div class="card"><img src="https://picsum.photos/300/420?5"></div>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    const carousel = document.querySelector(".carousel");
+const track = document.querySelector(".track");
+const cards = [...document.querySelectorAll(".card")];
+
+let isDragging = false;
+let startX;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID;
+
+/* ---------- DRAG ---------- */
+
+carousel.addEventListener("mousedown", startDrag);
+window.addEventListener("mouseup", stopDrag);
+window.addEventListener("mousemove", drag);
+
+function startDrag(e){
+  isDragging = true;
+  startX = e.clientX;
+  carousel.style.cursor = "grabbing";
+}
+
+function drag(e){
+  if(!isDragging) return;
+
+  const dx = e.clientX - startX;
+  currentTranslate = prevTranslate + dx;
+
+  track.style.transform = `translateX(${currentTranslate}px)`;
+
+  updateActive();
+}
+
+function stopDrag(){
+  if(!isDragging) return;
+
+  isDragging = false;
+  prevTranslate = currentTranslate;
+  carousel.style.cursor = "grab";
+
+  snapToCenter();
+}
+
+/* ---------- SNAP ---------- */
+
+function snapToCenter(){
+
+  const carouselCenter = carousel.offsetWidth / 2;
+
+  let closestIndex = 0;
+  let closestDistance = Infinity;
+
+  cards.forEach((card, i)=>{
+    const rect = card.getBoundingClientRect();
+    const cardCenter = rect.left + rect.width / 2;
+    const distance = Math.abs(carouselCenter - cardCenter);
+
+    if(distance < closestDistance){
+      closestDistance = distance;
+      closestIndex = i;
+    }
+  });
+
+  const card = cards[closestIndex];
+  const offset =
+    card.offsetLeft +
+    card.offsetWidth/2 -
+    carousel.offsetWidth/2;
+
+  currentTranslate = -offset;
+  prevTranslate = currentTranslate;
+
+  track.style.transform = `translateX(${currentTranslate}px)`;
+
+  updateActive();
+}
+
+/* ---------- ACTIVE SCALE ---------- */
+
+function updateActive(){
+
+  const carouselCenter = carousel.offsetWidth / 2;
+
+  cards.forEach(card=>{
+    const rect = card.getBoundingClientRect();
+    const cardCenter = rect.left + rect.width/2;
+
+    const distance = Math.abs(carouselCenter - cardCenter);
+
+    if(distance < 120){
+      card.classList.add("active");
+    }else{
+      card.classList.remove("active");
+    }
+  });
+}
+
+/* initial center */
+window.addEventListener("load", snapToCenter);
+
+</script>

@@ -22,5 +22,57 @@
     {
         "url": "/docs/glorious/getting-started/update-theme",
         "title": "Update Theme"
+    },
+    {
+        "url": "/docs/glorious/policies/privacy-policy",
+        "title": "Privacy Policy"
+    },
+    {
+        "url": "/docs/glorious/policies/refund-policy",
+        "title": "Refund Policy"
+    },
+    {
+        "url": "/docs/glorious/policies/support-policy",
+        "title": "Support Policy"
+    },
+    {
+        "url": "/docs/glorious/getting-started/announcement-bar",
+        "title": "Announcement Bar"
+    },
+    {
+        "url": "/docs/glorious/sections/collection-list",
+        "title": "Collection List"
+    },
+    {
+        "url": "/docs/glorious/sections/featured-collection",
+        "title": "Featured Collection"
+    },
+    {
+        "url": "/docs/glorious/sections/featured-product",
+        "title": "Featured Product"
+    },
+    {
+        "url": "/docs/glorious/sections/footer",
+        "title": "Footer"
+    },
+    {
+        "url": "/docs/glorious/sections/header",
+        "title": "Header"
+    },
+    {
+        "url": "/docs/glorious/sections/image-with-text",
+        "title": "Image with Text"
+    },
+    {
+        "url": "/docs/glorious/sections/image-with-text-overlay",
+        "title": "Image with Text Overlay"
+    },
+    {
+        "url": "/docs/glorious/sections/logo-list",
+        "title": "Logo List"
+    },
+    {
+        "url": "/docs/glorious/sections/slideshow",
+        "title": "Slideshow"
     }
 ]
