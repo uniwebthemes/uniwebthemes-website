@@ -339,121 +339,124 @@
   <!-- ================= BLOGS SLIDER ================= -->
 
   <section class="max-w-7xl mx-auto px-6 py-20">
+    <blog-slider>
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+          Recent Articles
+        </h2>
 
-    <!-- Header -->
-    <div class="flex items-center justify-between mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
-        Recent Articles
-      </h2>
+        <div class="flex gap-3">
+          <button id="prev"
+            class="arrow-btn arrow-left w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
 
-      <div class="flex gap-3">
-        <button id="prev"
-          class="arrow-btn arrow-left w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-
-        <button id="next"
-          class="arrow-btn w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+          <button id="next"
+            class="arrow-btn w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <!-- Slider -->
-    <div class="overflow-hidden relative">
+      <!-- Slider -->
+      <div class="overflow-hidden relative">
 
-      <div id="track" class="slider-track flex gap-8 p-10">
+        <div id="track" class="slider-track flex gap-8">
 
-        <!-- Card -->
-        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
-          <a href="/blog/how-our-custom-apps-helps-you.html" class="rounded-2xl overflow-hidden shadow-sm bg-white">
-            <div class="overflow-hidden">
-              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+          <!-- Card -->
+          <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+            <a href="/blog/how-our-custom-apps-helps-you.html" class="rounded-2xl overflow-hidden shadow-sm bg-white">
+              <div class="overflow-hidden">
+                <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+              </div>
+
+              <div class="p-6">
+                <span class="text-sm bg-orange-100 text-orange-600 px-3 py-1 rounded-full font-medium">
+                  News & Updates
+                </span>
+
+                <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                  5 Upgrades in Shopify Summer Edition 2025 That Our Team Tested
+                </h3>
+
+                <p class="text-gray-500 mt-3">June 4, 2025</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card -->
+          <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+            <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+              <div class="overflow-hidden">
+                <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+              </div>
+
+              <div class="p-6">
+                <span class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">
+                  Growth & Sales
+                </span>
+
+                <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                  Convert Figma to Shopify in 1‑Click, 98% Precision and speed
+                </h3>
+
+                <p class="text-gray-500 mt-3">May 8, 2025</p>
+              </div>
             </div>
+          </article>
 
-            <div class="p-6">
-              <span class="text-sm bg-orange-100 text-orange-600 px-3 py-1 rounded-full font-medium">
-                News & Updates
-              </span>
+          <!-- Card -->
+          <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+            <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+              <div class="overflow-hidden">
+                <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+              </div>
 
-              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
-                5 Upgrades in Shopify Summer Edition 2025 That Our Team Tested
-              </h3>
+              <div class="p-6">
+                <span class="text-sm bg-green-100 text-green-600 px-3 py-1 rounded-full font-medium">
+                  Design
+                </span>
 
-              <p class="text-gray-500 mt-3">June 4, 2025</p>
+                <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                  A Detailed Shopify Review: Is Shopify Still Worth It in 2025?
+                </h3>
+
+                <p class="text-gray-500 mt-3">August 8, 2025</p>
+              </div>
             </div>
-          </a>
-        </article>
+          </article>
 
-        <!-- Card -->
-        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
-          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
-            <div class="overflow-hidden">
-              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+          <!-- Extra card for smooth sliding -->
+          <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+            <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+              <div class="overflow-hidden">
+                <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+              </div>
+
+              <div class="p-6">
+                <span class="text-sm bg-purple-100 text-purple-600 px-3 py-1 rounded-full font-medium">
+                  Strategy
+                </span>
+
+                <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                  10 Conversion Strategies High‑Growth Shopify Brands Use
+                </h3>
+
+                <p class="text-gray-500 mt-3">Sept 12, 2025</p>
+              </div>
             </div>
+          </article>
 
-            <div class="p-6">
-              <span class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">
-                Growth & Sales
-              </span>
-
-              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
-                Convert Figma to Shopify in 1‑Click, 98% Precision and speed
-              </h3>
-
-              <p class="text-gray-500 mt-3">May 8, 2025</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card -->
-        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
-          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
-            <div class="overflow-hidden">
-              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
-            </div>
-
-            <div class="p-6">
-              <span class="text-sm bg-green-100 text-green-600 px-3 py-1 rounded-full font-medium">
-                Design
-              </span>
-
-              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
-                A Detailed Shopify Review: Is Shopify Still Worth It in 2025?
-              </h3>
-
-              <p class="text-gray-500 mt-3">August 8, 2025</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Extra card for smooth sliding -->
-        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
-          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
-            <div class="overflow-hidden">
-              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
-            </div>
-
-            <div class="p-6">
-              <span class="text-sm bg-purple-100 text-purple-600 px-3 py-1 rounded-full font-medium">
-                Strategy
-              </span>
-
-              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
-                10 Conversion Strategies High‑Growth Shopify Brands Use
-              </h3>
-
-              <p class="text-gray-500 mt-3">Sept 12, 2025</p>
-            </div>
-          </div>
-        </article>
-
+        </div>
       </div>
-    </div>
+    </blog-slider>
   </section>
 
   <!-- ================= BLOG ARTICLE ================= -->
@@ -836,8 +839,8 @@
   </section>
   <!-- ================= BACK TO TOP SCROLL ================= -->
   <!-- Back To Top Button -->
-  <button id="backToTop" class="fixed left-1/2 -translate-x-1/2 bottom-8 
-           opacity-0 pointer-events-none
+  <div class="fixed left-1/2 bottom-8 -translate-x-1/2 z-50">
+    <button id="backToTop" class="opacity-0 pointer-events-none
            transition-all duration-500
            backdrop-blur-lg bg-white/10
            border border-white/20
@@ -847,8 +850,9 @@
            hover:scale-110 hover:bg-white/20
            float-animation">
 
-    ↑ Back to Top
-  </button>
+      ↑ Back to Top
+    </button>
+  </div>
   <!-- ================= FOOTER ================= -->
   <footer class="border-t">
     <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-6">

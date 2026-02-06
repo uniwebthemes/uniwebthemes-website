@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Theme Changelog</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+theme:{
+extend:{
+colors:{
+brand:"#ff6a00",
+soft:"#f6f7fb"
+},
+boxShadow:{
+soft:"0 10px 30px rgba(0,0,0,.06)"
+}
+}
+}
+}
+</script>
+
+<style>
+
+/* smooth scrolling */
+html{
+scroll-behavior:smooth;
+}
+
+/* slider arrows animation */
+.arrow-btn{
+transition:all .25s ease;
+}
+
+.arrow-btn:hover{
+transform:translateY(-4px) scale(1.05);
+}
+
+/* version card hover */
+.version-card{
+transition:.25s;
+}
+
+.version-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+/* fade animation */
+.fade-in{
+opacity:0;
+transform:translateY(20px);
+transition:.6s;
+}
+
+.fade-in.show{
+opacity:1;
+transform:none;
+}
+
+</style>
+</head>
+
+<body class="bg-soft">
+
+<!-- HERO -->
+<section class="bg-gradient-to-r from-orange-50 to-white py-14 border-b">
+<div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+
+<div>
+<h1 class="text-4xl font-bold mb-2">
+Theme Changelog 🚀
+</h1>
+
+<p class="text-gray-600">
+Track every improvement, feature, and fix across our themes.
+</p>
+</div>
+
+<button class="bg-brand text-white px-6 py-3 rounded-xl shadow-soft hover:scale-105 transition">
+View Themes
+</button>
+
+</div>
+</section>
+
+
+<!-- MAIN GRID -->
+<div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-12 gap-10">
+
+
+<!-- LEFT NAV -->
+<aside class="col-span-12 lg:col-span-2">
+
+<div class="sticky top-10 bg-white rounded-2xl shadow-soft p-5">
+
+<h3 class="font-semibold mb-4">
+Products
+</h3>
+
+<ul class="space-y-2">
+
+<li class="p-2 rounded-lg hover:bg-orange-50 cursor-pointer">
+Hyper Theme
+</li>
+
+<li class="p-2 rounded-lg hover:bg-orange-50 cursor-pointer">
+Zest Theme
+</li>
+
+<li class="p-2 rounded-lg hover:bg-orange-50 cursor-pointer">
+Sleek Theme
+</li>
+
+<li class="p-2 rounded-lg hover:bg-orange-50 cursor-pointer">
+Minimog Theme
+</li>
+
+<li class="bg-orange-100 text-brand font-semibold p-2 rounded-lg">
+Your Theme
+</li>
+
+</ul>
+
+</div>
+</aside>
+
+
+
+<!-- CONTENT -->
+<main class="col-span-12 lg:col-span-7">
+
+<!-- Slider -->
+<div class="relative mb-10">
+
+<div id="slider"
+class="flex gap-6 overflow-hidden">
+
+<!-- slide -->
+<div class="min-w-full bg-white rounded-2xl p-8 shadow-soft">
+<h2 class="text-2xl font-bold mb-2">
+Version 5.0.0 — AI Layout Generator is Live
+</h2>
+
+<p class="text-gray-500 mb-4">
+Nov 26, 2025
+</p>
+
+<ul class="list-disc ml-6 text-gray-700 space-y-1">
+<li>AI layout generator launched</li>
+<li>Free plan introduced</li>
+<li>New upsell app blocks</li>
+<li>4 new blog templates</li>
+</ul>
+</div>
+
+
+<div class="min-w-full bg-white rounded-2xl p-8 shadow-soft">
+<h2 class="text-2xl font-bold mb-2">
+Version 4.9.0 — Performance Upgrade
+</h2>
+
+<p class="text-gray-500 mb-4">
+Oct 10, 2025
+</p>
+
+<ul class="list-disc ml-6 text-gray-700 space-y-1">
+<li>40% faster page rendering</li>
+<li>Improved mobile CLS</li>
+<li>Lazy image system</li>
+</ul>
+</div>
+
+</div>
+
+
+<!-- arrows -->
+<button onclick="slide(-1)"
+class="arrow-btn absolute -left-6 top-1/2 -translate-y-1/2
+w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center">
+
+←
+</button>
+
+<button onclick="slide(1)"
+class="arrow-btn absolute -right-6 top-1/2 -translate-y-1/2
+w-12 h-12 rounded-full bg-white shadow-xl flex items-center justify-center">
+
+→
+</button>
+
+</div>
+
+
+
+<!-- VERSION LIST -->
+
+<div class="space-y-6">
+
+<!-- card -->
+<div id="v5"
+class="version-card fade-in bg-white p-8 rounded-2xl shadow-soft">
+
+<h2 class="text-2xl font-bold mb-2">
+Version 5.0.0
+</h2>
+
+<p class="text-gray-500 mb-6">
+Major Release
+</p>
+
+<div class="space-y-2 text-gray-700">
+<p>✅ AI section generator</p>
+<p>✅ Global design tokens</p>
+<p>✅ 12 new conversion blocks</p>
+<p>🐞 Bug fixes and performance tuning</p>
+</div>
+
+</div>
+
+
+<div id="v4"
+class="version-card fade-in bg-white p-8 rounded-2xl shadow-soft">
+
+<h2 class="text-2xl font-bold mb-2">
+Version 4.9.0
+</h2>
+
+<p class="text-gray-500 mb-6">
+Performance Update
+</p>
+
+<div class="space-y-2 text-gray-700">
+<p>⚡ Faster LCP</p>
+<p>⚡ Reduced JS payload</p>
+<p>🐞 Fixed cart drawer bug</p>
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<!-- RIGHT NAV -->
+<aside class="col-span-12 lg:col-span-3">
+
+<div class="sticky top-10">
+
+<h3 class="font-semibold mb-4">
+On this page
+</h3>
+
+<ul class="space-y-3 text-gray-600">
+
+<li>
+<a href="#v5" class="hover:text-brand">
+Version 5.0.0
+</a>
+</li>
+
+<li>
+<a href="#v4" class="hover:text-brand">
+Version 4.9.0
+</a>
+</li>
+
+</ul>
+
+</div>
+</aside>
+
+
+</div>
+
+
+
+<script>
+
+/* slider logic */
+
+let index=0;
+const slider=document.getElementById("slider");
+const slides=slider.children;
+
+function slide(dir){
+
+index+=dir;
+
+if(index<0) index=slides.length-1;
+if(index>=slides.length) index=0;
+
+slider.style.transform=`translateX(-${index*100}%)`;
+slider.style.transition="transform .5s ease";
+
+}
+
+
+
+/* fade-in observer */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".fade-in")
+.forEach(el=>observer.observe(el));
+
+</script>
+
+</body>
+</html>

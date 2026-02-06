@@ -889,8 +889,8 @@
     </section>
     <!-- ================= BACK TO TOP SCROLL ================= -->
     <!-- Back To Top Button -->
-    <button id="backToTop" class="fixed left-1/2 -translate-x-1/2 bottom-8 
-           opacity-0 pointer-events-none
+    <div class="fixed left-1/2 bottom-8 -translate-x-1/2 z-50">
+        <button id="backToTop" class="opacity-0 pointer-events-none
            transition-all duration-500
            backdrop-blur-lg bg-white/10
            border border-white/20
@@ -900,8 +900,9 @@
            hover:scale-110 hover:bg-white/20
            float-animation">
 
-        ↑ Back to Top
-    </button>
+            ↑ Back to Top
+        </button>
+    </div>
     <!-- ================= FOOTER ================= -->
     <footer class="border-t">
         <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-6">

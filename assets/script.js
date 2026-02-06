@@ -474,7 +474,7 @@ function setupSearchInput(kbSearch) {
 }
 
 /* BLOG PAGE SPECIFIC JS */
-
+/*
 const track = document.getElementById("track");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
@@ -486,12 +486,13 @@ function getCardWidth() {
   const gap = 32; // gap-8
   return card.offsetWidth + gap;
 }
-
-next.addEventListener("click", () => {
-  const maxIndex = track.children.length - 1;
-  if (_blog_index < maxIndex) _blog_index++;
-  track.style.transform = `translateX(-${_blog_index * getCardWidth()}px)`;
-});
+if (next) {
+  next.addEventListener("click", () => {
+    const maxIndex = track.children.length - 1;
+    if (_blog_index < maxIndex) _blog_index++;
+    track.style.transform = `translateX(-${_blog_index * getCardWidth()}px)`;
+  });
+}
 
 prev.addEventListener("click", () => {
   if (_blog_index > 0) _blog_index--;
@@ -510,7 +511,75 @@ track.addEventListener("touchend", (e) => {
 
   if (diff > 50) next.click();
   if (diff < -50) prev.click();
-});
+});*/
+
+class BlogSlider extends HTMLElement {
+  constructor() {
+    super();
+
+    // bind methods so "this" always refers to the component
+    this.handleNext = this.handleNext.bind(this);
+    this.handlePrev = this.handlePrev.bind(this);
+    this._blog_index = 0;
+  }
+
+  getCardWidth() {
+    const card = track.querySelector("article");
+    const gap = 32; // gap-8
+    return card.offsetWidth + gap;
+  }
+
+  connectedCallback() {
+    // Runs when element is added to DOM
+    this.nextBtn = this.querySelector("#next");
+    this.prevBtn = this.querySelector("#prev");
+
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener("click", this.handleNext);
+    }
+
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener("click", this.handlePrev);
+    }
+  }
+
+  disconnectedCallback() {
+    // Clean up listeners (important for theme editor reloads)
+    if (this.nextBtn) {
+      this.nextBtn.removeEventListener("click", this.handleNext);
+    }
+
+    if (this.prevBtn) {
+      this.prevBtn.removeEventListener("click", this.handlePrev);
+    }
+  }
+
+  handleNext() {
+    this.slide("next");
+  }
+
+  handlePrev() {
+    this.slide("prev");
+  }
+
+  slide(direction) {
+    //console.log(`Sliding ${direction}`);
+
+    // 👉 Put your slider logic here
+    // Example:
+    // this.track.scrollBy({ left: 300, behavior: "smooth" });
+    if (direction == "next") {
+      const maxIndex = track.children.length - 1;
+      if (this._blog_index < maxIndex) this._blog_index++;
+      track.style.transform = `translateX(-${this._blog_index * this.getCardWidth()}px)`;
+    } else {
+      if (this._blog_index > 0) this._blog_index--;
+      track.style.transform = `translateX(-${this._blog_index * this.getCardWidth()}px)`;
+    }
+  }
+}
+
+customElements.define("blog-slider", BlogSlider);
 
 // Staggered reveal animation
 window.addEventListener("DOMContentLoaded", () => {

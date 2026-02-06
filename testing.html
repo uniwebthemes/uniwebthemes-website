@@ -1,166 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="https://cdn.tailwindcss.com"></script>
-<title>Uniweb Blog Slider</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uniweb Changelog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Smooth reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all .7s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fancy arrows */
+        .arrow-btn {
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, .08),
+                inset 0 1px 0 rgba(255, 255, 255, .6);
+        }
+
+        .arrow-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow:
+                0 18px 35px rgba(0, 0, 0, .12),
+                inset 0 1px 0 rgba(255, 255, 255, .7);
+        }
+
+        .arrow-btn:active {
+            transform: scale(.96);
+        }
+
+        /* floating animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-6px)
+            }
+
+            100% {
+                transform: translateY(0)
+            }
+        }
+
+        .float {
+            animation: float 5s ease-in-out infinite
+        }
+    </style>
 </head>
-<body class="bg-slate-50 font-sans">
 
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-<!-- BLOG SLIDER -->
-<section class="max-w-7xl mx-auto px-6 py-20">
+    <!-- HERO / APP HEADER -->
+    <section class="max-w-7xl mx-auto px-6 pt-16 pb-10">
 
-  <!-- Header -->
-  <div class="flex items-center justify-between mb-10">
-    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
-      Highlight Articles
-    </h2>
+        <div class="reveal rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-600 p-[1px]">
 
-    <!-- Arrows -->
-    <div class="flex gap-4">
-      <button id="prev"
-        class="group w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl active:scale-90 transition-all duration-300 flex items-center justify-center">
-        <svg class="w-5 h-5 text-slate-700 group-hover:-translate-x-1 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
+            <div
+                class="rounded-3xl bg-white/95 backdrop-blur p-10 md:p-14 flex flex-col lg:flex-row gap-10 items-center">
 
-      <button id="next"
-        class="group w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl active:scale-90 transition-all duration-300 flex items-center justify-center">
-        <svg class="w-5 h-5 text-slate-700 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-  </div>
+                <!-- LEFT -->
+                <div class="flex-1">
 
+                    <div
+                        class="inline-flex items-center gap-3 bg-indigo-50 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold mb-6 float">
+                        🚀 Product Updates
+                    </div>
 
-  <!-- Slider -->
-  <div class="relative overflow-hidden">
-    <div id="slider"
-      class="flex gap-8 transition-transform duration-500 ease-out">
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4">
+                        Theme Changelog
+                    </h1>
 
+                    <p class="text-lg text-slate-600 max-w-xl">
+                        Track every improvement, feature release, and performance upgrade across Uniweb themes. We ship
+                        fast — and this page proves it.
+                    </p>
 
-      <!-- CARD -->
-      <article class="min-w-[320px] md:min-w-[380px] group cursor-pointer">
-        <div class="rounded-3xl overflow-hidden mb-4 bg-gradient-to-br from-indigo-500 to-purple-600 h-56 flex items-end p-6 text-white relative">
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-white transition"></div>
-          <h3 class="text-xl font-semibold leading-snug">
-            5 Design Upgrades Every Shopify Theme Needs in 2026
-          </h3>
+                </div>
+
+                <!-- RIGHT SLIDER -->
+                <div class="w-full lg:w-[420px] relative">
+
+                    <div class="overflow-hidden rounded-2xl">
+                        <div id="heroSlider" class="flex transition-transform duration-500">
+
+                            <!-- slide -->
+                            <div class="min-w-full bg-indigo-600 text-white p-8 rounded-2xl">
+                                <div class="text-sm opacity-80">LATEST RELEASE</div>
+                                <div class="text-2xl font-bold mt-2">Version 6.0</div>
+                                <p class="mt-3 opacity-90">AI sections, blazing performance upgrades, and smarter theme
+                                    settings.</p>
+                            </div>
+
+                            <div class="min-w-full bg-violet-600 text-white p-8 rounded-2xl">
+                                <div class="text-sm opacity-80">MAJOR UPDATE</div>
+                                <div class="text-2xl font-bold mt-2">Version 5.5</div>
+                                <p class="mt-3 opacity-90">New mega menu engine and predictive search.</p>
+                            </div>
+
+                            <div class="min-w-full bg-slate-900 text-white p-8 rounded-2xl">
+                                <div class="text-sm opacity-80">PERFORMANCE</div>
+                                <div class="text-2xl font-bold mt-2">Version 5.0</div>
+                                <p class="mt-3 opacity-90">Core Web Vitals optimized across all presets.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- arrows -->
+                    <div class="flex gap-3 mt-5 justify-end">
+                        <button id="heroPrev"
+                            class="arrow-btn w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl">
+                            ←
+                        </button>
+                        <button id="heroNext"
+                            class="arrow-btn w-12 h-12 rounded-full bg-white flex items-center justify-center text-xl">
+                            →
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-
-        <span class="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-          News & Updates
-        </span>
-
-        <h4 class="mt-3 text-lg font-semibold text-slate-900 group-hover:text-indigo-600 transition">
-          Performance-focused improvements that boost conversions instantly
-        </h4>
-
-        <p class="text-slate-500 mt-2 text-sm">June 4, 2025</p>
-      </article>
+    </section>
 
 
-      <!-- CARD -->
-      <article class="min-w-[320px] md:min-w-[380px] group cursor-pointer">
-        <div class="rounded-3xl overflow-hidden mb-4 bg-gradient-to-br from-orange-500 to-amber-500 h-56 flex items-end p-6 text-white relative">
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-white transition"></div>
-          <h3 class="text-xl font-semibold leading-snug">
-            Convert Figma Designs into Shopify Stores Faster
-          </h3>
+    <!-- MAIN GRID -->
+    <section class="max-w-7xl mx-auto px-6 pb-24">
+
+        <div class="grid lg:grid-cols-[260px_1fr_240px] gap-12">
+
+            <!-- LEFT NAV -->
+            <aside class="reveal">
+                <div class="sticky top-24">
+                    <div class="text-sm font-semibold text-slate-400 uppercase mb-4">Themes</div>
+
+                    <nav class="space-y-2">
+
+                        <a href="#"
+                            class="block px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold">Stamina</a>
+                        <a href="#" class="block px-4 py-2 rounded-xl hover:bg-slate-100 transition">Pixel</a>
+                        <a href="#" class="block px-4 py-2 rounded-xl hover:bg-slate-100 transition">Hyper</a>
+                        <a href="#" class="block px-4 py-2 rounded-xl hover:bg-slate-100 transition">Glisten</a>
+
+                    </nav>
+                </div>
+            </aside>
+
+
+            <!-- CHANGELOG -->
+            <main class="space-y-10">
+
+                <!-- version card -->
+                <article class="reveal bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
+
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-bold">Version 6.0 — AI Era Begins</h2>
+                        <span class="text-sm text-slate-400">Feb 2026</span>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-600">
+                        <li>✅ AI-powered section recommendations</li>
+                        <li>✅ 18% faster page rendering</li>
+                        <li>✅ Advanced metafield-based layouts</li>
+                        <li>✅ Predictive mobile navigation</li>
+                    </ul>
+
+                </article>
+
+                <article class="reveal bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
+
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-bold">Version 5.5 — Conversion Toolkit</h2>
+                        <span class="text-sm text-slate-400">Dec 2025</span>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-600">
+                        <li>✅ New mega-menu architecture</li>
+                        <li>✅ Smart product badges</li>
+                        <li>✅ Built-in cross-sell blocks</li>
+                        <li>✅ Faster variant switching</li>
+                    </ul>
+
+                </article>
+
+                <article class="reveal bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition">
+
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-2xl font-bold">Version 5.0 — Performance Rebuild</h2>
+                        <span class="text-sm text-slate-400">Aug 2025</span>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-600">
+                        <li>✅ Lighthouse score improved to 98+</li>
+                        <li>✅ JS payload reduced by 32%</li>
+                        <li>✅ Adaptive image loading</li>
+                        <li>✅ Accessibility overhaul</li>
+                    </ul>
+
+                </article>
+
+            </main>
+
+
+            <!-- RIGHT NAV -->
+            <aside class="reveal">
+                <div class="sticky top-24">
+                    <div class="text-sm font-semibold text-slate-400 uppercase mb-4">On this page</div>
+
+                    <nav class="space-y-3 text-slate-600">
+                        <a href="#" class="block border-l-2 border-indigo-600 pl-3 font-semibold">Version 6.0</a>
+                        <a href="#" class="block pl-3 hover:text-indigo-600 transition">Version 5.5</a>
+                        <a href="#" class="block pl-3 hover:text-indigo-600 transition">Version 5.0</a>
+                    </nav>
+                </div>
+            </aside>
+
         </div>
-
-        <span class="text-sm font-medium text-orange-600 bg-orange-50 px-3 py-1 rounded-full">
-          Development
-        </span>
-
-        <h4 class="mt-3 text-lg font-semibold text-slate-900 group-hover:text-orange-600 transition">
-          A workflow used by elite theme developers
-        </h4>
-
-        <p class="text-slate-500 mt-2 text-sm">May 8, 2025</p>
-      </article>
+    </section>
 
 
-      <!-- CARD -->
-      <article class="min-w-[320px] md:min-w-[380px] group cursor-pointer">
-        <div class="rounded-3xl overflow-hidden mb-4 bg-gradient-to-br from-cyan-500 to-blue-600 h-56 flex items-end p-6 text-white relative">
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-white transition"></div>
-          <h3 class="text-xl font-semibold leading-snug">
-            Is Shopify Still Worth It for Merchants?
-          </h3>
-        </div>
+    <script>
 
-        <span class="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-          Growth
-        </span>
+        /* reveal */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('show')
+            })
+        }, { threshold: .15 })
 
-        <h4 class="mt-3 text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition">
-          An honest breakdown of pricing, apps, and scalability
-        </h4>
-
-        <p class="text-slate-500 mt-2 text-sm">August 8, 2025</p>
-      </article>
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
 
-      <!-- CARD -->
-      <article class="min-w-[320px] md:min-w-[380px] group cursor-pointer">
-        <div class="rounded-3xl overflow-hidden mb-4 bg-gradient-to-br from-emerald-500 to-teal-600 h-56 flex items-end p-6 text-white relative">
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-20 bg-white transition"></div>
-          <h3 class="text-xl font-semibold leading-snug">
-            How Premium Themes Increase AOV
-          </h3>
-        </div>
+        /* HERO SLIDER */
+        const heroSlider = document.getElementById('heroSlider')
+        const heroNext = document.getElementById('heroNext')
+        const heroPrev = document.getElementById('heroPrev')
 
-        <span class="text-sm font-medium text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">
-          Strategy
-        </span>
+        let heroIndex = 0
 
-        <h4 class="mt-3 text-lg font-semibold text-slate-900 group-hover:text-emerald-600 transition">
-          UX patterns proven to lift revenue
-        </h4>
+        function updateHero() {
+            heroSlider.style.transform = `translateX(-${heroIndex * 100}%)`
+        }
 
-        <p class="text-slate-500 mt-2 text-sm">July 2, 2025</p>
-      </article>
+        heroNext.addEventListener('click', () => {
+            heroIndex = (heroIndex + 1) % 3
+            heroNext.classList.add('scale-110')
+            setTimeout(() => heroNext.classList.remove('scale-110'), 150)
+            updateHero()
+        })
 
+        heroPrev.addEventListener('click', () => {
+            heroIndex = (heroIndex - 1 + 3) % 3
+            heroPrev.classList.add('scale-110')
+            setTimeout(() => heroPrev.classList.remove('scale-110'), 150)
+            updateHero()
+        })
 
-    </div>
-  </div>
-</section>
-
-
-<script>
-const slider = document.getElementById('slider');
-const next = document.getElementById('next');
-const prev = document.getElementById('prev');
-
-let scrollAmount = 0;
-
-function getCardWidth(){
-  const card = slider.querySelector('article');
-  const gap = 32; // matches gap-8
-  return card.offsetWidth + gap;
-}
-
-next.addEventListener('click', () => {
-  scrollAmount += getCardWidth();
-  slider.style.transform = `translateX(-${scrollAmount}px)`;
-
-  next.classList.add('scale-110');
-  setTimeout(()=> next.classList.remove('scale-110'),150);
-});
-
-prev.addEventListener('click', () => {
-  scrollAmount = Math.max(0, scrollAmount - getCardWidth());
-  slider.style.transform = `translateX(-${scrollAmount}px)`;
-
-  prev.classList.add('scale-110');
-  setTimeout(()=> prev.classList.remove('scale-110'),150);
-});
-</script>
+    </script>
 
 </body>
+
 </html>
