@@ -474,7 +474,7 @@ function setupSearchInput(kbSearch) {
 }
 
 /* BLOG PAGE SPECIFIC JS */
-/*
+
 const track = document.getElementById("track");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
@@ -510,7 +510,7 @@ track.addEventListener("touchend", (e) => {
 
   if (diff > 50) next.click();
   if (diff < -50) prev.click();
-});*/
+});
 
 // Staggered reveal animation
 window.addEventListener("DOMContentLoaded", () => {
@@ -523,7 +523,7 @@ window.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => hero.classList.add("show"), 500);
   }
 });
-
+/*
 class BlogSlider extends HTMLElement {
   constructor() {
     super();
@@ -573,7 +573,6 @@ class BlogSlider extends HTMLElement {
 
   handleNext = () => {
     const maxIndex = this.track.children.length - 1;
-
     if (this.index < maxIndex) {
       this.index++;
       this.updateSlider();
@@ -600,7 +599,7 @@ class BlogSlider extends HTMLElement {
 }
 
 customElements.define("blog-slider", BlogSlider);
-
+*/
 /***** Chatwoot *****/
 (function (d, t) {
   var BASE_URL = "https://srv1267364.hstgr.cloud";
