@@ -8,7 +8,8 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="//assets/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
+  <link rel="preload" href="/search/search-glorious.json" as="fetch" crossorigin>
 
   <!-- Font <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 -->
@@ -17,31 +18,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap"
     rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Google Sans Flex', sans-serif;
-    }
-
-    /* Scroll animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: all 0.7s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </head>
 
 <body class="bg-white text-gray-900">
-
   <!-- ================= NAVBAR ================= -->
-  <header class="relative z-50 bg-white border-b">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <header class="relative z-50 bg-white border-b shadow-sm">
+    <div class="max-w-8xl mx-auto px-6 py-4 flex items-center justify-between">
 
       <!-- Logo 
         <div class="text-xl font-extrabold">
@@ -49,18 +31,18 @@
       </div> -->
 
 
-      <a href="/index" class="group block rounded-xl bg-gray-100 hover:shadow-lg transition">
+      <a href="/index" class="group block rounded-xl transition">
 
         <!-- 4:1 Aspect Ratio Container -->
         <div class="logo relative aspect-[4/1]">
           <img height="75" width="300" src="/assets/uniweb--logo.png" alt="Navigation banner"
-            class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-300" />
         </div>
 
       </a>
 
       <!-- Nav -->
-      <nav class="flex items-center gap-10 text-sm font-medium">
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
         <button id="themesBtn" class="flex items-center text-white gap-1 hover:text-orange-500">
           Themes
           <span class="text-xs">▾</span>
@@ -69,225 +51,281 @@
           Help Center
           <span class="text-xs">▾</span>
         </button>
-        <a href="#" class="text-white">Blog</a>
+        <a href="../blog/blog-index" class="text-white">Blog</a>
+        <a href="submit-ticket" class="bg-white text-black p-2 pl-5 pr-5 rounded-full">Contact Support</a>
       </nav>
-    </div>
 
-    <!-- ================= THEMES MEGA MENU ================= -->
-    <div id="themesmegaMenu"
-      class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-6 py-10">
-        <div
-          class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+      <!-- ================= THEMES MEGA MENU ================= -->
+      <div id="themesmegaMenu"
+        class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
+        <div class="max-w-8xl mx-auto px-6 py-10">
+          <div
+            class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
 
-          <div class="grid lg:grid-cols-3 gap-10 p-10">
+            <div class="grid lg:grid-cols-3 gap-10 p-10">
 
-            <!-- LEFT LIST -->
-            <div class="space-y-4">
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    F
+              <!-- LEFT LIST -->
+              <div class="space-y-4">
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      F
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
                   </div>
-                  <div>
-                    <p class="font-semibold">Glorious</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+                  →
                 </div>
-                →
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      K
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glisten</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                      H
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                      M
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
               </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    K
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
+              <!-- RIGHT PREVIEW -->
+              <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+                <div class="grid grid-cols-2 gap-4">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
                 </div>
-                →
-              </div>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
-                    H
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious Theme Extender<sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
+                <div class="max-w-sm">
+                  <p class="text-sm text-gray-600 mb-2">Zest</p>
+                  <h3 class="text-2xl font-extrabold">
+                    Shopify Theme to
+                    <span class="text-orange-500">Dominate M-Commerce</span>
+                  </h3>
                 </div>
-                →
-              </div>
-
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
-                    M
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten Theme Extender<sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
-                </div>
-                →
               </div>
             </div>
-
-            <!-- RIGHT PREVIEW -->
-            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
-              <div class="grid grid-cols-2 gap-4">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-              </div>
-
-              <div class="max-w-sm">
-                <p class="text-sm text-gray-600 mb-2">Zest</p>
-                <h3 class="text-2xl font-extrabold">
-                  Shopify Theme to
-                  <span class="text-orange-500">Dominate M-Commerce</span>
-                </h3>
-              </div>
+            <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a
+                custom app
+                and exclusively installable in your store and only for those who bought our themes <a
+                  href="/theme-extension-packs.html"
+                  class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
+                  more
+                </a>
+              </span>
             </div>
-          </div>
-          <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a custom app
-              and exclusively installable in your store and only for those who bought our themes <a
-                href="/theme-extension-packs.html"
-                class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
-                more
-              </a>
-            </span>
           </div>
         </div>
       </div>
+
+      <!-- ================= HELP CENTER MEGA MENU ================= -->
+      <div id="helpcentermegaMenu"
+        class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
+        <div class="max-w-8xl mx-auto px-6 py-10">
+          <div
+            class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
+
+            <div class="grid lg:grid-cols-3 gap-10 p-10">
+
+              <!-- LEFT LIST -->
+              <div class="space-y-4">
+                <a href="glorious/index"
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      G
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
+                  </div>
+                  →
+                </a>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
+                      B
+                    </div>
+                    <div>
+                      <p class="font-semibold">Bliss</p>
+                      <p class="text-xs text-gray-600">Premium Shopify Theme</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
+                      H
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glorious Theme Extender <sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+
+                <div
+                  class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+                      M
+                    </div>
+                    <div>
+                      <p class="font-semibold">Glisten Theme Extender <sup> *</sup></p>
+                      <p class="text-xs text-gray-600">Affordable Extension Pack</p>
+                    </div>
+                  </div>
+                  →
+                </div>
+              </div>
+
+              <!-- RIGHT PREVIEW -->
+              <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
+                <div class="grid grid-cols-2 gap-4">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                  <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
+                </div>
+
+                <div class="max-w-sm">
+                  <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
+                  <h3 class="text-2xl font-extrabold">
+                    A well designed extension pack to
+                    <span class="text-orange-500">fully customize your store using Shopify's Native
+                      API's and
+                      Extensions</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a
+                custom app
+                and exclusively installable in your store and only for those who bought our themes <a
+                  href="/theme-extension-packs.html"
+                  class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
+                  more</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== MOBILE MENU ========== -->
+
+      <!-- ========== HAMBURGER ========== -->
+      <button id="menuToggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+
+        <!-- Hamburger SVG -->
+        <svg id="hamburgerIcon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+      </button>
     </div>
 
-    <!-- ================= HELP CENTER MEGA MENU ================= -->
-    <div id="helpcentermegaMenu"
-      class="absolute left-0 right-0 top-full opacity-0 pointer-events-none translate-y-4 transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-6 py-10">
-        <div
-          class="rounded-3xl bg-gradient-to-br from-orange-100 via-orange-50 to-orange-200 shadow-xl overflow-hidden">
 
-          <div class="grid lg:grid-cols-3 gap-10 p-10">
+    <!-- ========== MOBILE MENU ========== -->
 
-            <!-- LEFT LIST -->
-            <div class="space-y-4">
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    F
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
-                </div>
-                →
-              </div>
+    <div id="mobileMenu" class="md:hidden absolute left-0 right-0 top-full
+           bg-white border-b shadow-lg
+           opacity-0 -translate-y-3 pointer-events-none
+           transition-all duration-300">
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-orange-500 flex items-center justify-center font-bold">
-                    K
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten</p>
-                    <p class="text-xs text-gray-600">Premium Shopify Theme</p>
-                  </div>
-                </div>
-                →
-              </div>
+      <div class="px-6 py-6 space-y-4">
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-black text-white flex items-center justify-center font-bold">
-                    H
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glorious Theme Extender <sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
-                </div>
-                →
-              </div>
+        <!-- THEMES -->
+        <button class="mobileDropdown w-full flex justify-between items-center font-semibold">
+          Themes
+          <span>+</span>
+        </button>
 
-              <div
-                class="menu-item flex items-center justify-between p-4 rounded-xl bg-white/70 hover:bg-white cursor-pointer transition">
-                <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
-                    M
-                  </div>
-                  <div>
-                    <p class="font-semibold">Glisten Theme Extender <sup> *</sup></p>
-                    <p class="text-xs text-gray-600">Affordable Extension Pack</p>
-                  </div>
-                </div>
-                →
-              </div>
-            </div>
-
-            <!-- RIGHT PREVIEW -->
-            <div class="lg:col-span-2 rounded-2xl bg-white/80 p-8 flex items-center gap-8">
-              <div class="grid grid-cols-2 gap-4">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-                <img src="https://dummyimage.com/300x200/e5e7eb/aaa" class="rounded-xl">
-              </div>
-
-              <div class="max-w-sm">
-                <p class="text-sm text-gray-600 mb-2">Extend Your Theme for $299</p>
-                <h3 class="text-2xl font-extrabold">
-                  A well designed extension pack to
-                  <span class="text-orange-500">fully customize your store using Shopify's Native API's and
-                    Extensions</span>
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="grid lg:grid-cols-1 gap-12 pl-10 pr-10 pb-10"><span><sup>* </sup>Only available as a custom app
-              and exclusively installable in your store and only for those who bought our themes <a
-                href="/theme-extension-packs.html"
-                class="underline text-sm pt-2 pb-2 pl-5 pr-5 bg-orange-600 text-white rounded-full">Learn
-                more</a></span></div>
+        <div class="dropdownContent hidden pl-4 space-y-3 text-gray-600">
+          <a href="#">Glorious</a>
+          <a href="#">Glisten</a>
+          <a href="#">Theme Extender</a>
         </div>
+
+
+        <!-- HELP CENTER -->
+        <button class="mobileDropdown w-full flex justify-between items-center font-semibold">
+          Help Center
+          <span>+</span>
+        </button>
+
+        <div class="dropdownContent hidden pl-4 space-y-3 text-gray-600">
+          <a href="#">Docs</a>
+          <a href="#">Support</a>
+          <a href="#">Guides</a>
+        </div>
+
+
+        <a href="blog/blog-index.html" class="block font-semibold">
+          Blog
+        </a>
+
+        <a href="submit-ticket" class="block text-center bg-black text-white py-3 rounded-full mt-4">
+          Contact Support
+        </a>
+
       </div>
     </div>
   </header>
-
-
   <!-- ================= HERO ================= -->
-  <section class="bg-gradient-to-br from-orange-50 to-white">
-    <div class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+  <section class="section-bg from-orange-50 to-white">
+    <div class="max-w-8xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
       <div class="reveal">
         <h1 class="text-4xl md:text-6xl font-semibold md:leading-tight">
           Premium Themes.<br>
+          Build Easily.<br>
           <span class="text-orange-500">Win Big.</span>
         </h1>
         <p class="mt-6 text-gray-600 max-w-lg">
           High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
         </p>
-        <div class="mt-8 flex gap-4">
-          <button class="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-            Browse Themes
-          </button>
-          <button class="border border-gray-300 px-6 py-3 rounded-lg font-semibold hover:border-gray-400 transition">
-            View Demo
-          </button>
-        </div>
       </div>
 
       <div class="reveal">
@@ -298,35 +336,271 @@
     </div>
   </section>
 
-  <!-- ================= FEATURES ================= -->
-  <section class="max-w-7xl mx-auto px-6 py-24">
-    <h2 class="text-3xl font-bold text-center reveal">
-      How We <span class="text-orange-500">Empower</span> You
-    </h2>
+  <!-- ================= BLOGS SLIDER ================= -->
 
-    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
-        <h3 class="font-semibold text-lg">Conversion-Focused</h3>
-        <p class="mt-3 text-gray-600 text-sm">
-          Designed using real merchant data and CRO best practices.
-        </p>
+  <section class="max-w-7xl mx-auto px-6 py-20">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+        Recent Articles
+      </h2>
+
+      <div class="flex gap-3">
+        <button id="prev"
+          class="arrow-btn arrow-left w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button id="next"
+          class="arrow-btn w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
+    </div>
 
-      <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
-        <h3 class="font-semibold text-lg">Lightning Fast</h3>
-        <p class="mt-3 text-gray-600 text-sm">
-          Optimized for Core Web Vitals and instant load times.
-        </p>
-      </div>
+    <!-- Slider -->
+    <div class="overflow-hidden relative">
 
-      <div class="reveal p-8 rounded-2xl border hover:shadow-lg transition">
-        <h3 class="font-semibold text-lg">Easy Customization</h3>
-        <p class="mt-3 text-gray-600 text-sm">
-          No code required. Build stores visually with ease.
-        </p>
+      <div id="track" class="slider-track flex gap-8 p-10">
+
+        <!-- Card -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <a href="/blog/how-our-custom-apps-helps-you.html" class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-orange-100 text-orange-600 px-3 py-1 rounded-full font-medium">
+                News & Updates
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                5 Upgrades in Shopify Summer Edition 2025 That Our Team Tested
+              </h3>
+
+              <p class="text-gray-500 mt-3">June 4, 2025</p>
+            </div>
+          </a>
+        </article>
+
+        <!-- Card -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">
+                Growth & Sales
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                Convert Figma to Shopify in 1‑Click, 98% Precision and speed
+              </h3>
+
+              <p class="text-gray-500 mt-3">May 8, 2025</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-green-100 text-green-600 px-3 py-1 rounded-full font-medium">
+                Design
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                A Detailed Shopify Review: Is Shopify Still Worth It in 2025?
+              </h3>
+
+              <p class="text-gray-500 mt-3">August 8, 2025</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Extra card for smooth sliding -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-purple-100 text-purple-600 px-3 py-1 rounded-full font-medium">
+                Strategy
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                10 Conversion Strategies High‑Growth Shopify Brands Use
+              </h3>
+
+              <p class="text-gray-500 mt-3">Sept 12, 2025</p>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
+
+  <!-- ================= BLOG ARTICLE ================= -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    <div class="grid lg:grid-cols-12 gap-12">
+
+      <!-- ================= LEFT ANCHORS ================= -->
+      <aside class="lg:col-span-3 hidden lg:block">
+        <div class="sticky top-28">
+          <p class="text-sm font-semibold mb-4">On this page</p>
+
+          <nav id="toc" class="space-y-2 text-sm relative">
+            <a href="#intro" class="toc-link active">
+              <span class="bar"></span> On-Page SEO Guide for Your Shopify Stores
+            </a>
+
+            <a href="#intent" class="toc-link">
+              <span class="bar"></span> Optimize for search intent & semantic relevance
+            </a>
+
+            <a href="#content" class="toc-link">
+              <span class="bar"></span> Elevate on-page SEO content
+            </a>
+
+            <a href="#aeo" class="toc-link">
+              <span class="bar"></span> Structure content for AI-generated search (AEO)
+            </a>
+
+            <a href="#schema" class="toc-link">
+              <span class="bar"></span> Build structured data (Schema)
+            </a>
+
+            <a href="#ux" class="toc-link">
+              <span class="bar"></span> Improve UX, speed & Core Web Vitals
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- ================= MAIN CONTENT ================= -->
+      <article class="lg:col-span-6 space-y-16">
+
+        <!-- INTRO -->
+        <section id="intro" class="reveal">
+          <p class="italic text-gray-700 mb-4">
+            <strong>Is SEO really worth it for Shopify today?</strong> Yes, more than ever.
+          </p>
+
+          <p class="text-gray-700 leading-relaxed">
+            As search behavior shifts toward AI-generated answers (SGE, Copilot),
+            Shopify SEO must evolve. This guide walks merchants through modern
+            strategies to boost visibility, engagement, and conversions.
+          </p>
+
+          <ul class="mt-6 space-y-2 list-disc list-inside text-gray-700">
+            <li>Optimize product pages with intent-driven content</li>
+            <li>Implement structured data for FAQs & products</li>
+            <li>Audit Core Web Vitals regularly</li>
+            <li>Ensure fast mobile-first UX</li>
+          </ul>
+        </section>
+
+        <!-- IMAGE -->
+        <div class="reveal rounded-2xl overflow-hidden bg-black p-4">
+          <img src="https://dummyimage.com/900x480/f5b38a/000000" alt="SEO preview" class="rounded-xl">
+        </div>
+
+        <!-- SECTION -->
+        <section id="intent" class="reveal">
+          <h2 class="text-3xl font-extrabold mb-4">
+            Optimize for search intent & semantic relevance
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            Modern SEO focuses on understanding what users actually want.
+            Shopify merchants must map content to informational, commercial,
+            and transactional intent.
+          </p>
+        </section>
+
+        <section id="content" class="reveal">
+          <h2 class="text-3xl font-extrabold mb-4">
+            Elevate on-page SEO content
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            High-quality content means clarity, depth, and structure.
+            Avoid keyword stuffing and focus on topical authority.
+          </p>
+        </section>
+
+        <section id="aeo" class="reveal">
+          <h2 class="text-3xl font-extrabold mb-4">
+            Structure content for AI-generated search (AEO)
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            AI answers favor clean headings, concise paragraphs,
+            bullet lists, and schema-backed content.
+          </p>
+        </section>
+
+        <section id="schema" class="reveal">
+          <h2 class="text-3xl font-extrabold mb-4">
+            Build structured data (Schema)
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            Schema improves eligibility for rich results,
+            FAQs, and AI-powered previews.
+          </p>
+        </section>
+
+        <section id="ux" class="reveal">
+          <h2 class="text-3xl font-extrabold mb-4">
+            Improve UX, speed & Core Web Vitals
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            Page speed, interactivity, and layout stability
+            directly impact rankings and conversions.
+          </p>
+        </section>
+
+      </article>
+
+      <!-- ================= RIGHT SIDEBAR ================= -->
+      <aside class="lg:col-span-3">
+        <div class="sticky top-28 space-y-10">
+
+          <!-- NEWSLETTER -->
+          <div class="rounded-2xl p-6 bg-gradient-to-br from-orange-200 to-orange-300">
+            <h3 class="text-xl font-bold mb-2">
+              Get the latest eCommerce news & practices
+            </h3>
+            <p class="text-sm mb-4">
+              Curated trends, analysis & best tips.
+            </p>
+
+            <input type="email" placeholder="Your email" class="w-full mb-3 px-4 py-3 rounded-lg outline-none">
+
+            <button class="w-full bg-black text-white py-3 rounded-lg font-semibold">
+              Subscribe
+            </button>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
 
   <!-- ================= THEMES ================= -->
   <section class="bg-gray-50">
@@ -560,7 +834,21 @@
       </div>
     </div>
   </section>
+  <!-- ================= BACK TO TOP SCROLL ================= -->
+  <!-- Back To Top Button -->
+  <button id="backToTop" class="fixed left-1/2 -translate-x-1/2 bottom-8 
+           opacity-0 pointer-events-none
+           transition-all duration-500
+           backdrop-blur-lg bg-white/10
+           border border-white/20
+           text-white
+           px-6 py-3 rounded-full
+           shadow-2xl
+           hover:scale-110 hover:bg-white/20
+           float-animation">
 
+    ↑ Back to Top
+  </button>
   <!-- ================= FOOTER ================= -->
   <footer class="border-t">
     <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-6">
@@ -575,92 +863,7 @@
     </div>
   </footer>
 
-  <!-- ================= JS: SCROLL ANIMATION ================= -->
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show')
-        }
-      })
-    }, { threshold: 0.15 })
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    /***** Navigation *****/
-
-    const themesbtn = document.getElementById('themesBtn')
-    const helpcenterbtn = document.getElementById('helpcenterBtn')
-    const themesmenu = document.getElementById('themesmegaMenu')
-    const helpcentermenu = document.getElementById('helpcentermegaMenu')
-
-    // Themes Menu Toggle
-    themesbtn.addEventListener('click', () => {
-      themesmenu.classList.toggle('opacity-0')
-      themesmenu.classList.toggle('pointer-events-none')
-      themesmenu.classList.toggle('translate-y-4')
-    })
-
-    document.addEventListener('click', (e) => {
-      if (!themesbtn.contains(e.target) && !themesmenu.contains(e.target)) {
-        themesmenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
-      }
-    })
-    // Help Center Menu Toggle
-    helpcenterbtn.addEventListener('click', () => {
-      helpcentermenu.classList.toggle('opacity-0')
-      helpcentermenu.classList.toggle('pointer-events-none')
-      helpcentermenu.classList.toggle('translate-y-4')
-    })
-
-    document.addEventListener('click', (e) => {
-      if (!helpcenterbtn.contains(e.target) && !helpcentermenu.contains(e.target)) {
-        helpcentermenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4')
-      }
-    })
-
-    /***** Accordion *****/
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const item = header.parentElement
-        const body = item.querySelector('.accordion-body')
-        const icon = header.querySelector('.icon')
-
-        document.querySelectorAll('.accordion-body').forEach(b => {
-          if (b !== body) {
-            b.classList.add('hidden')
-            b.parentElement.querySelector('.icon').textContent = '+'
-          }
-        })
-
-        body.classList.toggle('hidden')
-        icon.textContent = body.classList.contains('hidden') ? '+' : '−'
-      })
-    });
-    /***** Testimonials *****/
-    const slides = document.querySelectorAll('.testimonial-slide')
-    const dots = document.querySelectorAll('.dot')
-    let index = 0
-
-    function showSlide(i) {
-      slides.forEach((slide, idx) => {
-        slide.classList.toggle('hidden', idx !== i)
-        dots[idx].classList.toggle('bg-black', idx === i)
-        dots[idx].classList.toggle('bg-black/30', idx !== i)
-      })
-    }
-
-    function nextTestimonial() {
-      index = (index + 1) % slides.length
-      showSlide(index)
-    }
-
-    function prevTestimonial() {
-      index = (index - 1 + slides.length) % slides.length
-      showSlide(index)
-    }
-  </script>
-
+  <script src="/assets/script.js?v=0.0.07" defer></script>
 </body>
 
 </html>

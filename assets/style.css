@@ -218,10 +218,11 @@ header {
 /**** Glorious Search Popover ****/
 
 .glorious-popover {
-    position: fixed; /* NOT absolute */
+    position: fixed;
+    /* NOT absolute */
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
     border: 1px solid #eee;
     z-index: 10000;
     display: none;
@@ -245,4 +246,162 @@ header {
     padding: 14px;
     color: #888;
     font-size: 14px;
+}
+
+/* BLOG */
+/* Smooth slider animation */
+.slider-track {
+    transition: transform 0.6s cubic-bezier(.22, .61, .36, 1);
+}
+
+/* Card hover */
+.blog-card:hover img {
+    transform: scale(1.06);
+}
+
+.blog-card img {
+    transition: transform 0.7s ease;
+}
+
+/* Arrow animation */
+.arrow-btn:hover svg {
+    transform: translateX(4px);
+}
+
+.arrow-left:hover svg {
+    transform: translateX(-4px);
+}
+
+.arrow-btn svg {
+    transition: transform 0.25s ease;
+}
+
+/* Mild custom animations */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-image {
+    opacity: 0;
+    transform: scale(0.96);
+    transition: all 1s ease;
+}
+
+.hero-image.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ===== Animations ===== */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s cubic-bezier(.16, .84, .44, 1);
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-reveal {
+    opacity: 0;
+    transform: scale(0.96);
+    transition: all 1.2s cubic-bezier(.16, .84, .44, 1);
+}
+
+.hero-reveal.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Floating tags animation */
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.delay-1 {
+    animation-delay: .6s;
+}
+
+.delay-2 {
+    animation-delay: 1.2s;
+}
+
+.delay-3 {
+    animation-delay: 1.8s;
+}
+
+/* ===== Entrance Animations ===== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(.2, .8, .2, 1);
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-zoom {
+    opacity: 0;
+    transform: scale(0.94);
+    transition: all 1s cubic-bezier(.2, .8, .2, 1);
+}
+
+.hero-zoom.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Glow orbs */
+.orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(70px);
+    opacity: .55;
+    pointer-events: none;
+}
+
+/* Badge float */
+.badge {
+    animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }

@@ -3,6 +3,8 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
+        entry.target.classList.remove("opacity-0", "translate-y-10");
+        entry.target.classList.add("opacity-100", "translate-y-0");
       }
     });
   },
@@ -470,3 +472,131 @@ function setupSearchInput(kbSearch) {
   window.addEventListener("resize", positionPopover);
   window.addEventListener("scroll", positionPopover, true);
 }
+
+/* BLOG PAGE SPECIFIC JS */
+/*
+const track = document.getElementById("track");
+const next = document.getElementById("next");
+const prev = document.getElementById("prev");
+
+let _blog_index = 0;
+
+function getCardWidth() {
+  const card = track.querySelector("article");
+  const gap = 32; // gap-8
+  return card.offsetWidth + gap;
+}
+
+next.addEventListener("click", () => {
+  const maxIndex = track.children.length - 1;
+  if (_blog_index < maxIndex) _blog_index++;
+  track.style.transform = `translateX(-${_blog_index * getCardWidth()}px)`;
+});
+
+prev.addEventListener("click", () => {
+  if (_blog_index > 0) _blog_index--;
+  track.style.transform = `translateX(-${_blog_index * getCardWidth()}px)`;
+});
+
+// Optional: swipe support
+let startX = 0;
+
+track.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener("touchend", (e) => {
+  let diff = startX - e.changedTouches[0].clientX;
+
+  if (diff > 50) next.click();
+  if (diff < -50) prev.click();
+});*/
+
+// Staggered reveal animation
+window.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".fade-up");
+  const hero = document.querySelector(".hero-reveal");
+  console.log(items);
+  items.forEach((el, i) => {
+    setTimeout(() => el.classList.add("show"), 180 * i);
+  });
+
+  setTimeout(() => hero.classList.add("show"), 500);
+});
+
+class BlogSlider extends HTMLElement {
+  constructor() {
+    super();
+
+    this.track = this.querySelector("#track");
+    this.next = this.querySelector("#next");
+    this.prev = this.querySelector("#prev");
+
+    this.index = 0;
+    this.startX = 0;
+  }
+
+  connectedCallback() {
+    if (!this.track) return;
+
+    this.next?.addEventListener("click", this.handleNext);
+    this.prev?.addEventListener("click", this.handlePrev);
+
+    // Swipe
+    this.track.addEventListener("touchstart", this.handleTouchStart, {
+      passive: true,
+    });
+
+    this.track.addEventListener("touchend", this.handleTouchEnd);
+  }
+
+  disconnectedCallback() {
+    this.next?.removeEventListener("click", this.handleNext);
+    this.prev?.removeEventListener("click", this.handlePrev);
+  }
+
+  getCardWidth() {
+    const card = this.track.querySelector("article");
+    if (!card) return 0;
+
+    const styles = window.getComputedStyle(this.track);
+    const gap = parseInt(styles.columnGap || styles.gap || 0);
+
+    return card.offsetWidth + gap;
+  }
+
+  updateSlider() {
+    this.track.style.transform = `translateX(-${
+      this.index * this.getCardWidth()
+    }px)`;
+  }
+
+  handleNext = () => {
+    const maxIndex = this.track.children.length - 1;
+
+    if (this.index < maxIndex) {
+      this.index++;
+      this.updateSlider();
+    }
+  };
+
+  handlePrev = () => {
+    if (this.index > 0) {
+      this.index--;
+      this.updateSlider();
+    }
+  };
+
+  handleTouchStart = (e) => {
+    this.startX = e.touches[0].clientX;
+  };
+
+  handleTouchEnd = (e) => {
+    const diff = this.startX - e.changedTouches[0].clientX;
+
+    if (diff > 50) this.handleNext();
+    if (diff < -50) this.handlePrev();
+  };
+}
+
+customElements.define("blog-slider", BlogSlider);

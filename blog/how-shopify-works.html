@@ -9,7 +9,7 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="/assets/style.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="preload" href="/search/search-glorious.json" as="fetch" crossorigin>
+  <link rel="preload" href="/search/search-glorious.json" as="fetch" crossorigin>
 
   <!-- Font <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 -->
@@ -316,43 +316,146 @@
   </header>
   <!-- ================= HERO ================= -->
   <section class="section-bg from-orange-50 to-white">
-    <div class="max-w-9xl mx-auto p-[100px] grid md:grid-cols-1 gap-16 text-center items-center">
+    <div class="max-w-8xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
       <div class="reveal">
-        <h2 class="kb-title text-6xl font-semibold reveal">
-          Help Center for <span>Glorious</span> Theme
-        </h2>
-        <p class="mt-6 text-gray-600 max-w-3xl text-center mx-auto">
+        <h1 class="text-4xl md:text-6xl font-semibold md:leading-tight">
+          Premium Themes.<br>
+          Build Easily.<br>
+          <span class="text-orange-500">Win Big.</span>
+        </h1>
+        <p class="mt-6 text-gray-600 max-w-lg">
           High-performance Shopify themes and tools built to convert, scale, and grow modern brands.
         </p>
-        <!-- SEARCH BAR -->
-        <div class="from-orange-50 to-white p-6 mt-10">
-          <div class="max-w-2xl mx-auto">
-            <div class="relative">
-              <input id="glorious-search-input" type="search" placeholder="Search for answers... e.g: How to customize the header?" autocomplete="off"
-                class="w-full h-14 pl-6 pr-14 rounded-full bg-white placeholder-gray-400 
-               focus:outline-none focus:ring-2 focus:ring-white/60 border border-gray-50 focus:border-orange-300 outline-none shadow-sm" />
-              <!-- Search Button -->
-              <button class="absolute right-2 top-1/2 -translate-y-1/2 
-               flex items-center justify-center
-               w-10 h-10 rounded-md 
-               text-gray-500 hover:text-gray-700
-               transition">
+      </div>
 
-                <!-- SVG Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
-                </svg>
-
-              </button>
-            </div>
-
-          </div>
+      <div class="reveal">
+        <div class="bg-white rounded-2xl shadow-xl p-6">
+          <img src="https://dummyimage.com/800x500/f3f4f6/aaa" alt="Preview" class="rounded-lg">
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ================= BLOGS SLIDER ================= -->
+
+  <section class="max-w-7xl mx-auto px-6 py-20">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+        Recent Articles
+      </h2>
+
+      <div class="flex gap-3">
+        <button id="prev"
+          class="arrow-btn arrow-left w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button id="next"
+          class="arrow-btn w-11 h-11 rounded-full bg-white shadow hover:shadow-md flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="overflow-hidden relative">
+
+      <div id="track" class="slider-track flex gap-8 p-10">
+
+        <!-- Card -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-orange-100 text-orange-600 px-3 py-1 rounded-full font-medium">
+                News & Updates
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                5 Upgrades in Shopify Summer Edition 2025 That Our Team Tested
+              </h3>
+
+              <p class="text-gray-500 mt-3">June 4, 2025</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">
+                Growth & Sales
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                Convert Figma to Shopify in 1‑Click, 98% Precision and speed
+              </h3>
+
+              <p class="text-gray-500 mt-3">May 8, 2025</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-green-100 text-green-600 px-3 py-1 rounded-full font-medium">
+                Design
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                A Detailed Shopify Review: Is Shopify Still Worth It in 2025?
+              </h3>
+
+              <p class="text-gray-500 mt-3">August 8, 2025</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Extra card for smooth sliding -->
+        <article class="blog-card min-w-[320px] md:min-w-[420px] lg:min-w-[520px]">
+          <div class="rounded-2xl overflow-hidden shadow-sm bg-white">
+            <div class="overflow-hidden">
+              <img src="https://dummyimage.com/800x500/f3f4f6/aaa" class="h-64 w-full object-cover" />
+            </div>
+
+            <div class="p-6">
+              <span class="text-sm bg-purple-100 text-purple-600 px-3 py-1 rounded-full font-medium">
+                Strategy
+              </span>
+
+              <h3 class="mt-4 text-xl font-semibold text-gray-900 leading-snug">
+                10 Conversion Strategies High‑Growth Shopify Brands Use
+              </h3>
+
+              <p class="text-gray-500 mt-3">Sept 12, 2025</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ================= Index ================= -->
 
   <section class="kb-empower-section">
@@ -898,7 +1001,6 @@
   </footer>
 
   <script src="/assets/script.js?v=0.0.07" defer></script>
-
 </body>
 
 </html>
