@@ -516,12 +516,12 @@ track.addEventListener("touchend", (e) => {
 window.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".fade-up");
   const hero = document.querySelector(".hero-reveal");
-  console.log(items);
   items.forEach((el, i) => {
     setTimeout(() => el.classList.add("show"), 180 * i);
   });
-
-  setTimeout(() => hero.classList.add("show"), 500);
+  if (hero) {
+    setTimeout(() => hero.classList.add("show"), 500);
+  }
 });
 
 class BlogSlider extends HTMLElement {
@@ -600,3 +600,19 @@ class BlogSlider extends HTMLElement {
 }
 
 customElements.define("blog-slider", BlogSlider);
+
+/***** Chatwoot *****/
+(function (d, t) {
+  var BASE_URL = "https://srv1267364.hstgr.cloud";
+  var g = d.createElement(t),
+    s = d.getElementsByTagName(t)[0];
+  g.src = BASE_URL + "/packs/js/sdk.js";
+  g.async = true;
+  s.parentNode.insertBefore(g, s);
+  g.onload = function () {
+    window.chatwootSDK.run({
+      websiteToken: "Reioogm8okSEw3WT44dUNeYf",
+      baseUrl: BASE_URL,
+    });
+  };
+})(document, "script");
