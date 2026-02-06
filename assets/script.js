@@ -47,7 +47,7 @@ toggle.addEventListener("click", () => {
   open = !open;
 
   mobileMenu.classList.toggle("opacity-0");
-  mobileMenu.classList.toggle("-translate-y-3");
+  mobileMenu.classList.toggle("-translate-y-4");
   mobileMenu.classList.toggle("pointer-events-none");
 });
 
@@ -91,8 +91,10 @@ window.addEventListener("scroll", () => {
 
 const themesbtn = document.getElementById("themesBtn");
 const helpcenterbtn = document.getElementById("helpcenterBtn");
+const tutorialsbtn = document.getElementById("tutorialsBtn");
 const themesmenu = document.getElementById("themesmegaMenu");
 const helpcentermenu = document.getElementById("helpcentermegaMenu");
+const tutorialsmenu = document.getElementById("tutorialsmegaMenu");
 
 // Themes Menu Toggle
 themesbtn.addEventListener("click", () => {
@@ -118,7 +120,10 @@ helpcenterbtn.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (e) => {
-  if (!helpcenterbtn.contains(e.target) && !helpcentermenu.contains(e.target)) {
+  if (
+    !helpcenterbtn.contains(e.target) &&
+    !helpcentermenu.contains(e.target)
+  ) {
     helpcentermenu.classList.add(
       "opacity-0",
       "pointer-events-none",
@@ -127,6 +132,22 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Tutorials Menu Toggle
+tutorialsbtn.addEventListener("click", () => {
+  tutorialsmenu.classList.toggle("opacity-0");
+  tutorialsmenu.classList.toggle("pointer-events-none");
+  tutorialsmenu.classList.toggle("translate-y-4");
+});
+
+document.addEventListener("click", (e) => {
+  if (!tutorialsbtn.contains(e.target) && !tutorialsmenu.contains(e.target)) {
+    tutorialsmenu.classList.add(
+      "opacity-0",
+      "pointer-events-none",
+      "translate-y-4",
+    );
+  }
+});
 /***** Accordion *****/
 document.querySelectorAll(".accordion-header").forEach((header) => {
   header.addEventListener("click", () => {
@@ -669,6 +690,60 @@ class BlogSlider extends HTMLElement {
 
 customElements.define("blog-slider", BlogSlider);
 */
+/***** Megamenu closing *****/
+const wrappers = document.querySelectorAll(".mega-wrapper");
+
+
+function closeAllMegaMenus() {
+  wrappers.forEach((wrapper) => {
+    //console.log("Closing menu in wrapper:", wrapper.querySelector(".mega-menu"));
+    wrapper.querySelector(".mega-menu")?.classList.add("hidden");
+  });
+}
+
+// Toggle menu
+/*
+wrappers.forEach((wrapper) => {
+  const trigger = wrapper.querySelector(".mega-trigger");
+  const menu = wrapper.querySelector(".mega-menu");
+
+  trigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    // close others first (pro UX)
+    closeAllMegaMenus();
+
+    menu.classList.toggle("hidden");
+  });
+
+  // prevent inside clicks from bubbling to document
+  menu.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+});
+
+// ✅ CLICK OUTSIDE
+document.addEventListener("click", () => {
+  closeAllMegaMenus();
+});
+
+// ✅ ENTER + ESC KEY
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === "Escape") {
+    closeAllMegaMenus();
+  }
+});*/
+/*
+function hasOpenMenu() {
+  return [...wrappers].some(w =>
+    !w.querySelector(".mega-menu")?.classList.contains("hidden")
+  );
+}
+
+document.addEventListener("click", () => {
+  if (hasOpenMenu()) closeAllMegaMenus();
+});*/
+
 /***** Chatwoot *****/
 (function (d, t) {
   var BASE_URL = "https://srv1267364.hstgr.cloud";
