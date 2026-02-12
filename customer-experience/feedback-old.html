@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feedback Board</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#fafafa;
+}
+
+/* reveal animation */
+.fade{
+    opacity:0;
+    transform:translateY(10px);
+    transition:all .35s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:none;
+}
+
+/* hover lift */
+.card{
+    transition:.25s;
+}
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+/* active tab */
+.tab-active{
+    background:#f97316;
+    color:white;
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+
+<!-- HERO -->
+<section class="bg-gradient-to-r from-orange-100 via-orange-200 to-orange-100 py-14 text-center">
+    <h1 class="text-4xl font-bold mb-3">
+        Help Us Build Something Better 🚀
+    </h1>
+
+    <p class="text-gray-600 text-lg">
+        Share ideas, request features, and vote on what matters most.
+    </p>
+</section>
+
+
+
+<!-- MAIN -->
+<div class="max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-3 gap-12">
+
+
+<!-- LEFT -->
+<div class="lg:col-span-2">
+
+
+<!-- TABS -->
+<div class="flex gap-3 mb-8">
+    <button class="tab tab-active px-4 py-2 rounded-lg border" data-tab="latest">
+        Latest
+    </button>
+
+    <button class="tab px-4 py-2 rounded-lg border bg-white" data-tab="trending">
+        Trending
+    </button>
+
+    <button class="tab px-4 py-2 rounded-lg border bg-white" data-tab="roadmap">
+        Roadmap
+    </button>
+</div>
+
+
+
+<!-- CONTENT -->
+<div id="feedbackContainer" class="space-y-6 fade show"></div>
+
+</div>
+
+
+
+
+<!-- SUBMIT PANEL -->
+<div>
+    <div class="bg-white rounded-2xl p-7 shadow sticky top-20">
+
+        <h3 class="text-2xl font-semibold mb-2">
+            Submit Feedback
+        </h3>
+
+        <p class="text-gray-500 mb-6">
+            Tell us what you'd love to see next.
+        </p>
+
+        <form class="space-y-4">
+
+            <input
+            type="text"
+            placeholder="Feature title"
+            class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-orange-300 outline-none">
+
+            <textarea
+            rows="4"
+            placeholder="Describe your idea..."
+            class="w-full border rounded-lg px-4 py-3 focus:ring-2 focus:ring-orange-300 outline-none"></textarea>
+
+            <button
+            class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition">
+                Submit Feedback
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+/*
+=============================
+DATA (simulate backend)
+=============================
+*/
+
+const feedbackData = {
+
+latest:[
+{
+title:"AI Layout Generator inside theme editor",
+desc:"Automatically generate high-converting layouts based on store niche and products.",
+votes:45,
+tag:"Feature Request",
+color:"orange"
+},
+{
+title:"Faster Theme Performance Metrics",
+desc:"Show live speed score improvements after enabling optimizations.",
+votes:28,
+tag:"Planned",
+color:"green"
+},
+{
+title:"More mega-menu templates",
+desc:"Additional conversion-focused navigation styles.",
+votes:12,
+tag:"Under Review",
+color:"blue"
+}
+],
+
+trending:[
+{
+title:"1-Click Upsell Builder",
+desc:"Create upsells automatically using AI product pairing.",
+votes:97,
+tag:"Trending",
+color:"orange"
+},
+{
+title:"Advanced Analytics Dashboard",
+desc:"Understand conversion behavior visually.",
+votes:76,
+tag:"Popular",
+color:"green"
+}
+],
+
+roadmap:[
+{
+title:"Hydrogen Theme Compatibility",
+desc:"Make themes fully headless-ready.",
+votes:120,
+tag:"In Progress",
+color:"blue"
+},
+{
+title:"AI Section Generator",
+desc:"Generate sections from a text prompt.",
+votes:88,
+tag:"Coming Soon",
+color:"orange"
+}
+]
+
+};
+
+
+
+/*
+=============================
+RENDER FUNCTION
+=============================
+*/
+
+const container = document.getElementById("feedbackContainer");
+
+function render(tab){
+
+container.classList.remove("show");
+
+setTimeout(()=>{
+
+container.innerHTML="";
+
+feedbackData[tab].forEach(item=>{
+
+container.innerHTML += `
+<div class="bg-white p-6 rounded-2xl card flex gap-5">
+
+    <div class="flex flex-col items-center bg-gray-50 px-4 py-3 rounded-xl">
+        <span class="text-gray-400">▲</span>
+        <span class="font-semibold">${item.votes}</span>
+    </div>
+
+    <div>
+        <h3 class="text-xl font-semibold mb-1">
+            ${item.title}
+        </h3>
+
+        <p class="text-gray-600 mb-3">
+            ${item.desc}
+        </p>
+
+        <span class="text-sm px-3 py-1 rounded-full bg-${item.color}-100 text-${item.color}-600">
+            ${item.tag}
+        </span>
+    </div>
+
+</div>
+`;
+
+});
+
+container.classList.add("show");
+
+},180);
+
+}
+
+
+
+/*
+=============================
+TAB CLICK
+=============================
+*/
+
+document.querySelectorAll(".tab").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+// active style
+document.querySelectorAll(".tab").forEach(b=>{
+b.classList.remove("tab-active");
+b.classList.add("bg-white");
+});
+
+btn.classList.add("tab-active");
+btn.classList.remove("bg-white");
+
+// render
+render(btn.dataset.tab);
+
+});
+
+});
+
+
+// initial load
+render("latest");
+
+</script>
+
+
+</body>
+</html>
