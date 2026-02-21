@@ -120,10 +120,7 @@ helpcenterbtn.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (e) => {
-  if (
-    !helpcenterbtn.contains(e.target) &&
-    !helpcentermenu.contains(e.target)
-  ) {
+  if (!helpcenterbtn.contains(e.target) && !helpcentermenu.contains(e.target)) {
     helpcentermenu.classList.add(
       "opacity-0",
       "pointer-events-none",
@@ -216,6 +213,47 @@ btn.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+/**** TUTORIAL VIDEOS ****/
+const cards = document.querySelectorAll(".video-card");
+const modal = document.getElementById("videoModal");
+const modalVideo = document.getElementById("modalVideo");
+const closeBtn = document.getElementById("closeModal");
+
+// Card hover lift animation
+cards.forEach((card) => {
+  card.addEventListener("mouseenter", () => {
+    card.style.transform = "translateY(-8px)";
+    card.style.boxShadow = "0 20px 40px rgba(0,0,0,0.08)";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "translateY(0)";
+    card.style.boxShadow = "";
+  });
+
+  // Open modal
+  card.addEventListener("click", () => {
+    const videoId = card.dataset.video;
+
+    modalVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    modal.style.opacity = "1";
+    modal.style.pointerEvents = "auto";
+  });
+});
+
+// Close modal
+closeBtn.addEventListener("click", closeModal);
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+
+function closeModal() {
+  modal.style.opacity = "0";
+  modal.style.pointerEvents = "none";
+  modalVideo.src = "";
+}
 
 /* ===============================
    GLORIOUS KNOWLEDGEBASE SEARCH
@@ -692,7 +730,6 @@ customElements.define("blog-slider", BlogSlider);
 */
 /***** Megamenu closing *****/
 const wrappers = document.querySelectorAll(".mega-wrapper");
-
 
 function closeAllMegaMenus() {
   wrappers.forEach((wrapper) => {
