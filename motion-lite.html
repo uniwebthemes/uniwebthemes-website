@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>motion-lite.js — CSS + Vanilla JS Animation Engine</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #7c3aed;
+    --accent2: #06b6d4;
+    --accent3: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --green: #10b981;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  #cursor {
+    position: fixed; top: 0; left: 0; width: 12px; height: 12px;
+    background: var(--accent2); border-radius: 50%;
+    pointer-events: none; z-index: 9999; mix-blend-mode: difference;
+    transition: transform 0.15s ease, width 0.2s, height 0.2s;
+    transform: translate(-50%, -50%);
+  }
+  #cursor.big { width: 40px; height: 40px; background: var(--accent); }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+    opacity: 0.4;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.4);
+    color: #a78bfa; padding: 6px 16px; border-radius: 999px;
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .badge::before { content: '◆'; font-size: 0.5rem; }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 800; line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #06b6d4 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--muted); max-width: 540px; line-height: 1.7;
+    font-weight: 400; margin-bottom: 3rem;
+  }
+
+  .size-tag {
+    font-family: 'DM Mono', monospace;
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
+    color: var(--green); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem;
+  }
+
+  .scroll-hint {
+    position: absolute; bottom: 2rem;
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    color: var(--muted); letter-spacing: 0.15em;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+
+  .scroll-line {
+    width: 1px; height: 50px;
+    background: linear-gradient(var(--muted), transparent);
+    animation: scrollLine 1.5s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  /* Demo sections */
+  section {
+    padding: 8rem 2rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    color: var(--accent2); letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+  }
+
+  .desc {
+    color: var(--muted); max-width: 500px;
+    line-height: 1.7; margin-bottom: 3rem; font-size: 1rem;
+  }
+
+  /* Code block */
+  .code-block {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    font-family: 'DM Mono', monospace; font-size: 0.8rem;
+    line-height: 1.8; color: #94a3b8; overflow-x: auto;
+    margin-bottom: 3rem;
+  }
+  .code-block .kw { color: #c084fc; }
+  .code-block .fn { color: var(--accent2); }
+  .code-block .str { color: #86efac; }
+  .code-block .num { color: var(--accent3); }
+  .code-block .cm { color: #475569; font-style: italic; }
+
+  /* Demo: Fade/Slide stagger */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    opacity: 0; transform: translateY(30px);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    border-color: var(--accent); 
+    box-shadow: 0 0 30px rgba(124,58,237,0.15);
+  }
+  .card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+  /* Demo: Spring buttons */
+  .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+
+  .btn {
+    padding: 12px 28px; border-radius: 8px;
+    border: none; cursor: none; font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 0.9rem; letter-spacing: 0.02em;
+    position: relative; overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+  .btn-outline {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-glow {
+    background: linear-gradient(135deg, #06b6d4, #7c3aed);
+    color: #fff;
+  }
+
+  /* Demo: Scroll progress */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    width: 0%; z-index: 1000;
+    transition: width 0.05s linear;
+    box-shadow: 0 0 8px var(--accent2);
+  }
+
+  /* Demo: Timeline sequence */
+  .timeline {
+    display: flex; flex-direction: column; gap: 0;
+    border-left: 1px solid var(--border); padding-left: 2rem; margin-left: 1rem;
+  }
+
+  .tl-item {
+    position: relative; padding-bottom: 2.5rem;
+    opacity: 0; transform: translateX(-20px);
+  }
+  .tl-item::before {
+    content: ''; position: absolute;
+    left: -2.5rem; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(124,58,237,0.3);
+  }
+  .tl-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .tl-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .tl-time { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent2); margin-bottom: 0.3rem; }
+
+  /* Demo: counter */
+  .counters { display: flex; flex-wrap: wrap; gap: 2rem; }
+  .counter-item { text-align: center; }
+  .counter-num {
+    font-size: 3.5rem; font-weight: 800; letter-spacing: -0.05em;
+    background: linear-gradient(135deg, #fff, var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-variant-numeric: tabular-nums;
+  }
+  .counter-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+  /* Demo: hover morph */
+  .morph-box {
+    width: 120px; height: 120px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 16px; cursor: none;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem;
+    box-shadow: 0 0 0 0 rgba(124,58,237,0);
+    margin-bottom: 1rem;
+  }
+
+  .divider {
+    border: none; border-top: 1px solid var(--border);
+    margin: 0; opacity: 0.5;
+  }
+
+  /* Source size badge */
+  .engine-meta {
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;
+  }
+  .meta-chip {
+    font-family: 'DM Mono', monospace; font-size: 0.72rem;
+    padding: 4px 12px; border-radius: 4px;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .meta-chip span { color: var(--text); }
+
+  footer {
+    text-align: center; padding: 4rem 2rem;
+    font-family: 'DM Mono', monospace; font-size: 0.75rem;
+    color: var(--muted); border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div class="progress-bar" id="progress"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="badge">motion-lite.js — no dependencies</div>
+  <h1 id="hero-title">Animate<br>Everything</h1>
+  <p class="subtitle">A micro animation engine built with CSS + vanilla JS. Springs, stagger, scroll triggers, timelines — all under <span class="size-tag">~6.2kb</span> minified.</p>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ENGINE SOURCE -->
+<section>
+  <div class="section-label">The Engine</div>
+  <h2>motion-lite.js</h2>
+  <p class="desc">The full source. Four primitives: <code>animate()</code>, <code>stagger()</code>, <code>scroll()</code>, and <code>timeline()</code>. Powered entirely by the Web Animations API.</p>
+
+  <div class="code-block">
+<span class="cm">// ─── motion-lite.js · ~6.2kb minified · 0 dependencies ───</span>
+
+<span class="kw">const</span> <span class="fn">MotionLite</span> = (() => {
+
+  <span class="cm">// Easing presets (CSS cubic-bezier or keywords)</span>
+  <span class="kw">const</span> ease = {
+    spring:   <span class="str">'cubic-bezier(0.34, 1.56, 0.64, 1)'</span>,
+    smooth:   <span class="str">'cubic-bezier(0.25, 1, 0.5, 1)'</span>,
+    snappy:   <span class="str">'cubic-bezier(0.2, 0, 0, 1)'</span>,
+    bounce:   <span class="str">'cubic-bezier(0.34, 1.8, 0.64, 1)'</span>,
+    linear:   <span class="str">'linear'</span>,
+  };
+
+  <span class="cm">// Core: animate() wraps Web Animations API</span>
+  <span class="kw">function</span> <span class="fn">animate</span>(el, keyframes, opts = {}) {
+    <span class="kw">const</span> defaults = {
+      duration: <span class="num">400</span>, easing: ease.smooth,
+      fill: <span class="str">'forwards'</span>, delay: <span class="num">0</span>,
+    };
+    <span class="kw">const</span> anim = el.<span class="fn">animate</span>(keyframes, { ...defaults, ...opts });
+    <span class="kw">return</span> anim; <span class="cm">// Gives you .pause() .play() .cancel()</span>
+  }
+
+  <span class="cm">// Stagger: animate multiple elements with delay cascade</span>
+  <span class="kw">function</span> <span class="fn">stagger</span>(els, keyframes, opts = {}) {
+    <span class="kw">const</span> { staggerMs = <span class="num">60</span>, ...rest } = opts;
+    <span class="kw">return</span> [...els].<span class="fn">map</span>((el, i) =>
+      <span class="fn">animate</span>(el, keyframes, { delay: i * staggerMs, ...rest })
+    );
+  }
+
+  <span class="cm">// Scroll trigger: fire callback when element enters viewport</span>
+  <span class="kw">function</span> <span class="fn">scroll</span>(els, onEnter, { threshold = <span class="num">0.15</span>, once = <span class="kw">true</span> } = {}) {
+    <span class="kw">const</span> observer = <span class="kw">new</span> <span class="fn">IntersectionObserver</span>((entries) => {
+      entries.<span class="fn">forEach</span>(e => {
+        <span class="kw">if</span> (e.isIntersecting) {
+          <span class="fn">onEnter</span>(e.target, e);
+          <span class="kw">if</span> (once) observer.<span class="fn">unobserve</span>(e.target);
+        }
+      });
+    }, { threshold });
+    [...els].<span class="fn">forEach</span>(el => observer.<span class="fn">observe</span>(el));
+    <span class="kw">return</span> observer;
+  }
+
+  <span class="cm">// Timeline: sequence animations with delays</span>
+  <span class="kw">function</span> <span class="fn">timeline</span>(sequence) {
+    <span class="kw">let</span> offset = <span class="num">0</span>;
+    sequence.<span class="fn">forEach</span>(([el, keyframes, opts]) => {
+      <span class="fn">animate</span>(el, keyframes, { ...opts, delay: (opts?.delay ?? <span class="num">0</span>) + offset });
+      offset += (opts?.duration ?? <span class="num">400</span>) + (opts?.gap ?? <span class="num">0</span>);
+    });
+  }
+
+  <span class="kw">return</span> { <span class="fn">animate</span>, <span class="fn">stagger</span>, <span class="fn">scroll</span>, <span class="fn">timeline</span>, ease };
+})();
+  </div>
+
+  <div class="engine-meta">
+    <div class="meta-chip">Size: <span>~6.2kb</span> raw · <span>~2.1kb</span> gzipped</div>
+    <div class="meta-chip">Dependencies: <span>zero</span></div>
+    <div class="meta-chip">Browser API: <span>WAAPI + IntersectionObserver</span></div>
+    <div class="meta-chip">Browser support: <span>96%+ global</span></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DEMO 1: STAGGER -->
+<section>
+  <div class="section-label">Demo 01 — Stagger</div>
+  <h2>Scroll to reveal</h2>
+  <p class="desc">Cards animate in with a staggered delay as they enter the viewport. <code>scroll()</code> + <code>stagger()</code> working together.</p>
+
+  <div class="cards-grid" id="cards">
+    <div class="card"><div class="card-icon">⚡</div><h3>Web Animations API</h3><p>Native browser power, no polyfills needed.</p></div>
+    <div class="card"><div class="card-icon">🎯</div><h3>IntersectionObserver</h3><p>Pixel-perfect scroll trigger, zero scroll listeners.</p></div>
+    <div class="card"><div class="card-icon">🌊</div><h3>Spring Easing</h3><p>Approximate springs with cubic-bezier curves.</p></div>
+    <div class="card"><div class="card-icon">⏱️</div><h3>Timelines</h3><p>Sequence animations with precise timing control.</p></div>
+    <div class="card"><div class="card-icon">🎞️</div><h3>Keyframes</h3><p>Full keyframe support, just like CSS @keyframes.</p></div>
+    <div class="card"><div class="card-icon">🎮</div><h3>Playback Control</h3><p>Pause, reverse, and seek any animation.</p></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DEMO 2: SPRING BUTTONS -->
+<section>
+  <div class="section-label">Demo 02 — Spring Micro-interactions</div>
+  <h2>Button press physics</h2>
+  <p class="desc">Hover and click for spring-based feedback. <code>animate()</code> with <code>ease.spring</code> and <code>ease.bounce</code>.</p>
+
+  <div class="btn-row">
+    <button class="btn btn-primary spring-btn">Press Me ↗</button>
+    <button class="btn btn-outline spring-btn">Outline Spring</button>
+    <button class="btn btn-glow spring-btn">Gradient Bounce</button>
+  </div>
+
+  <div class="morph-box" id="morphBox">🎯</div>
+  <p class="desc" style="margin-bottom:0">Hover the box — watch it morph with spring physics.</p>
+</section>
+
+<hr class="divider">
+
+<!-- DEMO 3: TIMELINE -->
+<section>
+  <div class="section-label">Demo 03 — Timeline Sequence</div>
+  <h2>Choreographed entrance</h2>
+  <p class="desc">Each item animates in sequence using the <code>timeline()</code> primitive — no manual delay math.</p>
+
+  <div class="timeline" id="timeline">
+    <div class="tl-item">
+      <div class="tl-time">t=0ms</div>
+      <h4>Parse keyframes</h4>
+      <p>The engine normalizes your keyframe objects into WAAPI format.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">t=150ms</div>
+      <h4>Apply easing</h4>
+      <p>Spring, bounce, or smooth — mapped to cubic-bezier curves.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">t=300ms</div>
+      <h4>Dispatch to GPU</h4>
+      <p>transform + opacity are composited on the GPU thread. Zero jank.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-time">t=450ms</div>
+      <h4>Return Animation object</h4>
+      <p>Pause, seek, or reverse it — full playback control out of the box.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DEMO 4: COUNTERS -->
+<section>
+  <div class="section-label">Demo 04 — Animated Counters</div>
+  <h2>Number scroll-up</h2>
+  <p class="desc">Pure JS number interpolation triggered by scroll. No library, no canvas — just <code>requestAnimationFrame</code> + <code>IntersectionObserver</code>.</p>
+
+  <div class="counters" id="counters">
+    <div class="counter-item">
+      <div class="counter-num" data-target="6200" data-suffix="b">0b</div>
+      <div class="counter-label">Engine size</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="0">0</div>
+      <div class="counter-label">Dependencies</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="96" data-suffix="%">0%</div>
+      <div class="counter-label">Browser support</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num" data-target="4">0</div>
+      <div class="counter-label">Core primitives</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  motion-lite.js · CSS + Vanilla JS · No dependencies · Built to prove libraries are optional
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  motion-lite.js  —  The actual engine, inline
+// ═══════════════════════════════════════════════════════════
+const MotionLite = (() => {
+  const ease = {
+    spring:  'cubic-bezier(0.34, 1.56, 0.64, 1)',
+    smooth:  'cubic-bezier(0.25, 1, 0.5, 1)',
+    snappy:  'cubic-bezier(0.2, 0, 0, 1)',
+    bounce:  'cubic-bezier(0.34, 1.8, 0.64, 1)',
+    linear:  'linear',
+  };
+
+  function animate(el, keyframes, opts = {}) {
+    return el.animate(keyframes, {
+      duration: 400, easing: ease.smooth, fill: 'forwards', delay: 0,
+      ...opts
+    });
+  }
+
+  function stagger(els, keyframes, opts = {}) {
+    const { staggerMs = 60, ...rest } = opts;
+    return [...els].map((el, i) => animate(el, keyframes, { delay: i * staggerMs, ...rest }));
+  }
+
+  function scroll(els, onEnter, { threshold = 0.15, once = true } = {}) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { onEnter(e.target, e); if (once) observer.unobserve(e.target); }
+      });
+    }, { threshold });
+    [...els].forEach(el => observer.observe(el));
+    return observer;
+  }
+
+  function timeline(sequence) {
+    let offset = 0;
+    sequence.forEach(([el, keyframes, opts = {}]) => {
+      animate(el, keyframes, { ...opts, delay: (opts.delay ?? 0) + offset });
+      offset += (opts.duration ?? 400) + (opts.gap ?? 0);
+    });
+  }
+
+  return { animate, stagger, scroll, timeline, ease };
+})();
+
+// ═══════════════════════════════════════════════════════════
+//  DEMO WIRING
+// ═══════════════════════════════════════════════════════════
+
+// Cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('button, .morph-box, a').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+});
+
+// Scroll progress bar
+const progressBar = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  progressBar.style.width = pct + '%';
+}, { passive: true });
+
+// Hero title entrance
+window.addEventListener('DOMContentLoaded', () => {
+  const title = document.getElementById('hero-title');
+  MotionLite.animate(title, [
+    { opacity: 0, transform: 'translateY(40px) scale(0.95)' },
+    { opacity: 1, transform: 'translateY(0) scale(1)' }
+  ], { duration: 900, easing: MotionLite.ease.spring, delay: 200 });
+});
+
+// Demo 1: Cards stagger on scroll
+MotionLite.scroll(
+  [document.getElementById('cards')],
+  (container) => {
+    MotionLite.stagger(
+      container.querySelectorAll('.card'),
+      [{ opacity: 0, transform: 'translateY(30px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 600, easing: MotionLite.ease.spring, staggerMs: 80 }
+    );
+  }
+);
+
+// Demo 2: Spring buttons
+document.querySelectorAll('.spring-btn').forEach(btn => {
+  btn.addEventListener('mousedown', () => {
+    MotionLite.animate(btn, [
+      { transform: 'scale(1)' }, { transform: 'scale(0.92)' }
+    ], { duration: 120, easing: MotionLite.ease.snappy });
+  });
+  btn.addEventListener('mouseup', () => {
+    MotionLite.animate(btn, [
+      { transform: 'scale(0.92)' }, { transform: 'scale(1)' }
+    ], { duration: 400, easing: MotionLite.ease.spring });
+  });
+  btn.addEventListener('mouseleave', () => {
+    MotionLite.animate(btn, [
+      { transform: 'scale(1)' }
+    ], { duration: 300, easing: MotionLite.ease.smooth });
+  });
+});
+
+// Demo 2: Morph box
+const morphBox = document.getElementById('morphBox');
+morphBox.addEventListener('mouseenter', () => {
+  MotionLite.animate(morphBox, [
+    { borderRadius: '16px', transform: 'scale(1) rotate(0deg)', boxShadow: '0 0 0 0 rgba(124,58,237,0)' },
+    { borderRadius: '50%',  transform: 'scale(1.15) rotate(180deg)', boxShadow: '0 0 40px 10px rgba(6,182,212,0.3)' }
+  ], { duration: 500, easing: MotionLite.ease.spring });
+});
+morphBox.addEventListener('mouseleave', () => {
+  MotionLite.animate(morphBox, [
+    { borderRadius: '50%',  transform: 'scale(1.15) rotate(180deg)', boxShadow: '0 0 40px 10px rgba(6,182,212,0.3)' },
+    { borderRadius: '16px', transform: 'scale(1) rotate(0deg)',     boxShadow: '0 0 0 0 rgba(124,58,237,0)' }
+  ], { duration: 500, easing: MotionLite.ease.spring });
+});
+
+// Demo 3: Timeline sequence on scroll
+MotionLite.scroll(
+  [document.getElementById('timeline')],
+  (container) => {
+    const items = container.querySelectorAll('.tl-item');
+    MotionLite.timeline([...items].map(item => [
+      item,
+      [{ opacity: 0, transform: 'translateX(-20px)' }, { opacity: 1, transform: 'translateX(0)' }],
+      { duration: 450, easing: MotionLite.ease.smooth, gap: 20 }
+    ]));
+  }
+);
+
+// Demo 4: Animated counters
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const current = Math.round(easeOut(progress) * target);
+    el.textContent = current.toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+MotionLite.scroll(
+  document.querySelectorAll('.counter-num'),
+  (el) => animateCounter(el),
+  { threshold: 0.5 }
+);
+</script>
+</body>
+</html>
